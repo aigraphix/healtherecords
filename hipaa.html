@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title data-i18n="title.page">HIPAA Notice of Privacy Practices | Health eRecords</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    /* KEEP ALL EXISTING CSS EXACTLY AS-IS — UNCHANGED */
+    :root {
+      --bg: radial-gradient(circle at 20% 20%, #1f2a41 0, #0b1220 35%, #050915 100%);
+      --card-bg: #0f172a;
+      --card-soft: rgba(255,255,255,0.02);
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.15);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-subtle: rgba(148,163,184,0.25);
+      --radius-lg: 1.35rem;
+      --shadow-soft: 0 30px 80px rgba(5, 9, 21, 0.75);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text-main);
+      background: var(--bg);
+      display: flex;
+      justify-content: center;
+    }
+
+    .page-wrapper {
+      width: 100%;
+      max-width: 1180px;
+      margin: 32px 16px 40px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 15px 36px rgba(56,189,248,0.35);
+    }
+
+    .brand-text-main {
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-text-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .pill {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(255,255,255,0.03);
+      font-size: 12px;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    .pill-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 10px rgba(34,197,94,.75);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0,1.4fr) minmax(0,1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)), var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px 28px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-subtle);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 80% 0%, rgba(59,130,246,0.2), transparent 55%);
+      opacity: .6;
+      pointer-events: none;
+    }
+
+    h1 {
+      font-size: clamp(28px, 3vw, 34px);
+      margin: 0 0 12px;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.7;
+      margin: 0 0 14px;
+      color: #dfe3eb;
+    }
+
+    ul {
+      padding-left: 20px;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    ul li { margin-bottom: 8px; }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .meta-item {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .meta-label {
+      font-weight: 600;
+      color: #d1d5db;
+    }
+
+    a[href^="mailto:"] {
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    a[href^="mailto:"]:hover {
+      text-decoration: underline;
+    }
+
+    .side-card {
+      background: linear-gradient(160deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)), rgba(10,16,28,.96);
+      border-radius: var(--radius-lg);
+      padding: 22px 20px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .side-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .side-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .side-list {
+      list-style: none;
+      padding: 0;
+      font-size: 14px;
+    }
+
+    .side-list li {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .side-bullet {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--accent);
+      margin-top: 6px;
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .link-soft {
+      color: var(--accent);
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+<div class="page-wrapper">
+
+<header>
+  <div class="brand">
+    <img class="brand-icon"
+         src="https://opalbvplplmknjqltwfa.supabase.co/storage/v1/object/public/public-site/icon.png"
+         alt="Health eRecords">
+    <div>
+      <div class="brand-text-main">Health eRecords</div>
+      <div class="brand-text-sub" data-i18n="brand.tagline"></div>
+    </div>
+  </div>
+
+  <div class="pill">
+    <span class="pill-dot"></span>
+    <span data-i18n="pill.title"></span>
+  </div>
+</header>
+
+<main class="layout">
+<section class="card">
+  <h1 data-i18n="heading.title"></h1>
+  <p data-i18n="intro"></p>
+
+  <div class="meta-row">
+    <div class="meta-item">
+      <span class="meta-label" data-i18n="meta.effective"></span>
+      <span data-i18n="meta.date"></span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label" data-i18n="meta.contact"></span>
+      <a href="mailto:apd1034@gmail.com">apd1034@gmail.com</a>
+    </div>
+  </div>
+
+  <p><strong data-i18n="uses.title"></strong></p>
+  <ul>
+    <li data-i18n="uses.treatment"></li>
+    <li data-i18n="uses.operations"></li>
+    <li data-i18n="uses.legal"></li>
+  </ul>
+
+  <p data-i18n="minimum"></p>
+
+  <p><strong data-i18n="rights.title"></strong></p>
+  <ul>
+    <li data-i18n="rights.r1"></li>
+    <li data-i18n="rights.r2"></li>
+    <li data-i18n="rights.r3"></li>
+    <li data-i18n="rights.r4"></li>
+    <li data-i18n="rights.r5"></li>
+    <li data-i18n="rights.r6"></li>
+  </ul>
+
+  <p data-i18n="contact.text"></p>
+</section>
+
+<aside class="side-card">
+  <div class="side-title" data-i18n="side.title"></div>
+  <p class="side-text" data-i18n="side.subtitle"></p>
+  <ul class="side-list">
+    <li><span class="side-bullet"></span><span data-i18n="side.b1"></span></li>
+    <li><span class="side-bullet"></span><span data-i18n="side.b2"></span></li>
+    <li><span class="side-bullet"></span><span data-i18n="side.b3"></span></li>
+    <li><span class="side-bullet"></span><span data-i18n="side.b4"></span></li>
+    <li><span class="side-bullet"></span><span data-i18n="side.b5"></span></li>
+  </ul>
+</aside>
+</main>
+
+<footer data-i18n="footer"></footer>
+
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const lang = params.get('lang') || 'en';
+document.documentElement.lang = lang;
+
+const translations = {
+  en: {
+    "title.page": "HIPAA Notice of Privacy Practices | Health eRecords",
+    "brand.tagline": "Your health. Your data. Your control.",
+    "pill.title": "Privacy Notice",
+    "heading.title": "HIPAA Notice of Privacy Practices",
+    "intro": "This notice explains how your protected health information (PHI) may be used and shared, and what rights you have.",
+    "meta.effective": "Effective:",
+    "meta.date": "November 21, 2025",
+    "meta.contact": "Contact:",
+    "uses.title": "How We May Use or Share PHI:",
+    "uses.treatment": "Treatment: Sharing with authorized clinicians involved in your care.",
+    "uses.operations": "Operations: Security and quality improvement.",
+    "uses.legal": "Legal/Public Health: Reporting when required by law.",
+    "minimum": "Only the minimum necessary information is used, and you will be notified of any reportable breach.",
+    "rights.title": "Your Rights:",
+    "rights.r1": "Access or request copies of your PHI.",
+    "rights.r2": "Request corrections to your record.",
+    "rights.r3": "Request limits on certain uses or disclosures.",
+    "rights.r4": "Revoke authorizations when legally allowed.",
+    "rights.r5": "Request a record of disclosures where applicable.",
+    "rights.r6": "File a complaint without retaliation.",
+    "contact.text": "If you have questions or want to exercise your rights, email apd1034@gmail.com.",
+    "side.title": "In Simple Terms",
+    "side.subtitle": "Your health information belongs to you. HIPAA sets rules for how it can be used.",
+    "side.b1": "Used for your care and security.",
+    "side.b2": "Only minimum information is shared.",
+    "side.b3": "You can see and change your records.",
+    "side.b4": "You can ask how it was shared.",
+    "side.b5": "You can file complaints safely.",
+    "footer": "This notice meets HIPAA requirements for explaining how PHI is protected. Contact apd1034@gmail.com with questions."
+  },
+
+  es: {
+    "title.page": "Aviso de prácticas de privacidad HIPAA | Health eRecords",
+    "brand.tagline": "Tu salud. Tus datos. Tu control.",
+    "pill.title": "Aviso de privacidad",
+    "heading.title": "Aviso de prácticas de privacidad HIPAA",
+    "intro": "Este aviso explica cómo se puede usar y compartir su información médica protegida (PHI) y cuáles son sus derechos.",
+    "meta.effective": "Vigente:",
+    "meta.date": "21 de noviembre de 2025",
+    "meta.contact": "Contacto:",
+    "uses.title": "Cómo podemos usar o compartir PHI:",
+    "uses.treatment": "Tratamiento: compartir con profesionales autorizados.",
+    "uses.operations": "Operaciones: seguridad y mejora de calidad.",
+    "uses.legal": "Legal / Salud pública: cuando la ley lo exige.",
+    "minimum": "Solo se utiliza la información mínima necesaria.",
+    "rights.title": "Sus derechos:",
+    "rights.r1": "Acceder o solicitar copias de su PHI.",
+    "rights.r2": "Solicitar correcciones.",
+    "rights.r3": "Solicitar límites en ciertos usos.",
+    "rights.r4": "Revocar autorizaciones cuando sea permitido.",
+    "rights.r5": "Solicitar un registro de divulgaciones.",
+    "rights.r6": "Presentar una queja sin represalias.",
+    "contact.text": "Si tiene preguntas o desea ejercer sus derechos, escriba a apd1034@gmail.com.",
+    "side.title": "En términos simples",
+    "side.subtitle": "Su información médica le pertenece.",
+    "side.b1": "Se usa para su atención y seguridad.",
+    "side.b2": "Solo se comparte lo mínimo.",
+    "side.b3": "Puede ver y modificar sus registros.",
+    "side.b4": "Puede preguntar cómo se compartió.",
+    "side.b5": "Puede presentar quejas con seguridad.",
+    "footer": "Este aviso cumple con HIPAA. Contacte a apd1034@gmail.com si tiene preguntas."
+  }
+};
+
+document.querySelectorAll('[data-i18n]').forEach(el => {
+  const key = el.dataset.i18n;
+  if (translations[lang] && translations[lang][key]) {
+    el.textContent = translations[lang][key];
+  }
+});
+</script>
+
+</body>
+</html>

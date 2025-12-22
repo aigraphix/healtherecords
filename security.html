@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title data-i18n="title.page">Security & Data Protection | Health eRecords</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    /* KEEP ALL EXISTING CSS EXACTLY AS-IS */
+    :root {
+      --bg: radial-gradient(circle at 20% 20%, #1f2a41 0, #0b1220 35%, #050915 100%);
+      --card-bg: #0f172a;
+      --card-soft: rgba(255,255,255,0.02);
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.15);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-subtle: rgba(148,163,184,0.25);
+      --radius-lg: 1.35rem;
+      --shadow-soft: 0 30px 80px rgba(5, 9, 21, 0.75);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text-main);
+      background: var(--bg);
+      display: flex;
+      justify-content: center;
+    }
+
+    .page-wrapper {
+      width: 100%;
+      max-width: 1180px;
+      margin: 32px 16px 40px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 15px 36px rgba(56,189,248,0.35);
+    }
+
+    .brand-text-main {
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-text-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .pill {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(255,255,255,0.03);
+      font-size: 12px;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    .pill-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 10px rgba(34,197,94,.75);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0,1.4fr) minmax(0,1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)), var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px 28px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-subtle);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 80% 0%, rgba(59,130,246,0.2), transparent 55%);
+      opacity: .6;
+      pointer-events: none;
+    }
+
+    h1 {
+      font-size: clamp(28px, 3vw, 34px);
+      margin: 0 0 12px;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.7;
+      margin: 0 0 14px;
+      color: #dfe3eb;
+    }
+
+    ul {
+      padding-left: 20px;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    ul li { margin-bottom: 8px; }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .meta-item {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .meta-label {
+      font-weight: 600;
+      color: #d1d5db;
+    }
+
+    a[href^="mailto:"] {
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    a[href^="mailto:"]:hover {
+      text-decoration: underline;
+    }
+
+    .side-card {
+      background: linear-gradient(160deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)), rgba(10,16,28,.96);
+      border-radius: var(--radius-lg);
+      padding: 22px 20px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .side-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .side-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .side-list {
+      list-style: none;
+      padding: 0;
+      font-size: 14px;
+    }
+
+    .side-list li {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .side-bullet {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--accent);
+      margin-top: 6px;
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .link-soft {
+      color: var(--accent);
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+<div class="page-wrapper">
+
+<header>
+  <div class="brand">
+    <img class="brand-icon"
+         src="https://opalbvplplmknjqltwfa.supabase.co/storage/v1/object/public/public-site/icon.png"
+         alt="Health eRecords">
+    <div>
+      <div class="brand-text-main">Health eRecords</div>
+      <div class="brand-text-sub" data-i18n="brand.tagline"></div>
+    </div>
+  </div>
+
+  <div class="pill">
+    <span class="pill-dot"></span>
+    <span data-i18n="pill.title"></span>
+  </div>
+</header>
+
+<main class="layout">
+<section class="card">
+  <h1 data-i18n="heading.title"></h1>
+
+  <div class="meta-row">
+    <div class="meta-item">
+      <span class="meta-label" data-i18n="meta.effective"></span>
+      <span data-i18n="meta.date"></span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label" data-i18n="meta.contact"></span>
+      <a href="mailto:apd1034@gmail.com">apd1034@gmail.com</a>
+    </div>
+  </div>
+
+  <ul>
+    <li data-i18n="list.a"></li>
+    <li data-i18n="list.b"></li>
+    <li data-i18n="list.c"></li>
+    <li data-i18n="list.d"></li>
+    <li data-i18n="list.e"></li>
+  </ul>
+</section>
+
+<aside class="side-card">
+  <div class="side-title" data-i18n="side.title"></div>
+  <p class="side-text" data-i18n="side.subtitle"></p>
+  <ul class="side-list">
+    <li><span class="side-bullet"></span><span data-i18n="side.b1"></span></li>
+    <li><span class="side-bullet"></span><span data-i18n="side.b2"></span></li>
+    <li><span class="side-bullet"></span><span data-i18n="side.b3"></span></li>
+    <li><span class="side-bullet"></span><span data-i18n="side.b4"></span></li>
+  </ul>
+</aside>
+</main>
+
+<footer data-i18n="footer"></footer>
+
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const lang = params.get('lang') || 'en';
+document.documentElement.lang = lang;
+
+const translations = {
+  en: {
+    "title.page": "Security & Data Protection | Health eRecords",
+    "brand.tagline": "Your health. Your data. Your control.",
+    "pill.title": "Security",
+    "heading.title": "Security & Data Protection",
+    "meta.effective": "Effective:",
+    "meta.date": "November 21, 2025",
+    "meta.contact": "Contact:",
+    "list.a": "TLS for all traffic; encryption at rest.",
+    "list.b": "Role-based access with row-level security.",
+    "list.c": "Optional biometrics and planned passkeys.",
+    "list.d": "Audit logging for sensitive actions.",
+    "list.e": "Backups and breach response per law.",
+    "side.title": "Highlights",
+    "side.subtitle": "Security by default.",
+    "side.b1": "Encrypted data.",
+    "side.b2": "Least-privilege access.",
+    "side.b3": "Strong authentication.",
+    "side.b4": "Monitored systems.",
+    "footer": "Health eRecords · Support: apd1034@gmail.com"
+  },
+  es: {
+    "title.page": "Seguridad y protección de datos | Health eRecords",
+    "brand.tagline": "Tu salud. Tus datos. Tu control.",
+    "pill.title": "Seguridad",
+    "heading.title": "Seguridad y protección de datos",
+    "meta.effective": "Vigente:",
+    "meta.date": "21 de noviembre de 2025",
+    "meta.contact": "Contacto:",
+    "list.a": "TLS para todo el tráfico y cifrado en reposo.",
+    "list.b": "Acceso basado en roles con seguridad por filas.",
+    "list.c": "Biometría opcional y passkeys planificados.",
+    "list.d": "Registro de auditoría para acciones sensibles.",
+    "list.e": "Copias de seguridad y respuesta legal.",
+    "side.title": "Aspectos clave",
+    "side.subtitle": "Seguridad desde el diseño.",
+    "side.b1": "Datos cifrados.",
+    "side.b2": "Acceso mínimo necesario.",
+    "side.b3": "Autenticación fuerte.",
+    "side.b4": "Sistemas monitoreados.",
+    "footer": "Health eRecords · Soporte: apd1034@gmail.com"
+  }
+};
+
+document.querySelectorAll('[data-i18n]').forEach(el => {
+  const key = el.dataset.i18n;
+  if (translations[lang] && translations[lang][key]) {
+    el.textContent = translations[lang][key];
+  }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Health eRecords | Secure Personal Health Records</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Health eRecords helps you securely store, manage, and share your health information with trusted doctors — privately and securely." />
+  <style>
+    :root {
+      --bg: radial-gradient(circle at 20% 20%, #1f2a41 0, #0b1220 35%, #050915 100%);
+      --card-bg: #0f172a;
+      --accent: #38bdf8;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border: rgba(148,163,184,0.25);
+      --radius: 1.35rem;
+      --shadow: 0 30px 80px rgba(5,9,21,.75);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+    }
+
+    .wrapper {
+      width: 100%;
+      max-width: 1100px;
+      margin: 32px 16px 48px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      box-shadow: 0 15px 36px rgba(56,189,248,.35);
+    }
+
+    .brand-main {
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .brand-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .pill {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .hero {
+      background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)), var(--card-bg);
+      border-radius: var(--radius);
+      padding: 40px 32px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      margin-bottom: 32px;
+    }
+
+    h1 {
+      font-size: clamp(30px, 3vw, 40px);
+      margin: 0 0 12px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #dfe3eb;
+      margin: 0 0 16px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .feature {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .feature h3 {
+      margin: 0 0 6px;
+      font-size: 16px;
+    }
+
+    .feature p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    footer {
+      margin-top: 32px;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="brand">
+        <img class="brand-icon" src="icon.png" alt="Health eRecords App Icon" />
+        <div>
+          <div class="brand-main">Health eRecords</div>
+          <div class="brand-sub">Your health. Your data. Your control.</div>
+        </div>
+      </div>
+      <div class="pill">Secure Health Platform</div>
+    </header>
+
+    <section class="hero">
+      <h1>Private, Secure Health Records — Built for You</h1>
+      <p>
+        Health eRecords lets you securely store, organize, and share your health information with
+        doctors you trust. Designed for privacy, clarity, and control — all in one place.
+      </p>
+
+      <div class="features">
+        <div class="feature">
+          <h3>🔐 Privacy First</h3>
+          <p>End-to-end security, role-based access, and encrypted storage.</p>
+        </div>
+        <div class="feature">
+          <h3>🧠 AI-Assisted Health Support</h3>
+          <p>Ask health-related questions and get informed guidance — not medical replacement.</p>
+        </div>
+        <div class="feature">
+          <h3>📁 Centralized Records</h3>
+          <p>Logs, images, notes, and files — all securely organized.</p>
+        </div>
+        <div class="feature">
+          <h3>🤝 Doctor Collaboration</h3>
+          <p>Share information only with authorized clinicians.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>© 2025 Health eRecords</span>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+      <a href="hipaa.html">HIPAA Notice</a>
+      <a href="security.html">Security</a>
+      <a href="end-to-end-encryption.html">End-to-End Encryption</a>
+      <a href="support.html">Support</a>
+    </footer>
+  </div>
+</body>
+</html>
+
