@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title data-i18n="title.page">Privacy Policy | Health eRecords</title>
+  <title>Privacy Policy | Health eRecords</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
-    /* KEEP ALL EXISTING CSS EXACTLY AS-IS — UNCHANGED */
     :root {
       --bg: radial-gradient(circle at 20% 20%, #1f2a41 0, #0b1220 35%, #050915 100%);
       --card-bg: #0f172a;
@@ -42,7 +41,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       gap: 16px;
     }
 
@@ -63,7 +62,6 @@
     .brand-text-main {
       font-weight: 700;
       font-size: 18px;
-      letter-spacing: 0.03em;
     }
 
     .brand-text-sub {
@@ -81,7 +79,6 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      white-space: nowrap;
     }
 
     .pill-dot {
@@ -90,6 +87,24 @@
       border-radius: 999px;
       background: #22c55e;
       box-shadow: 0 0 10px rgba(34,197,94,.75);
+    }
+
+    .legal-nav {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+      font-size: 14px;
+    }
+
+    .legal-nav a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .legal-nav a:hover {
+      text-decoration: underline;
     }
 
     .layout {
@@ -105,9 +120,9 @@
     .card {
       background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)), var(--card-bg);
       border-radius: var(--radius-lg);
-      padding: 32px 28px 28px;
-      box-shadow: var(--shadow-soft);
+      padding: 32px 28px;
       border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
       position: relative;
       overflow: hidden;
     }
@@ -121,106 +136,23 @@
       pointer-events: none;
     }
 
-    h1 {
-      font-size: clamp(28px, 3vw, 34px);
-      margin: 0 0 12px;
-    }
+    h1 { margin-top: 0; }
 
     h3 { margin-top: 18px; }
 
-    p {
+    p, ul {
       font-size: 15px;
       line-height: 1.7;
-      margin: 0 0 14px;
-      color: #dfe3eb;
     }
 
-    ul {
-      padding-left: 20px;
-      font-size: 15px;
-      line-height: 1.7;
-    }
+    ul { padding-left: 20px; }
 
     ul li { margin-bottom: 8px; }
 
-    .meta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 20px;
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .meta-item {
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--border-subtle);
-    }
-
-    .meta-label {
-      font-weight: 600;
-      color: #d1d5db;
-    }
-
-    a[href^="mailto:"] {
-      color: var(--text-main);
-      text-decoration: none;
-    }
-
-    a[href^="mailto:"]:hover {
-      text-decoration: underline;
-    }
-
-    .side-card {
-      background: linear-gradient(160deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)), rgba(10,16,28,.96);
-      border-radius: var(--radius-lg);
-      padding: 22px 20px;
-      border: 1px solid var(--border-subtle);
-    }
-
-    .side-title {
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .side-text {
-      font-size: 14px;
-      color: var(--text-muted);
-      margin-bottom: 14px;
-    }
-
-    .side-list {
-      list-style: none;
-      padding: 0;
-      font-size: 14px;
-    }
-
-    .side-list li {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
-    .side-bullet {
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: var(--accent);
-      margin-top: 6px;
-    }
-
     footer {
-      margin-top: 20px;
+      margin-top: 24px;
       font-size: 12px;
       color: var(--text-muted);
-    }
-
-    .link-soft {
-      color: var(--accent);
-      text-decoration: none;
     }
   </style>
 </head>
@@ -230,9 +162,7 @@
 
 <header>
   <div class="brand">
-    <img class="brand-icon"
-         src="https://opalbvplplmknjqltwfa.supabase.co/storage/v1/object/public/public-site/icon.png"
-         alt="Health eRecords">
+    <img class="brand-icon" src="icon.png" alt="Health eRecords">
     <div>
       <div class="brand-text-main">Health eRecords</div>
       <div class="brand-text-sub" data-i18n="brand.tagline"></div>
@@ -245,21 +175,20 @@
   </div>
 </header>
 
+<nav class="legal-nav">
+  <a href="index.html">Home</a>
+  <a href="privacy.html">Privacy</a>
+  <a href="terms.html">Terms</a>
+  <a href="hipaa.html">HIPAA</a>
+  <a href="security.html">Security</a>
+  <a href="end-to-end-encryption.html">Encryption</a>
+  <a href="support.html">Support</a>
+</nav>
+
 <main class="layout">
 <section class="card">
   <h1 data-i18n="heading.title"></h1>
   <p data-i18n="intro"></p>
-
-  <div class="meta-row">
-    <div class="meta-item">
-      <span class="meta-label" data-i18n="meta.effective"></span>
-      <span data-i18n="meta.date"></span>
-    </div>
-    <div class="meta-item">
-      <span class="meta-label" data-i18n="meta.contact"></span>
-      <a href="mailto:apd1034@gmail.com">apd1034@gmail.com</a>
-    </div>
-  </div>
 
   <h3 data-i18n="sections.collect"></h3>
   <ul>
@@ -306,17 +235,6 @@
   <h3 data-i18n="sections.changes"></h3>
   <p data-i18n="changes"></p>
 </section>
-
-<aside class="side-card">
-  <div class="side-title" data-i18n="side.title"></div>
-  <p class="side-text" data-i18n="side.subtitle"></p>
-  <ul class="side-list">
-    <li><span class="side-bullet"></span><span data-i18n="side.b1"></span></li>
-    <li><span class="side-bullet"></span><span data-i18n="side.b2"></span></li>
-    <li><span class="side-bullet"></span><span data-i18n="side.b3"></span></li>
-    <li><span class="side-bullet"></span><span data-i18n="side.b4"></span></li>
-  </ul>
-</aside>
 </main>
 
 <footer data-i18n="footer"></footer>
@@ -325,7 +243,8 @@
 
 <script>
 const params = new URLSearchParams(window.location.search);
-const lang = params.get('lang') || 'en';
+const lang = params.get("lang") || localStorage.getItem("lang") || "en";
+localStorage.setItem("lang", lang);
 document.documentElement.lang = lang;
 
 const translations = {
@@ -335,9 +254,6 @@ const translations = {
     "pill.title": "Privacy Policy",
     "heading.title": "Privacy Policy",
     "intro": "We collect only what is necessary to deliver care features and never sell your data.",
-    "meta.effective": "Effective:",
-    "meta.date": "November 21, 2025",
-    "meta.contact": "Contact:",
     "sections.collect": "Data We Collect",
     "collect.a": "Account & identity information.",
     "collect.b": "Health content and authorizations.",
@@ -365,21 +281,58 @@ const translations = {
     "children": "Not directed to children under 13.",
     "sections.changes": "Changes",
     "changes": "Updates will be posted here and in-app.",
-    "side.title": "At a Glance",
-    "side.subtitle": "Minimal data. Maximum control.",
-    "side.b1": "Core-feature data only.",
-    "side.b2": "Encrypted storage.",
-    "side.b3": "You control sharing.",
-    "side.b4": "Access and deletion rights.",
     "footer": "Health eRecords · Support: apd1034@gmail.com"
+  },
+  es: {
+    "title.page": "Política de privacidad | Health eRecords",
+    "brand.tagline": "Tu salud. Tus datos. Tu control.",
+    "pill.title": "Política de privacidad",
+    "heading.title": "Política de privacidad",
+    "intro": "Recopilamos solo lo necesario para ofrecer funciones de atención y nunca vendemos tus datos.",
+    "sections.collect": "Datos que recopilamos",
+    "collect.a": "Información de cuenta e identidad.",
+    "collect.b": "Contenido de salud y autorizaciones.",
+    "collect.c": "Telemetría de dispositivo y diagnóstico.",
+    "sections.use": "Cómo usamos los datos",
+    "use.a": "Entregar funciones principales.",
+    "use.b": "Seguridad, confiabilidad y soporte.",
+    "use.c": "Obligaciones legales y de cumplimiento.",
+    "sections.share": "Compartir y divulgación",
+    "share.a": "Médicos o pacientes autorizados.",
+    "share.b": "Proveedores de servicios bajo contrato.",
+    "share.c": "Requisitos legales o de seguridad.",
+    "sections.security": "Aspectos destacados de seguridad",
+    "security.a": "Cifrado en tránsito y en reposo.",
+    "security.b": "Controles de acceso y registro.",
+    "security.c": "Protección biométrica opcional.",
+    "security.d": "Registro de auditoría.",
+    "sections.rights": "Tus opciones y derechos",
+    "rights.a": "Administrar y revocar autorizaciones.",
+    "rights.b": "Eliminar registros o solicitar eliminación.",
+    "rights.c": "Solicitar acceso o exportación.",
+    "sections.retention": "Retención",
+    "retention": "Los datos se retienen mientras tu cuenta esté activa o según lo requiera la ley.",
+    "sections.children": "Niños",
+    "children": "No dirigido a niños menores de 13 años.",
+    "sections.changes": "Cambios",
+    "changes": "Las actualizaciones se publicarán aquí y en la app.",
+    "footer": "Health eRecords · Soporte: apd1034@gmail.com"
   }
 };
 
-document.querySelectorAll('[data-i18n]').forEach(el => {
+document.title = translations[lang]["title.page"];
+
+document.querySelectorAll("[data-i18n]").forEach(el => {
   const key = el.dataset.i18n;
-  if (translations[lang] && translations[lang][key]) {
+  if (translations[lang][key]) {
     el.textContent = translations[lang][key];
   }
+});
+
+document.querySelectorAll(".legal-nav a").forEach(link => {
+  const url = new URL(link.getAttribute("href"), window.location.origin);
+  url.searchParams.set("lang", lang);
+  link.href = url.pathname + url.search;
 });
 </script>
 
