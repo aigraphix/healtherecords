@@ -736,7 +736,9 @@ function applyTranslations(lang) {
 function updateNavLinks(lang) {
   document.querySelectorAll('.legal-nav a').forEach(link => {
     const href = link.getAttribute('href');
-    if (href) link.href = href.split('?')[0] + '?lang=' + lang;
+
+    const hash = href && href.includes('#') ? href.substring(href.indexOf('#')) : '';
+    link.href = hash + '?lang=' + lang;
   });
 }
 
