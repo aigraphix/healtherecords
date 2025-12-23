@@ -20,7 +20,7 @@ body {
   display: flex;
   justify-content: center;
 }
-.page-wrapper { width: 100%; max-width: 1180px; margin: 32px 16px 40px; }
+.page-wrapper { width: 100%; max-width: 1180px; margin: 0 16px 40px; }
 header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; gap: 16px; }
 .brand { display: flex; align-items: center; gap: 12px; }
 .brand-icon {
