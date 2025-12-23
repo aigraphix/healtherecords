@@ -735,10 +735,10 @@ function applyTranslations(lang) {
 // 🌐 Keep nav links in sync with the active language
 function updateNavLinks(lang) {
   document.querySelectorAll('.legal-nav a').forEach(link => {
-    const href = link.getAttribute('href');
+    const href = link.getAttribute('href') || '';
 
-    const hash = href && href.includes('#') ? href.substring(href.indexOf('#')) : '';
-    link.href = hash + '?lang=' + lang;
+    const hash = href.startsWith('#') ? href : href.includes('#') ? href.substring(href.indexOf('#')) : '#';
+    link.href = `${hash}?lang=${lang}`;
   });
 }
 
