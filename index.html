@@ -375,7 +375,7 @@
           <li data-i18n="terms.resp.2">You are responsible for maintaining the security of your device and passcode.</li>
         </ul>
 
-        <span class="meta-pill">Effective: Nov 21, 2025</span>
+        <span class="meta-pill" data-i18n="terms.effective">Effective: Nov 21, 2025</span>
       </section>
 
     </div>
@@ -405,16 +405,16 @@
           <h2 data-i18n="support.heading">Support & Security</h2>
           <div class="card-subtitle" data-i18n="support.intro">We are here to help you.</div>
 
-          <div class="section-title">Encryption</div>
+          <div class="section-title" data-i18n="support.encryption.title">Encryption</div>
           <ul>
-            <li>Data At Rest: Encrypted locally using iOS Keychain.</li>
-            <li>Data In Transit: TLS 1.3 (HTTPS) for all connections.</li>
+            <li data-i18n="support.encryption.rest">Data At Rest: Encrypted locally using iOS Keychain.</li>
+            <li data-i18n="support.encryption.transit">Data In Transit: TLS 1.3 (HTTPS) for all connections.</li>
           </ul>
 
-          <div class="section-title">Contact Us</div>
+          <div class="section-title" data-i18n="support.contact.title">Contact Us</div>
           <ul>
-            <li>Technical Issues</li>
-            <li>Privacy & Data Deletion Requests</li>
+            <li data-i18n="support.contact.tech">Technical Issues</li>
+            <li data-i18n="support.contact.privacy">Privacy & Data Deletion Requests</li>
           </ul>
         </div>
 
@@ -470,6 +470,13 @@ const translations = {
 
     "support.heading": "Support & Security",
     "support.intro": "We are here to help with technical or privacy issues.",
+    "support.encryption.title": "Encryption",
+    "support.encryption.rest": "Data At Rest: Encrypted locally using iOS Keychain.",
+    "support.encryption.transit": "Data In Transit: TLS 1.3 (HTTPS) for all connections.",
+    "support.contact.title": "Contact Us",
+    "support.contact.tech": "Technical Issues",
+    "support.contact.privacy": "Privacy & Data Deletion Requests",
+    "terms.effective": "Effective: Nov 21, 2025",
     "footer.built": "Built for Privacy"
   },
   es: {
@@ -507,6 +514,13 @@ const translations = {
 
     "support.heading": "Soporte y Seguridad",
     "support.intro": "Estamos aquí para ayudar con problemas técnicos.",
+    "support.encryption.title": "Cifrado",
+    "support.encryption.rest": "Datos en reposo: cifrados localmente con iOS Keychain.",
+    "support.encryption.transit": "Datos en tránsito: TLS 1.3 (HTTPS) para todas las conexiones.",
+    "support.contact.title": "Contáctanos",
+    "support.contact.tech": "Problemas técnicos",
+    "support.contact.privacy": "Privacidad y solicitudes de eliminación de datos",
+    "terms.effective": "Vigente: 21 nov 2025",
     "footer.built": "Creado para la Privacidad"
   },
   de: {
@@ -540,14 +554,256 @@ const translations = {
     "hipaa.security.2": "Wir müssen Sie bei Datenlecks benachrichtigen.",
     "support.heading": "Support & Sicherheit",
     "support.intro": "Wir helfen bei technischen Problemen.",
+    "support.encryption.title": "Verschlüsselung",
+    "support.encryption.rest": "Daten im Ruhezustand: Lokal mit iOS Keychain verschlüsselt.",
+    "support.encryption.transit": "Datenübertragung: TLS 1.3 (HTTPS) für alle Verbindungen.",
+    "support.contact.title": "Kontakt",
+    "support.contact.tech": "Technische Probleme",
+    "support.contact.privacy": "Datenschutz- und Löschanfragen",
+    "terms.effective": "Gültig: 21. Nov. 2025",
     "footer.built": "Entwickelt für Privatsphäre"
   },
-  // Placeholders for other languages to prevent errors, falling back to English logic
-  fr: {}, it: {}, pt: {}, ru: {}, zh: {}, ja: {} 
+  fr: {
+    "heading.title": "Votre santé. Gérée en toute sécurité.",
+    "body.intro": "Un dossier de santé personnel conforme à la HIPAA, conçu pour la confidentialité, la clarté et un contrôle total.",
+    "nav.privacy": "Confidentialité", "nav.terms": "Conditions", "nav.hipaa": "HIPAA", "nav.support": "Support",
+    "privacy.heading": "Politique de confidentialité",
+    "privacy.intro": "Nous croyons à la minimisation des données et à la transparence totale.",
+    "privacy.collect.title": "Données que nous collectons",
+    "privacy.collect.1": "Données HealthKit : constantes, analyses et médicaments (uniquement avec votre autorisation).",
+    "privacy.collect.2": "Données d'utilisation : télémétrie anonyme pour améliorer la stabilité de l’app.",
+    "privacy.use.title": "Comment nous utilisons les données",
+    "privacy.use.1": "Pour visualiser vos tendances de santé localement sur votre appareil.",
+    "privacy.use.2": "Nous ne vendons PAS les données à des tiers ni à des annonceurs.",
+    "privacy.retention": "Les données restent sur votre appareil jusqu’à suppression.",
+    "terms.heading": "Conditions d’utilisation",
+    "terms.intro": "En utilisant Health eRecords, vous acceptez ces conditions standard.",
+    "terms.medical.title": "⚠️ Aucun avis médical",
+    "terms.medical.desc": "Cette application est uniquement informative. Consultez toujours un médecin.",
+    "terms.responsibilities.title": "Vos responsabilités",
+    "terms.resp.1": "Vous devez avoir 18 ans ou plus pour créer un compte.",
+    "terms.resp.2": "Vous êtes responsable de la sécurité de votre appareil.",
+    "hipaa.heading": "Avis HIPAA",
+    "hipaa.intro": "Nous respectons les normes fédérales pour protéger vos informations de santé protégées (PHI).",
+    "hipaa.rights.title": "Vos droits",
+    "hipaa.rights.1": "Droit d’accéder à vos dossiers et d’en recevoir une copie.",
+    "hipaa.rights.2": "Droit de demander des corrections à vos données.",
+    "hipaa.rights.3": "Droit de savoir qui a accédé à vos informations.",
+    "hipaa.security.title": "Nos obligations",
+    "hipaa.security.1": "Nous mettons en place des protections techniques (chiffrement AES‑256).",
+    "hipaa.security.2": "La loi nous oblige à vous notifier toute violation.",
+    "support.heading": "Assistance et sécurité",
+    "support.intro": "Nous sommes là pour vous aider.",
+    "support.encryption.title": "Chiffrement",
+    "support.encryption.rest": "Données au repos : chiffrées localement via le trousseau iOS.",
+    "support.encryption.transit": "Données en transit : TLS 1.3 (HTTPS) pour toutes les connexions.",
+    "support.contact.title": "Nous contacter",
+    "support.contact.tech": "Problèmes techniques",
+    "support.contact.privacy": "Confidentialité et demandes de suppression de données",
+    "terms.effective": "En vigueur : 21 nov. 2025",
+    "footer.built": "Conçu pour la confidentialité"
+  },
+  it: {
+    "heading.title": "La tua salute. Gestita in sicurezza.",
+    "body.intro": "Una cartella sanitaria personale conforme HIPAA progettata per privacy, chiarezza e controllo totale.",
+    "nav.privacy": "Privacy", "nav.terms": "Termini", "nav.hipaa": "HIPAA", "nav.support": "Supporto",
+    "privacy.heading": "Informativa sulla privacy",
+    "privacy.intro": "Crediamo nella minimizzazione dei dati e nella trasparenza assoluta.",
+    "privacy.collect.title": "Dati che raccogliamo",
+    "privacy.collect.1": "Dati HealthKit: parametri vitali, esami e farmaci (solo con la tua autorizzazione).",
+    "privacy.collect.2": "Dati di utilizzo: telemetria anonima per migliorare la stabilità dell'app.",
+    "privacy.use.title": "Come utilizziamo i dati",
+    "privacy.use.1": "Per visualizzare le tendenze della tua salute localmente sul dispositivo.",
+    "privacy.use.2": "NON vendiamo dati a terze parti o inserzionisti.",
+    "privacy.retention": "I dati restano sul tuo dispositivo finché non li elimini.",
+    "terms.heading": "Termini di servizio",
+    "terms.intro": "Usando Health eRecords accetti questi termini standard.",
+    "terms.medical.title": "⚠️ Nessun consiglio medico",
+    "terms.medical.desc": "Questa app è solo informativa. Consulta sempre un medico.",
+    "terms.responsibilities.title": "Le tue responsabilità",
+    "terms.resp.1": "Devi avere almeno 18 anni per creare un account.",
+    "terms.resp.2": "Sei responsabile della sicurezza del tuo dispositivo.",
+    "hipaa.heading": "Avviso HIPAA",
+    "hipaa.intro": "Rispettiamo gli standard federali per proteggere le tue informazioni sanitarie protette (PHI).",
+    "hipaa.rights.title": "I tuoi diritti",
+    "hipaa.rights.1": "Diritto di accedere e ricevere una copia dei tuoi documenti sanitari.",
+    "hipaa.rights.2": "Diritto di richiedere correzioni ai tuoi dati.",
+    "hipaa.rights.3": "Diritto di sapere chi ha avuto accesso alle tue informazioni.",
+    "hipaa.security.title": "I nostri doveri",
+    "hipaa.security.1": "Implementiamo salvaguardie tecniche (crittografia AES‑256).",
+    "hipaa.security.2": "La legge ci impone di notificarti qualsiasi violazione.",
+    "support.heading": "Supporto e sicurezza",
+    "support.intro": "Siamo qui per aiutarti.",
+    "support.encryption.title": "Crittografia",
+    "support.encryption.rest": "Dati a riposo: crittografati localmente con iOS Keychain.",
+    "support.encryption.transit": "Dati in transito: TLS 1.3 (HTTPS) per tutte le connessioni.",
+    "support.contact.title": "Contattaci",
+    "support.contact.tech": "Problemi tecnici",
+    "support.contact.privacy": "Privacy e richieste di cancellazione dei dati",
+    "terms.effective": "In vigore: 21 nov 2025",
+    "footer.built": "Creato per la privacy"
+  },
+  pt: {
+    "heading.title": "Sua saúde. Gerida com segurança.",
+    "body.intro": "Um prontuário pessoal compatível com HIPAA, projetado para privacidade, clareza e controle total.",
+    "nav.privacy": "Privacidade", "nav.terms": "Termos", "nav.hipaa": "HIPAA", "nav.support": "Suporte",
+    "privacy.heading": "Política de Privacidade",
+    "privacy.intro": "Acreditamos na minimização de dados e transparência total.",
+    "privacy.collect.title": "Dados que coletamos",
+    "privacy.collect.1": "Dados do HealthKit: sinais vitais, exames e medicamentos (somente com sua permissão).",
+    "privacy.collect.2": "Dados de uso: telemetria anônima para melhorar a estabilidade do app.",
+    "privacy.use.title": "Como usamos os dados",
+    "privacy.use.1": "Para visualizar suas tendências de saúde localmente no dispositivo.",
+    "privacy.use.2": "NÃO vendemos dados para terceiros ou anunciantes.",
+    "privacy.retention": "Os dados ficam no seu dispositivo até você excluí-los.",
+    "terms.heading": "Termos de Serviço",
+    "terms.intro": "Ao usar o Health eRecords, você concorda com estes termos padrão.",
+    "terms.medical.title": "⚠️ Sem aconselhamento médico",
+    "terms.medical.desc": "Este app é apenas informativo. Sempre consulte um médico.",
+    "terms.responsibilities.title": "Suas responsabilidades",
+    "terms.resp.1": "Você deve ter 18+ para criar uma conta.",
+    "terms.resp.2": "Você é responsável pela segurança do seu dispositivo.",
+    "hipaa.heading": "Aviso HIPAA",
+    "hipaa.intro": "Seguimos padrões federais para proteger suas Informações de Saúde Protegidas (PHI).",
+    "hipaa.rights.title": "Seus direitos",
+    "hipaa.rights.1": "Direito de acessar e receber uma cópia dos seus registros.",
+    "hipaa.rights.2": "Direito de solicitar correções nos seus dados.",
+    "hipaa.rights.3": "Direito de saber quem acessou suas informações.",
+    "hipaa.security.title": "Nossos deveres",
+    "hipaa.security.1": "Implementamos salvaguardas técnicas (criptografia AES‑256).",
+    "hipaa.security.2": "Somos obrigados por lei a notificá-lo sobre qualquer violação.",
+    "support.heading": "Suporte e segurança",
+    "support.intro": "Estamos aqui para ajudar.",
+    "support.encryption.title": "Criptografia",
+    "support.encryption.rest": "Dados em repouso: criptografados localmente com o iOS Keychain.",
+    "support.encryption.transit": "Dados em trânsito: TLS 1.3 (HTTPS) para todas as conexões.",
+    "support.contact.title": "Fale conosco",
+    "support.contact.tech": "Problemas técnicos",
+    "support.contact.privacy": "Privacidade e solicitações de exclusão de dados",
+    "terms.effective": "Vigente: 21 nov 2025",
+    "footer.built": "Feito para privacidade"
+  },
+  ru: {
+    "heading.title": "Ваше здоровье. Надежно под контролем.",
+    "body.intro": "Персональная медицинская запись, совместимая с HIPAA, созданная для конфиденциальности, ясности и полного контроля.",
+    "nav.privacy": "Конфиденциальность", "nav.terms": "Условия", "nav.hipaa": "HIPAA", "nav.support": "Поддержка",
+    "privacy.heading": "Политика конфиденциальности",
+    "privacy.intro": "Мы придерживаемся минимизации данных и полной прозрачности.",
+    "privacy.collect.title": "Какие данные мы собираем",
+    "privacy.collect.1": "Данные HealthKit: показатели, анализы и лекарства (только с вашим разрешением).",
+    "privacy.collect.2": "Данные использования: анонимная телеметрия для повышения стабильности приложения.",
+    "privacy.use.title": "Как мы используем данные",
+    "privacy.use.1": "Для локальной визуализации ваших тенденций здоровья на устройстве.",
+    "privacy.use.2": "Мы НЕ продаем данные третьим лицам или рекламодателям.",
+    "privacy.retention": "Данные остаются на вашем устройстве, пока вы их не удалите.",
+    "terms.heading": "Условия использования",
+    "terms.intro": "Используя Health eRecords, вы соглашаетесь с этими стандартными условиями.",
+    "terms.medical.title": "⚠️ Не является медицинской консультацией",
+    "terms.medical.desc": "Приложение носит информационный характер. Всегда консультируйтесь с врачом.",
+    "terms.responsibilities.title": "Ваши обязанности",
+    "terms.resp.1": "Для создания аккаунта вам должно быть 18+.",
+    "terms.resp.2": "Вы отвечаете за безопасность своего устройства.",
+    "hipaa.heading": "Уведомление HIPAA",
+    "hipaa.intro": "Мы соблюдаем федеральные стандарты для защиты вашей защищенной медицинской информации (PHI).",
+    "hipaa.rights.title": "Ваши права",
+    "hipaa.rights.1": "Право на доступ и получение копии своих медицинских записей.",
+    "hipaa.rights.2": "Право запрашивать исправления данных.",
+    "hipaa.rights.3": "Право знать, кто обращался к вашей информации.",
+    "hipaa.security.title": "Наши обязанности",
+    "hipaa.security.1": "Мы применяем технические меры защиты (шифрование AES‑256).",
+    "hipaa.security.2": "По закону мы обязаны уведомлять вас о любых утечках.",
+    "support.heading": "Поддержка и безопасность",
+    "support.intro": "Мы готовы помочь.",
+    "support.encryption.title": "Шифрование",
+    "support.encryption.rest": "Данные на устройстве: шифруются локально с помощью iOS Keychain.",
+    "support.encryption.transit": "Данные при передаче: TLS 1.3 (HTTPS) для всех соединений.",
+    "support.contact.title": "Связаться с нами",
+    "support.contact.tech": "Технические проблемы",
+    "support.contact.privacy": "Конфиденциальность и запросы на удаление данных",
+    "terms.effective": "Действует с: 21 ноя 2025",
+    "footer.built": "Создано для конфиденциальности"
+  },
+  zh: {
+    "heading.title": "您的健康，安全管理。",
+    "body.intro": "一款符合 HIPAA 的个人健康档案，旨在提供隐私、清晰与全面控制。",
+    "nav.privacy": "隐私", "nav.terms": "条款", "nav.hipaa": "HIPAA", "nav.support": "支持",
+    "privacy.heading": "隐私政策",
+    "privacy.intro": "我们坚持数据最小化与完全透明。",
+    "privacy.collect.title": "我们收集的数据",
+    "privacy.collect.1": "HealthKit 数据：生命体征、化验与用药（仅在您明确授权后）。",
+    "privacy.collect.2": "使用数据：匿名遥测，用于提升应用稳定性。",
+    "privacy.use.title": "我们如何使用数据",
+    "privacy.use.1": "在您的设备上本地展示健康趋势。",
+    "privacy.use.2": "我们不会向第三方或广告商出售数据。",
+    "privacy.retention": "数据保留在您的设备中，直到您删除。",
+    "terms.heading": "服务条款",
+    "terms.intro": "使用 Health eRecords 即表示您同意这些标准条款。",
+    "terms.medical.title": "⚠️ 非医疗建议",
+    "terms.medical.desc": "本应用仅供信息参考。请始终咨询医生。",
+    "terms.responsibilities.title": "您的责任",
+    "terms.resp.1": "创建账户需年满 18 岁。",
+    "terms.resp.2": "您需负责设备的安全性。",
+    "hipaa.heading": "HIPAA 通知",
+    "hipaa.intro": "我们遵循联邦标准以保护您的受保护健康信息（PHI）。",
+    "hipaa.rights.title": "您的权利",
+    "hipaa.rights.1": "有权访问并获取您的健康记录副本。",
+    "hipaa.rights.2": "有权要求更正您的数据。",
+    "hipaa.rights.3": "有权了解谁访问了您的信息。",
+    "hipaa.security.title": "我们的义务",
+    "hipaa.security.1": "我们采取技术性保障（AES‑256 加密）。",
+    "hipaa.security.2": "法律要求我们在发生数据泄露时通知您。",
+    "support.heading": "支持与安全",
+    "support.intro": "我们在此协助您。",
+    "support.encryption.title": "加密",
+    "support.encryption.rest": "静态数据：使用 iOS 钥匙串本地加密。",
+    "support.encryption.transit": "传输数据：所有连接均使用 TLS 1.3（HTTPS）。",
+    "support.contact.title": "联系我们",
+    "support.contact.tech": "技术问题",
+    "support.contact.privacy": "隐私与数据删除请求",
+    "terms.effective": "生效日期：2025 年 11 月 21 日",
+    "footer.built": "为隐私而生"
+  },
+  ja: {
+    "heading.title": "あなたの健康。安全に管理。",
+    "body.intro": "プライバシー、明確さ、完全なコントロールのために設計された HIPAA 準拠の個人健康記録。",
+    "nav.privacy": "プライバシー", "nav.terms": "利用規約", "nav.hipaa": "HIPAA", "nav.support": "サポート",
+    "privacy.heading": "プライバシーポリシー",
+    "privacy.intro": "私たちはデータ最小化と完全な透明性を重視します。",
+    "privacy.collect.title": "収集するデータ",
+    "privacy.collect.1": "HealthKit データ：バイタル、検査、薬（明示的な許可がある場合のみ）。",
+    "privacy.collect.2": "利用データ：アプリの安定性向上のための匿名テレメトリ。",
+    "privacy.use.title": "データの利用方法",
+    "privacy.use.1": "端末上で健康の傾向をローカルに可視化します。",
+    "privacy.use.2": "第三者や広告主にデータを販売しません。",
+    "privacy.retention": "データは削除されるまで端末内に保持されます。",
+    "terms.heading": "利用規約",
+    "terms.intro": "Health eRecords を使用することで、これらの標準規約に同意したものとみなされます。",
+    "terms.medical.title": "⚠️ 医療アドバイスではありません",
+    "terms.medical.desc": "本アプリは情報提供のみを目的としています。必ず医師に相談してください。",
+    "terms.responsibilities.title": "あなたの責任",
+    "terms.resp.1": "アカウント作成には 18 歳以上である必要があります。",
+    "terms.resp.2": "端末のセキュリティ維持はご自身の責任です。",
+    "hipaa.heading": "HIPAA 通知",
+    "hipaa.intro": "保護対象医療情報（PHI）を守るため、連邦基準に準拠しています。",
+    "hipaa.rights.title": "あなたの権利",
+    "hipaa.rights.1": "健康記録にアクセスし、その写しを受け取る権利。",
+    "hipaa.rights.2": "データの修正を要求する権利。",
+    "hipaa.rights.3": "誰が情報にアクセスしたかを知る権利。",
+    "hipaa.security.title": "当社の義務",
+    "hipaa.security.1": "技術的な保護措置（AES‑256 暗号化）を実施します。",
+    "hipaa.security.2": "データ侵害があった場合、法律により通知します。",
+    "support.heading": "サポートとセキュリティ",
+    "support.intro": "サポートします。",
+    "support.encryption.title": "暗号化",
+    "support.encryption.rest": "保存データ：iOS Keychain で端末内に暗号化。",
+    "support.encryption.transit": "通信データ：すべての接続で TLS 1.3（HTTPS）。",
+    "support.contact.title": "お問い合わせ",
+    "support.contact.tech": "技術的な問題",
+    "support.contact.privacy": "プライバシーおよびデータ削除の依頼",
+    "terms.effective": "施行日：2025年11月21日",
+    "footer.built": "プライバシー重視で構築"
+  }
 };
-
-// Fill missing languages with English as fallback for demo purposes
-['fr', 'it', 'pt', 'ru', 'zh', 'ja'].forEach(lang => translations[lang] = translations.en);
 
 const params = new URLSearchParams(window.location.search);
 let currentLang = params.get('lang') || localStorage.getItem('lang') || 'en';
