@@ -8,6 +8,26 @@
   <link rel="stylesheet" href="base.css">
   <style>
     html { scroll-behavior: smooth; }
+    .top-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      padding: 16px 0 14px;
+      background: rgba(5, 9, 21, 0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
     .legal-nav {
       display: flex;
       gap: 16px;
@@ -112,47 +132,49 @@
 </head>
 
 <body>
-<div class="page-wrapper">
+  <div class="page-wrapper">
 
-<header>
-  <div class="brand-pill">
-    <div class="brand">
-      <img class="brand-icon" src="icon.png" alt="Health eRecords">
-      <div>
-        <div class="brand-text-main">Health eRecords</div>
-        <div class="brand-text-sub" data-i18n="brand.tagline"></div>
+  <header class="top-header">
+    <div class="brand-row">
+      <div class="brand-pill">
+        <div class="brand">
+          <img class="brand-icon" src="icon.png" alt="Health eRecords">
+          <div>
+            <div class="brand-text-main">Health eRecords</div>
+            <div class="brand-text-sub" data-i18n="brand.tagline"></div>
+          </div>
+        </div>
+
+        <div class="pill">
+          <span class="pill-dot"></span>
+          <span data-i18n="pill.title"></span>
+        </div>
+      </div>
+
+      <div class="lang-selector">
+        <select id="langSelect" onchange="setLang(this.value)">
+          <option value="en">English</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+          <option value="it">Italiano</option>
+          <option value="pl">Polski</option>
+          <option value="ru">Русский</option>
+          <option value="th">ไทย</option>
+          <option value="uk">Українська</option>
+        </select>
       </div>
     </div>
 
-    <div class="pill">
-      <span class="pill-dot"></span>
-      <span data-i18n="pill.title"></span>
-    </div>
-  </div>
-
-  <div class="lang-selector">
-    <select id="langSelect" onchange="setLang(this.value)">
-      <option value="en">English</option>
-      <option value="es">Español</option>
-      <option value="fr">Français</option>
-      <option value="it">Italiano</option>
-      <option value="pl">Polski</option>
-      <option value="ru">Русский</option>
-      <option value="th">ไทย</option>
-      <option value="uk">Українська</option>
-    </select>
-  </div>
-</header>
-
-<nav class="legal-nav">
-  <a href="#home">Home</a>
-  <a href="#privacy">Privacy</a>
-  <a href="#terms">Terms</a>
-  <a href="#hipaa">HIPAA</a>
-  <a href="#security">Security</a>
-  <a href="#encryption">Encryption</a>
-  <a href="#support">Support</a>
-</nav>
+    <nav class="legal-nav">
+      <a href="#home">Home</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#terms">Terms</a>
+      <a href="#hipaa">HIPAA</a>
+      <a href="#security">Security</a>
+      <a href="#encryption">Encryption</a>
+      <a href="#support">Support</a>
+    </nav>
+  </header>
 
 <main>
   <section id="home">
