@@ -32,7 +32,6 @@
       display: flex;
       gap: 16px;
       flex-wrap: wrap;
-      margin-bottom: 24px;
       font-size: 14px;
     }
 
@@ -166,13 +165,13 @@
     </div>
 
     <nav class="legal-nav">
-      <a href="#home">Home</a>
-      <a href="#privacy">Privacy</a>
-      <a href="#terms">Terms</a>
-      <a href="#hipaa">HIPAA</a>
-      <a href="#security">Security</a>
-      <a href="#encryption">Encryption</a>
-      <a href="#support">Support</a>
+      <a href="#home" data-i18n="nav.home">Home</a>
+      <a href="#privacy" data-i18n="nav.privacy">Privacy</a>
+      <a href="#terms" data-i18n="nav.terms">Terms</a>
+      <a href="#hipaa" data-i18n="nav.hipaa">HIPAA</a>
+      <a href="#security" data-i18n="nav.security">Security</a>
+      <a href="#encryption" data-i18n="nav.encryption">Encryption</a>
+      <a href="#support" data-i18n="nav.support">Support</a>
     </nav>
   </header>
 
@@ -555,7 +554,14 @@ const translations = {
     "support.side.subtitle": "Before contacting support:",
     "support.side.b1": "Update to the latest app version.",
     "support.side.b2": "Include screenshots for errors.",
-    "support.side.b3": "Use your account email for privacy requests."
+    "support.side.b3": "Use your account email for privacy requests.",
+    "nav.home": "Home",
+    "nav.privacy": "Privacy",
+    "nav.terms": "Terms",
+    "nav.hipaa": "HIPAA",
+    "nav.security": "Security",
+    "nav.encryption": "Encryption",
+    "nav.support": "Support"
   },
   es: {
     "title.page": "Health eRecords",
@@ -677,7 +683,14 @@ const translations = {
     "support.side.subtitle": "Antes de contactar soporte:",
     "support.side.b1": "Actualiza a la versión más reciente.",
     "support.side.b2": "Incluye capturas de pantalla.",
-    "support.side.b3": "Usa tu correo de cuenta para privacidad."
+    "support.side.b3": "Usa tu correo de cuenta para privacidad.",
+    "nav.home": "Inicio",
+    "nav.privacy": "Privacidad",
+    "nav.terms": "Términos",
+    "nav.hipaa": "HIPAA",
+    "nav.security": "Seguridad",
+    "nav.encryption": "Cifrado",
+    "nav.support": "Soporte"
   }
 };
 
@@ -700,8 +713,9 @@ function updateNavLinks(lang) {
   });
 }
 
-function setLang(lang) {
+function setLang(lang, keepScroll = true) {
   const normalized = translations[lang] ? lang : "en";
+  const scrollPos = keepScroll ? window.scrollY : 0;
   localStorage.setItem("lang", normalized);
   document.documentElement.lang = normalized;
   document.title = translations[normalized]["title.page"];
@@ -717,10 +731,13 @@ function setLang(lang) {
   if (select) {
     select.value = normalized;
   }
+  if (keepScroll) {
+    window.scrollTo({ top: scrollPos });
+  }
 }
 
 const initialLang = queryLang || storedLang || "en";
-setLang(initialLang);
+setLang(initialLang, false);
 </script>
 
 </body>
