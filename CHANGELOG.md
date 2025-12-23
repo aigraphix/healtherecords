@@ -1,5 +1,7 @@
 # Changelog
 
+- 2025-12-23 14:03:17Z: Locked the header brand label to stay in English across all languages.
+- 2025-12-23 12:13:37Z: Completed translations across all UI labels, added i18n keys for remaining text, and synced document language on selection.
 - 2025-12-23 01:56:03Z: Centered the sticky navbar, right-aligned the language picker, scaled the brand icon, and ensured English remains the fallback translation with persisted selection state.
 
 ## [2025-12-23 02:39:36Z]
