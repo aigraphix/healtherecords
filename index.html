@@ -2,95 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Home | Health eRecords</title>
+  <title>Health eRecords</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Health eRecords helps you securely store, manage, and share your health information with trusted doctors — privately and securely." />
-
+  <link rel="stylesheet" href="base.css">
   <style>
-    :root {
-      --bg: radial-gradient(circle at 20% 20%, #1f2a41 0, #0b1220 35%, #050915 100%);
-      --card-bg: #0f172a;
-      --card-soft: rgba(255,255,255,0.02);
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.15);
-      --text-main: #e5e7eb;
-      --text-muted: #9ca3af;
-      --border-subtle: rgba(148,163,184,0.25);
-      --radius-lg: 1.35rem;
-      --shadow-soft: 0 30px 80px rgba(5, 9, 21, 0.75);
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text-main);
-      background: var(--bg);
-      display: flex;
-      justify-content: center;
-    }
-
-    .page-wrapper {
-      width: 100%;
-      max-width: 1180px;
-      margin: 32px 16px 40px;
-    }
-
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 24px;
-      gap: 16px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .brand-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      object-fit: cover;
-      box-shadow: 0 15px 36px rgba(56,189,248,0.35);
-    }
-
-    .brand-text-main {
-      font-weight: 700;
-      font-size: 18px;
-      letter-spacing: 0.03em;
-    }
-
-    .brand-text-sub {
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-
-    .pill {
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--border-subtle);
-      background: rgba(255,255,255,0.03);
-      font-size: 12px;
-      color: var(--text-muted);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .pill-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 10px rgba(34,197,94,.75);
-    }
-
+    html { scroll-behavior: smooth; }
     .legal-nav {
       display: flex;
       gap: 16px;
@@ -107,43 +24,6 @@
 
     .legal-nav a:hover {
       text-decoration: underline;
-    }
-
-    .layout {
-      display: grid;
-      grid-template-columns: minmax(0,1fr);
-      gap: 24px;
-    }
-
-    .card {
-      background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)), var(--card-bg);
-      border-radius: var(--radius-lg);
-      padding: 32px 28px 28px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid var(--border-subtle);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 80% 0%, rgba(59,130,246,0.2), transparent 55%);
-      opacity: .6;
-      pointer-events: none;
-    }
-
-    h1 {
-      font-size: clamp(28px, 3vw, 34px);
-      margin: 0 0 12px;
-    }
-
-    p {
-      font-size: 15px;
-      line-height: 1.7;
-      margin: 0 0 14px;
-      color: #dfe3eb;
     }
 
     .features {
@@ -171,10 +51,27 @@
       margin: 0;
     }
 
-    footer {
-      margin-top: 20px;
-      font-size: 12px;
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    section {
+      scroll-margin-top: 90px;
+    }
+
+    .section-grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      align-items: start;
+    }
+
+    .section-footnote {
+      font-size: 13px;
       color: var(--text-muted);
+      margin-top: 14px;
     }
   </style>
 </head>
@@ -198,39 +95,266 @@
 </header>
 
 <nav class="legal-nav">
-  <a href="index.html">Home</a>
-  <a href="privacy.html">Privacy</a>
-  <a href="terms.html">Terms</a>
-  <a href="hipaa.html">HIPAA</a>
-  <a href="security.html">Security</a>
-  <a href="end-to-end-encryption.html">Encryption</a>
-  <a href="support.html">Support</a>
+  <a href="#home">Home</a>
+  <a href="#privacy">Privacy</a>
+  <a href="#terms">Terms</a>
+  <a href="#hipaa">HIPAA</a>
+  <a href="#security">Security</a>
+  <a href="#encryption">Encryption</a>
+  <a href="#support">Support</a>
 </nav>
 
-<main class="layout">
-<section class="card">
-  <h1 data-i18n="heading.title"></h1>
-  <p data-i18n="body.intro"></p>
+<main>
+  <section id="home">
+    <div class="card">
+      <h1 data-i18n="heading.title"></h1>
+      <p data-i18n="body.intro"></p>
 
-  <div class="features">
-    <div class="feature">
-      <h3 data-i18n="feature.privacy.title"></h3>
-      <p data-i18n="feature.privacy.desc"></p>
+      <div class="features">
+        <div class="feature">
+          <h3 data-i18n="feature.privacy.title"></h3>
+          <p data-i18n="feature.privacy.desc"></p>
+        </div>
+        <div class="feature">
+          <h3 data-i18n="feature.ai.title"></h3>
+          <p data-i18n="feature.ai.desc"></p>
+        </div>
+        <div class="feature">
+          <h3 data-i18n="feature.records.title"></h3>
+          <p data-i18n="feature.records.desc"></p>
+        </div>
+        <div class="feature">
+          <h3 data-i18n="feature.doctor.title"></h3>
+          <p data-i18n="feature.doctor.desc"></p>
+        </div>
+      </div>
     </div>
-    <div class="feature">
-      <h3 data-i18n="feature.ai.title"></h3>
-      <p data-i18n="feature.ai.desc"></p>
+  </section>
+
+  <section id="privacy">
+    <div class="card">
+      <h1 data-i18n="privacy.heading"></h1>
+      <p data-i18n="privacy.intro"></p>
+
+      <h3 data-i18n="privacy.collect.title"></h3>
+      <ul>
+        <li data-i18n="privacy.collect.a"></li>
+        <li data-i18n="privacy.collect.b"></li>
+        <li data-i18n="privacy.collect.c"></li>
+      </ul>
+
+      <h3 data-i18n="privacy.use.title"></h3>
+      <ul>
+        <li data-i18n="privacy.use.a"></li>
+        <li data-i18n="privacy.use.b"></li>
+        <li data-i18n="privacy.use.c"></li>
+      </ul>
+
+      <h3 data-i18n="privacy.share.title"></h3>
+      <ul>
+        <li data-i18n="privacy.share.a"></li>
+        <li data-i18n="privacy.share.b"></li>
+        <li data-i18n="privacy.share.c"></li>
+      </ul>
+
+      <h3 data-i18n="privacy.security.title"></h3>
+      <ul>
+        <li data-i18n="privacy.security.a"></li>
+        <li data-i18n="privacy.security.b"></li>
+        <li data-i18n="privacy.security.c"></li>
+        <li data-i18n="privacy.security.d"></li>
+      </ul>
+
+      <h3 data-i18n="privacy.rights.title"></h3>
+      <ul>
+        <li data-i18n="privacy.rights.a"></li>
+        <li data-i18n="privacy.rights.b"></li>
+        <li data-i18n="privacy.rights.c"></li>
+      </ul>
+
+      <p data-i18n="privacy.retention"></p>
+      <p data-i18n="privacy.children"></p>
+      <p data-i18n="privacy.changes"></p>
     </div>
-    <div class="feature">
-      <h3 data-i18n="feature.records.title"></h3>
-      <p data-i18n="feature.records.desc"></p>
+  </section>
+
+  <section id="terms">
+    <div class="section-grid">
+      <article class="card">
+        <h1 data-i18n="terms.heading"></h1>
+        <p data-i18n="terms.intro"></p>
+
+        <div class="meta-row">
+          <div class="meta-item">
+            <span class="meta-label" data-i18n="terms.meta.effective"></span>
+            <span data-i18n="terms.meta.date"></span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label" data-i18n="terms.meta.contact"></span>
+            <a href="mailto:apd1034@gmail.com">apd1034@gmail.com</a>
+          </div>
+        </div>
+
+        <h3 data-i18n="terms.responsibilities.title"></h3>
+        <ul>
+          <li data-i18n="terms.responsibilities.1"></li>
+          <li data-i18n="terms.responsibilities.2"></li>
+          <li data-i18n="terms.responsibilities.3"></li>
+        </ul>
+
+        <h3 data-i18n="terms.prohibited.title"></h3>
+        <ul>
+          <li data-i18n="terms.prohibited.1"></li>
+          <li data-i18n="terms.prohibited.2"></li>
+          <li data-i18n="terms.prohibited.3"></li>
+        </ul>
+
+        <h3 data-i18n="terms.disclaimer.title"></h3>
+        <p data-i18n="terms.disclaimer.body"></p>
+
+        <h3 data-i18n="terms.indemnity.title"></h3>
+        <p data-i18n="terms.indemnity.body"></p>
+      </article>
+
+      <aside class="side-card">
+        <div class="side-title" data-i18n="terms.side.title"></div>
+        <p class="side-text" data-i18n="terms.side.subtitle"></p>
+        <ul class="side-list">
+          <li><span class="side-bullet"></span><span data-i18n="terms.side.b1"></span></li>
+          <li><span class="side-bullet"></span><span data-i18n="terms.side.b2"></span></li>
+          <li><span class="side-bullet"></span><span data-i18n="terms.side.b3"></span></li>
+          <li><span class="side-bullet"></span><span data-i18n="terms.side.b4"></span></li>
+        </ul>
+      </aside>
     </div>
-    <div class="feature">
-      <h3 data-i18n="feature.doctor.title"></h3>
-      <p data-i18n="feature.doctor.desc"></p>
+  </section>
+
+  <section id="hipaa">
+    <div class="section-grid">
+      <article class="card">
+        <h1 data-i18n="hipaa.heading"></h1>
+        <p data-i18n="hipaa.intro"></p>
+
+        <div class="meta-row">
+          <div class="meta-item">
+            <span class="meta-label" data-i18n="hipaa.meta.effective"></span>
+            <span data-i18n="hipaa.meta.date"></span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label" data-i18n="hipaa.meta.contact"></span>
+            <a href="mailto:apd1034@gmail.com">apd1034@gmail.com</a>
+          </div>
+        </div>
+
+        <p><strong data-i18n="hipaa.uses.title"></strong></p>
+        <ul>
+          <li data-i18n="hipaa.uses.treatment"></li>
+          <li data-i18n="hipaa.uses.operations"></li>
+          <li data-i18n="hipaa.uses.legal"></li>
+        </ul>
+
+        <p data-i18n="hipaa.minimum"></p>
+
+        <p><strong data-i18n="hipaa.rights.title"></strong></p>
+        <ul>
+          <li data-i18n="hipaa.rights.r1"></li>
+          <li data-i18n="hipaa.rights.r2"></li>
+          <li data-i18n="hipaa.rights.r3"></li>
+          <li data-i18n="hipaa.rights.r4"></li>
+          <li data-i18n="hipaa.rights.r5"></li>
+          <li data-i18n="hipaa.rights.r6"></li>
+        </ul>
+
+        <p data-i18n="hipaa.contact"></p>
+        <p class="section-footnote" data-i18n="hipaa.footer"></p>
+      </article>
+
+      <aside class="side-card">
+        <div class="side-title" data-i18n="hipaa.side.title"></div>
+        <p class="side-text" data-i18n="hipaa.side.subtitle"></p>
+        <ul class="side-list">
+          <li><span class="side-bullet"></span><span data-i18n="hipaa.side.b1"></span></li>
+          <li><span class="side-bullet"></span><span data-i18n="hipaa.side.b2"></span></li>
+          <li><span class="side-bullet"></span><span data-i18n="hipaa.side.b3"></span></li>
+          <li><span class="side-bullet"></span><span data-i18n="hipaa.side.b4"></span></li>
+          <li><span class="side-bullet"></span><span data-i18n="hipaa.side.b5"></span></li>
+        </ul>
+      </aside>
     </div>
-  </div>
-</section>
+  </section>
+
+  <section id="security">
+    <div class="section-grid">
+      <article class="card">
+        <h1 data-i18n="security.heading"></h1>
+        <ul>
+          <li data-i18n="security.list.a"></li>
+          <li data-i18n="security.list.b"></li>
+          <li data-i18n="security.list.c"></li>
+          <li data-i18n="security.list.d"></li>
+          <li data-i18n="security.list.e"></li>
+        </ul>
+      </article>
+
+      <aside class="side-card">
+        <div class="side-title" data-i18n="security.side.title"></div>
+        <p class="side-text" data-i18n="security.side.subtitle"></p>
+        <ul class="side-list">
+          <li><span class="side-bullet"></span><span data-i18n="security.side.b1"></span></li>
+          <li><span class="side-bullet"></span><span data-i18n="security.side.b2"></span></li>
+          <li><span class="side-bullet"></span><span data-i18n="security.side.b3"></span></li>
+          <li><span class="side-bullet"></span><span data-i18n="security.side.b4"></span></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section id="encryption">
+    <div class="card">
+      <h1 data-i18n="encryption.heading"></h1>
+      <p data-i18n="encryption.intro"></p>
+      <ul>
+        <li data-i18n="encryption.list.onDevice"></li>
+        <li data-i18n="encryption.list.recipientOnly"></li>
+        <li data-i18n="encryption.list.keyProtection"></li>
+        <li data-i18n="encryption.list.metadata"></li>
+        <li data-i18n="encryption.list.sharing"></li>
+      </ul>
+      <p data-i18n="encryption.footer"></p>
+    </div>
+  </section>
+
+  <section id="support">
+    <div class="section-grid">
+      <article class="card">
+        <h1 data-i18n="support.heading"></h1>
+        <p data-i18n="support.intro"></p>
+
+        <div class="meta-row">
+          <div class="meta-item">
+            <span class="meta-label" data-i18n="support.meta.email"></span>
+            <a href="mailto:apd1034@gmail.com">apd1034@gmail.com</a>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label" data-i18n="support.meta.hours"></span>
+            <span data-i18n="support.meta.hoursValue"></span>
+          </div>
+        </div>
+
+        <p data-i18n="support.footer"></p>
+      </article>
+
+      <aside class="side-card">
+        <div class="side-title" data-i18n="support.side.title"></div>
+        <p class="side-text" data-i18n="support.side.subtitle"></p>
+        <ul class="side-list">
+          <li><span class="side-bullet"></span><span data-i18n="support.side.b1"></span></li>
+          <li><span class="side-bullet"></span><span data-i18n="support.side.b2"></span></li>
+          <li><span class="side-bullet"></span><span data-i18n="support.side.b3"></span></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
 </main>
 
 <footer data-i18n="footer"></footer>
@@ -245,9 +369,9 @@ document.documentElement.lang = lang;
 
 const translations = {
   en: {
-    "title.page": "Home | Health eRecords",
+    "title.page": "Health eRecords",
     "brand.tagline": "Your health. Your data. Your control.",
-    "pill.title": "Home",
+    "pill.title": "Overview",
     "heading.title": "Private, Secure Health Records — Built for You",
     "body.intro": "Health eRecords lets you securely store, organize, and share your health information with doctors you trust. Designed for privacy, clarity, and control — all in one place.",
     "feature.privacy.title": "🔐 Privacy First",
@@ -258,12 +382,118 @@ const translations = {
     "feature.records.desc": "Logs, images, notes, and files — all securely organized.",
     "feature.doctor.title": "🤝 Doctor Collaboration",
     "feature.doctor.desc": "Share information only with authorized clinicians.",
-    "footer": "© 2025 Health eRecords"
+    "footer": "© 2025 Health eRecords",
+    "privacy.heading": "Privacy Policy",
+    "privacy.intro": "We collect only what is necessary to deliver care features and never sell your data.",
+    "privacy.collect.title": "Data We Collect",
+    "privacy.collect.a": "Account & identity information.",
+    "privacy.collect.b": "Health content and authorizations.",
+    "privacy.collect.c": "Device and diagnostic telemetry.",
+    "privacy.use.title": "How We Use Data",
+    "privacy.use.a": "Deliver core features.",
+    "privacy.use.b": "Safety, reliability, and support.",
+    "privacy.use.c": "Legal and compliance obligations.",
+    "privacy.share.title": "Sharing & Disclosure",
+    "privacy.share.a": "Authorized doctors or patients.",
+    "privacy.share.b": "Service providers under contract.",
+    "privacy.share.c": "Legal or safety requirements.",
+    "privacy.security.title": "Security Highlights",
+    "privacy.security.a": "Encryption in transit and at rest.",
+    "privacy.security.b": "Access controls and logging.",
+    "privacy.security.c": "Optional biometric protection.",
+    "privacy.security.d": "Audit logging.",
+    "privacy.rights.title": "Your Choices & Rights",
+    "privacy.rights.a": "Manage and revoke authorizations.",
+    "privacy.rights.b": "Delete logs or request deletion.",
+    "privacy.rights.c": "Request access or export.",
+    "privacy.retention": "Data is retained while your account is active or as required by law.",
+    "privacy.children": "Not directed to children under 13.",
+    "privacy.changes": "Updates will be posted here and in-app.",
+    "terms.heading": "Terms of Service",
+    "terms.intro": "Health eRecords provides health logging, AI chat, image analysis, and controlled data sharing. Not for emergencies.",
+    "terms.meta.effective": "Effective:",
+    "terms.meta.date": "November 21, 2025",
+    "terms.meta.contact": "Contact:",
+    "terms.responsibilities.title": "Your Responsibilities",
+    "terms.responsibilities.1": "Provide accurate information and lawful use only.",
+    "terms.responsibilities.2": "Keep your account secure.",
+    "terms.responsibilities.3": "Respect privacy and data protections.",
+    "terms.prohibited.title": "Prohibited Uses",
+    "terms.prohibited.1": "Unauthorized access or security bypass.",
+    "terms.prohibited.2": "Malicious, abusive, or illegal content.",
+    "terms.prohibited.3": "Unlicensed medical claims.",
+    "terms.disclaimer.title": "Disclaimers & Liability",
+    "terms.disclaimer.body": "Service provided as-is. AI is informational only.",
+    "terms.indemnity.title": "Indemnity",
+    "terms.indemnity.body": "You agree to indemnify Health eRecords for misuse.",
+    "terms.side.title": "Quick Summary",
+    "terms.side.subtitle": "Use responsibly and keep credentials secure.",
+    "terms.side.b1": "Not for emergencies.",
+    "terms.side.b2": "Protect your account.",
+    "terms.side.b3": "No abuse or unlawful use.",
+    "terms.side.b4": "AI is not a diagnosis.",
+    "hipaa.heading": "HIPAA Notice of Privacy Practices",
+    "hipaa.intro": "This notice explains how your protected health information (PHI) may be used and shared, and what rights you have.",
+    "hipaa.meta.effective": "Effective:",
+    "hipaa.meta.date": "November 21, 2025",
+    "hipaa.meta.contact": "Contact:",
+    "hipaa.uses.title": "How We May Use or Share PHI:",
+    "hipaa.uses.treatment": "Treatment: Sharing with authorized clinicians involved in your care.",
+    "hipaa.uses.operations": "Operations: Security and quality improvement.",
+    "hipaa.uses.legal": "Legal/Public Health: Reporting when required by law.",
+    "hipaa.minimum": "Only the minimum necessary information is used, and you will be notified of any reportable breach.",
+    "hipaa.rights.title": "Your Rights:",
+    "hipaa.rights.r1": "Access or request copies of your PHI.",
+    "hipaa.rights.r2": "Request corrections to your record.",
+    "hipaa.rights.r3": "Request limits on certain uses or disclosures.",
+    "hipaa.rights.r4": "Revoke authorizations when legally allowed.",
+    "hipaa.rights.r5": "Request a record of disclosures where applicable.",
+    "hipaa.rights.r6": "File a complaint without retaliation.",
+    "hipaa.contact": "If you have questions or want to exercise your rights, email apd1034@gmail.com.",
+    "hipaa.side.title": "In Simple Terms",
+    "hipaa.side.subtitle": "Your health information belongs to you. HIPAA sets rules for how it can be used.",
+    "hipaa.side.b1": "Used for your care and security.",
+    "hipaa.side.b2": "Only minimum information is shared.",
+    "hipaa.side.b3": "You can see and change your records.",
+    "hipaa.side.b4": "You can ask how it was shared.",
+    "hipaa.side.b5": "You can file complaints safely.",
+    "hipaa.footer": "This notice meets HIPAA requirements for explaining how PHI is protected. Contact apd1034@gmail.com with questions.",
+    "security.heading": "Security & Data Protection",
+    "security.list.a": "TLS for all traffic; encryption at rest.",
+    "security.list.b": "Role-based access with row-level security.",
+    "security.list.c": "Optional biometrics and planned passkeys.",
+    "security.list.d": "Audit logging for sensitive actions.",
+    "security.list.e": "Backups and breach response per law.",
+    "security.side.title": "Highlights",
+    "security.side.subtitle": "Security by default.",
+    "security.side.b1": "Encrypted data.",
+    "security.side.b2": "Least-privilege access.",
+    "security.side.b3": "Strong authentication.",
+    "security.side.b4": "Monitored systems.",
+    "encryption.heading": "End-to-End Encryption",
+    "encryption.intro": "End-to-end encryption (E2EE) means content is encrypted on your device and only decrypted by intended recipients.",
+    "encryption.list.onDevice": "On-device encryption before transmission.",
+    "encryption.list.recipientOnly": "Only authorized recipients can decrypt.",
+    "encryption.list.keyProtection": "Keys are protected and never exposed.",
+    "encryption.list.metadata": "Some metadata may still exist.",
+    "encryption.list.sharing": "Access depends on authorization.",
+    "encryption.footer": "Encrypted content is stored and transported as opaque data.",
+    "support.heading": "Support",
+    "support.intro": "We're here to help. Reach out for technical issues, feedback, or data requests.",
+    "support.meta.email": "Email:",
+    "support.meta.hours": "Hours:",
+    "support.meta.hoursValue": "Mon–Fri, 9am–5pm PT",
+    "support.footer": "For privacy or data requests, include the email tied to your account.",
+    "support.side.title": "Tips",
+    "support.side.subtitle": "Before contacting support:",
+    "support.side.b1": "Update to the latest app version.",
+    "support.side.b2": "Include screenshots for errors.",
+    "support.side.b3": "Use your account email for privacy requests."
   },
   es: {
-    "title.page": "Inicio | Health eRecords",
+    "title.page": "Health eRecords",
     "brand.tagline": "Tu salud. Tus datos. Tu control.",
-    "pill.title": "Inicio",
+    "pill.title": "Resumen",
     "heading.title": "Registros de salud privados y seguros — Hechos para ti",
     "body.intro": "Health eRecords te permite almacenar, organizar y compartir de forma segura tu información de salud con médicos de confianza. Diseñado para privacidad, claridad y control — todo en un solo lugar.",
     "feature.privacy.title": "🔐 Privacidad primero",
@@ -274,7 +504,113 @@ const translations = {
     "feature.records.desc": "Registros, imágenes, notas y archivos — todos organizados de forma segura.",
     "feature.doctor.title": "🤝 Colaboración médica",
     "feature.doctor.desc": "Comparte información solo con clínicos autorizados.",
-    "footer": "© 2025 Health eRecords"
+    "footer": "© 2025 Health eRecords",
+    "privacy.heading": "Política de privacidad",
+    "privacy.intro": "Recopilamos solo lo necesario para ofrecer funciones de atención y nunca vendemos tus datos.",
+    "privacy.collect.title": "Datos que recopilamos",
+    "privacy.collect.a": "Información de cuenta e identidad.",
+    "privacy.collect.b": "Contenido de salud y autorizaciones.",
+    "privacy.collect.c": "Telemetría de dispositivo y diagnóstico.",
+    "privacy.use.title": "Cómo usamos los datos",
+    "privacy.use.a": "Entregar funciones principales.",
+    "privacy.use.b": "Seguridad, confiabilidad y soporte.",
+    "privacy.use.c": "Obligaciones legales y de cumplimiento.",
+    "privacy.share.title": "Compartir y divulgación",
+    "privacy.share.a": "Médicos o pacientes autorizados.",
+    "privacy.share.b": "Proveedores de servicios bajo contrato.",
+    "privacy.share.c": "Requisitos legales o de seguridad.",
+    "privacy.security.title": "Aspectos destacados de seguridad",
+    "privacy.security.a": "Cifrado en tránsito y en reposo.",
+    "privacy.security.b": "Controles de acceso y registro.",
+    "privacy.security.c": "Protección biométrica opcional.",
+    "privacy.security.d": "Registro de auditoría.",
+    "privacy.rights.title": "Tus opciones y derechos",
+    "privacy.rights.a": "Administrar y revocar autorizaciones.",
+    "privacy.rights.b": "Eliminar registros o solicitar eliminación.",
+    "privacy.rights.c": "Solicitar acceso o exportación.",
+    "privacy.retention": "Los datos se retienen mientras tu cuenta esté activa o según lo requiera la ley.",
+    "privacy.children": "No dirigido a niños menores de 13 años.",
+    "privacy.changes": "Las actualizaciones se publicarán aquí y en la app.",
+    "terms.heading": "Términos del servicio",
+    "terms.intro": "Health eRecords ofrece registros de salud, chat con IA y análisis de imágenes. No es para emergencias.",
+    "terms.meta.effective": "Vigente:",
+    "terms.meta.date": "21 de noviembre de 2025",
+    "terms.meta.contact": "Contacto:",
+    "terms.responsibilities.title": "Tus responsabilidades",
+    "terms.responsibilities.1": "Proporcionar información precisa.",
+    "terms.responsibilities.2": "Mantener tu cuenta segura.",
+    "terms.responsibilities.3": "Respetar la privacidad.",
+    "terms.prohibited.title": "Usos prohibidos",
+    "terms.prohibited.1": "Acceso no autorizado.",
+    "terms.prohibited.2": "Contenido malicioso o ilegal.",
+    "terms.prohibited.3": "Afirmaciones médicas sin licencia.",
+    "terms.disclaimer.title": "Avisos legales",
+    "terms.disclaimer.body": "El servicio se proporciona tal cual. La IA es solo informativa.",
+    "terms.indemnity.title": "Indemnización",
+    "terms.indemnity.body": "Aceptas indemnizar a Health eRecords por mal uso.",
+    "terms.side.title": "Resumen rápido",
+    "terms.side.subtitle": "Usa la app con responsabilidad.",
+    "terms.side.b1": "No para emergencias.",
+    "terms.side.b2": "Protege tu cuenta.",
+    "terms.side.b3": "Sin usos ilegales.",
+    "terms.side.b4": "IA no es diagnóstico.",
+    "hipaa.heading": "Aviso de prácticas de privacidad HIPAA",
+    "hipaa.intro": "Este aviso explica cómo se puede usar y compartir su información médica protegida (PHI) y cuáles son sus derechos.",
+    "hipaa.meta.effective": "Vigente:",
+    "hipaa.meta.date": "21 de noviembre de 2025",
+    "hipaa.meta.contact": "Contacto:",
+    "hipaa.uses.title": "Cómo podemos usar o compartir PHI:",
+    "hipaa.uses.treatment": "Tratamiento: compartir con profesionales autorizados.",
+    "hipaa.uses.operations": "Operaciones: seguridad y mejora de calidad.",
+    "hipaa.uses.legal": "Legal / Salud pública: cuando la ley lo exige.",
+    "hipaa.minimum": "Solo se utiliza la información mínima necesaria.",
+    "hipaa.rights.title": "Sus derechos:",
+    "hipaa.rights.r1": "Acceder o solicitar copias de su PHI.",
+    "hipaa.rights.r2": "Solicitar correcciones.",
+    "hipaa.rights.r3": "Solicitar límites en ciertos usos.",
+    "hipaa.rights.r4": "Revocar autorizaciones cuando sea permitido.",
+    "hipaa.rights.r5": "Solicitar un registro de divulgaciones.",
+    "hipaa.rights.r6": "Presentar una queja sin represalias.",
+    "hipaa.contact": "Si tiene preguntas o desea ejercer sus derechos, escriba a apd1034@gmail.com.",
+    "hipaa.side.title": "En términos simples",
+    "hipaa.side.subtitle": "Su información médica le pertenece.",
+    "hipaa.side.b1": "Se usa para su atención y seguridad.",
+    "hipaa.side.b2": "Solo se comparte lo mínimo.",
+    "hipaa.side.b3": "Puede ver y modificar sus registros.",
+    "hipaa.side.b4": "Puede preguntar cómo se compartió.",
+    "hipaa.side.b5": "Puede presentar quejas con seguridad.",
+    "hipaa.footer": "Este aviso cumple con HIPAA. Contacte a apd1034@gmail.com si tiene preguntas.",
+    "security.heading": "Seguridad y protección de datos",
+    "security.list.a": "TLS para todo el tráfico y cifrado en reposo.",
+    "security.list.b": "Acceso basado en roles con seguridad por filas.",
+    "security.list.c": "Biometría opcional y passkeys planificados.",
+    "security.list.d": "Registro de auditoría para acciones sensibles.",
+    "security.list.e": "Copias de seguridad y respuesta legal.",
+    "security.side.title": "Aspectos clave",
+    "security.side.subtitle": "Seguridad desde el diseño.",
+    "security.side.b1": "Datos cifrados.",
+    "security.side.b2": "Acceso mínimo necesario.",
+    "security.side.b3": "Autenticación fuerte.",
+    "security.side.b4": "Sistemas monitoreados.",
+    "encryption.heading": "Cifrado de extremo a extremo",
+    "encryption.intro": "El cifrado de extremo a extremo significa que el contenido se cifra en tu dispositivo.",
+    "encryption.list.onDevice": "Cifrado en el dispositivo antes del envío.",
+    "encryption.list.recipientOnly": "Solo destinatarios autorizados pueden descifrar.",
+    "encryption.list.keyProtection": "Las claves están protegidas.",
+    "encryption.list.metadata": "Algunos metadatos pueden existir.",
+    "encryption.list.sharing": "El acceso depende de autorizaciones.",
+    "encryption.footer": "El contenido cifrado se maneja como datos opacos.",
+    "support.heading": "Soporte",
+    "support.intro": "Estamos aquí para ayudarte con problemas técnicos, comentarios o solicitudes de datos.",
+    "support.meta.email": "Correo:",
+    "support.meta.hours": "Horario:",
+    "support.meta.hoursValue": "Lun–Vie, 9am–5pm PT",
+    "support.footer": "Para solicitudes de privacidad, usa el correo asociado a tu cuenta.",
+    "support.side.title": "Consejos",
+    "support.side.subtitle": "Antes de contactar soporte:",
+    "support.side.b1": "Actualiza a la versión más reciente.",
+    "support.side.b2": "Incluye capturas de pantalla.",
+    "support.side.b3": "Usa tu correo de cuenta para privacidad."
   }
 };
 
@@ -285,12 +621,6 @@ document.querySelectorAll("[data-i18n]").forEach(el => {
   if (translations[lang][key]) {
     el.textContent = translations[lang][key];
   }
-});
-
-document.querySelectorAll(".legal-nav a").forEach(link => {
-  const url = new URL(link.getAttribute("href"), window.location.origin);
-  url.searchParams.set("lang", lang);
-  link.href = url.pathname + url.search;
 });
 </script>
 
