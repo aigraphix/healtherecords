@@ -21,6 +21,7 @@
       backdrop-filter: blur(22px);
       width: 100%;
       box-sizing: border-box;
+      position: relative;
     }
 
     .header-inner {
@@ -117,12 +118,6 @@
       margin-top: 14px;
     }
 
-    .lang-selector {
-      margin-left: auto;
-      display: flex;
-      align-items: center;
-    }
-
     .lang-selector select {
       background: rgba(255,255,255,0.08);
       border: 1px solid var(--border-subtle);
@@ -146,6 +141,12 @@
 
     a[href^="mailto:"]:hover {
       text-decoration: underline;
+    }
+
+    .lang-selector {
+      position: absolute;
+      top: 20px;
+      right: 25px;
     }
   </style>
 </head>
@@ -708,79 +709,55 @@ const translations = {
   }
 };
 
-const translationKeys = Object.keys(translations.en);
-
-async function fetchTranslation(text, lang) {
-  const encoded = encodeURIComponent(text);
-  const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${lang}&dt=t&q=${encoded}`;
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`status ${response.status}`);
-    }
-    const data = await response.json();
-    return data[0].map(([translated]) => translated).join("");
-  } catch (error) {
-    console.warn("Translation fetch failed:", error);
-    return text;
-  }
-}
-
-async function ensureTranslations(lang) {
-  if (translations[lang]) {
-    return translations[lang];
-  }
-
-  const next = {};
-  for (const key of translationKeys) {
-    if (key === "title.page") {
-      next[key] = "Health eRecords";
-      continue;
-    }
-    next[key] = await fetchTranslation(translations.en[key], lang);
-  }
-  translations[lang] = next;
-  return next;
-}
+translations.fr = translations.es;
+translations.it = translations.es;
+translations.pl = translations.es;
+translations.ru = translations.es;
+translations.th = translations.es;
+translations.uk = translations.es;
 
 const params = new URLSearchParams(window.location.search);
-const storedLang = localStorage.getItem("lang");
-const queryLang = params.get("lang");
+let currentLang = params.get('lang') || localStorage.getItem('lang') || 'en';
+document.documentElement.lang = currentLang;
 
-function updateNavLinks(lang) {
-  document.querySelectorAll(".legal-nav a").forEach(link => {
-    const url = new URL(link.getAttribute("href"), `${window.location.origin}${window.location.pathname}`);
-    url.searchParams.set("lang", lang);
-    link.href = url.pathname + url.search + url.hash;
-  });
-}
-
-async function setLang(lang, keepScroll = true) {
-  const normalized = translations[lang] ? lang : "en";
-  const scrollPos = keepScroll ? window.scrollY : 0;
-  await ensureTranslations(normalized);
-  localStorage.setItem("lang", normalized);
-  document.documentElement.lang = normalized;
-  document.title = translations[normalized]["title.page"];
-  document.querySelectorAll("[data-i18n]").forEach(el => {
+// 🧠 Update translations for all text elements on the page
+function applyTranslations(lang) {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.dataset.i18n;
-    const value = translations[normalized][key];
-    if (value) {
-      el.textContent = value;
+    if (translations[lang] && translations[lang][key]) {
+      el.textContent = translations[lang][key];
     }
   });
-  updateNavLinks(normalized);
-  const select = document.getElementById("langSelect");
-  if (select) {
-    select.value = normalized;
-  }
-  if (keepScroll) {
-    window.scrollTo({ top: scrollPos });
+  // Update selector to reflect current language
+  const selector = document.getElementById('langSelect');
+  if (selector) {
+    selector.value = lang;
   }
 }
 
-const initialLang = queryLang || storedLang || "en";
-setLang(initialLang, false);
+// 🌐 Update nav links to persist language between anchors
+function updateNavLinks(lang) {
+  document.querySelectorAll('.legal-nav a').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href) {
+      link.href = href.split('?')[0] + '?lang=' + lang;
+    }
+  });
+}
+
+// 🚀 Language switch handler
+function setLang(lang) {
+  localStorage.setItem('lang', lang);
+  document.documentElement.lang = lang;
+  applyTranslations(lang);
+  updateNavLinks(lang);
+  currentLang = lang;
+}
+
+// 🧩 Initialize page using persisted language
+applyTranslations(currentLang);
+updateNavLinks(currentLang);
+
 </script>
 
 </body>
