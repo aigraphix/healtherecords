@@ -12,20 +12,23 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      padding: 12px 20px;
-      border-radius: 24px;
-      margin: 12px 16px;
-      background: linear-gradient(145deg, rgba(93, 120, 201, 0.25), rgba(15, 23, 42, 0.45));
-      border: 1px solid rgba(141, 179, 255, 0.25);
-      box-shadow: 0 20px 60px rgba(8, 18, 41, 0.45);
-      backdrop-filter: blur(24px);
+      padding: 16px 12px;
+      border-radius: 30px;
+      margin: 12px 0 20px;
+      background: linear-gradient(155deg, rgba(59, 101, 175, 0.4), rgba(10, 16, 32, 0.6));
+      border: 1px solid rgba(141, 179, 255, 0.35);
+      box-shadow: 0 24px 60px rgba(8, 18, 41, 0.45);
+      backdrop-filter: blur(22px);
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .header-inner {
       display: flex;
       align-items: center;
       gap: 32px;
-      justify-content: space-between;
+      justify-content: center;
+      width: 100%;
     }
 
     .brand-row {
@@ -38,10 +41,12 @@
     .legal-nav {
       flex: 1;
       display: flex;
+      align-items: center;
       justify-content: center;
-      gap: 20px;
+      gap: 24px;
       flex-wrap: wrap;
-      font-size: 14px;
+      font-size: 15px;
+      font-weight: 600;
     }
 
     .legal-nav a {
@@ -92,8 +97,18 @@
     .section-grid {
       display: grid;
       gap: 24px;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      align-items: start;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      align-items: stretch;
+    }
+
+    .section-grid > article,
+    .section-grid > aside {
+      min-height: 100%;
+    }
+
+    .side-card {
+      padding: 32px 28px;
+      font-size: 15px;
     }
 
     .section-footnote {
@@ -103,7 +118,9 @@
     }
 
     .lang-selector {
-      margin-left: 24px;
+      margin-left: auto;
+      display: flex;
+      align-items: center;
     }
 
     .lang-selector select {
@@ -691,12 +708,40 @@ const translations = {
   }
 };
 
-translations.fr = translations.en;
-translations.it = translations.en;
-translations.pl = translations.en;
-translations.ru = translations.en;
-translations.th = translations.en;
-translations.uk = translations.es;
+const translationKeys = Object.keys(translations.en);
+
+async function fetchTranslation(text, lang) {
+  const encoded = encodeURIComponent(text);
+  const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${lang}&dt=t&q=${encoded}`;
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`status ${response.status}`);
+    }
+    const data = await response.json();
+    return data[0].map(([translated]) => translated).join("");
+  } catch (error) {
+    console.warn("Translation fetch failed:", error);
+    return text;
+  }
+}
+
+async function ensureTranslations(lang) {
+  if (translations[lang]) {
+    return translations[lang];
+  }
+
+  const next = {};
+  for (const key of translationKeys) {
+    if (key === "title.page") {
+      next[key] = "Health eRecords";
+      continue;
+    }
+    next[key] = await fetchTranslation(translations.en[key], lang);
+  }
+  translations[lang] = next;
+  return next;
+}
 
 const params = new URLSearchParams(window.location.search);
 const storedLang = localStorage.getItem("lang");
@@ -710,9 +755,10 @@ function updateNavLinks(lang) {
   });
 }
 
-function setLang(lang, keepScroll = true) {
+async function setLang(lang, keepScroll = true) {
   const normalized = translations[lang] ? lang : "en";
   const scrollPos = keepScroll ? window.scrollY : 0;
+  await ensureTranslations(normalized);
   localStorage.setItem("lang", normalized);
   document.documentElement.lang = normalized;
   document.title = translations[normalized]["title.page"];
