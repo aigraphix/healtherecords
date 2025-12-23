@@ -12,23 +12,24 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      padding: 16px 12px;
-      border-radius: 30px;
-      margin: 12px 0 20px;
-      background: linear-gradient(155deg, rgba(59, 101, 175, 0.4), rgba(10, 16, 32, 0.6));
-      border: 1px solid rgba(141, 179, 255, 0.35);
-      box-shadow: 0 24px 60px rgba(8, 18, 41, 0.45);
-      backdrop-filter: blur(22px);
+      padding: 20px 28px;
+      border-radius: 36px;
+      margin: 12px 0 28px;
+      background: linear-gradient(155deg, rgba(59, 101, 175, 0.45), rgba(10, 16, 32, 0.8));
+      border: 1px solid rgba(141, 179, 255, 0.45);
+      box-shadow: 0 24px 60px rgba(8, 18, 41, 0.35);
+      backdrop-filter: blur(28px);
       width: 100%;
       box-sizing: border-box;
       position: relative;
     }
 
     .header-inner {
-      display: flex;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
       align-items: center;
+      justify-items: stretch;
       gap: 32px;
-      justify-content: center;
       width: 100%;
     }
 
@@ -40,14 +41,16 @@
     }
 
     .legal-nav {
-      flex: 1;
+      justify-self: center;
+      width: min(640px, 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 24px;
+      gap: 26px;
       flex-wrap: wrap;
       font-size: 15px;
       font-weight: 600;
+      letter-spacing: 0.02em;
     }
 
     .legal-nav a {
@@ -145,8 +148,9 @@
 
     .lang-selector {
       position: absolute;
-      top: 20px;
-      right: 25px;
+      top: 50%;
+      right: 26px;
+      transform: translateY(-50%);
     }
   </style>
 </head>
@@ -709,52 +713,43 @@ const translations = {
   }
 };
 
-translations.fr = translations.es;
-translations.it = translations.es;
-translations.pl = translations.es;
-translations.ru = translations.es;
-translations.th = translations.es;
-translations.uk = translations.es;
-
 const params = new URLSearchParams(window.location.search);
 let currentLang = params.get('lang') || localStorage.getItem('lang') || 'en';
-document.documentElement.lang = currentLang;
 
-// 🧠 Update translations for all text elements on the page
+const supportedLangs = new Set(Object.keys(translations));
+const getTranslationLang = lang => supportedLangs.has(lang) ? lang : 'en';
+
+// 🧠 Update translations for all [data-i18n] elements
 function applyTranslations(lang) {
+  const translationLang = getTranslationLang(lang);
+  const bundle = translations[translationLang] || translations.en;
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.dataset.i18n;
-    if (translations[lang] && translations[lang][key]) {
-      el.textContent = translations[lang][key];
-    }
+    const text = bundle?.[key] || translations.en?.[key];
+    if (text) el.textContent = text;
   });
-  // Update selector to reflect current language
   const selector = document.getElementById('langSelect');
-  if (selector) {
-    selector.value = lang;
-  }
+  if (selector) selector.value = lang;
+  document.documentElement.lang = translationLang;
 }
 
-// 🌐 Update nav links to persist language between anchors
+// 🌐 Keep nav links in sync with the active language
 function updateNavLinks(lang) {
   document.querySelectorAll('.legal-nav a').forEach(link => {
     const href = link.getAttribute('href');
-    if (href) {
-      link.href = href.split('?')[0] + '?lang=' + lang;
-    }
+    if (href) link.href = href.split('?')[0] + '?lang=' + lang;
   });
 }
 
 // 🚀 Language switch handler
 function setLang(lang) {
   localStorage.setItem('lang', lang);
-  document.documentElement.lang = lang;
+  currentLang = lang;
   applyTranslations(lang);
   updateNavLinks(lang);
-  currentLang = lang;
 }
 
-// 🧩 Initialize page using persisted language
+// 🧩 Initialize page translations and links
 applyTranslations(currentLang);
 updateNavLinks(currentLang);
 
