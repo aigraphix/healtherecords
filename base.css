@@ -32,8 +32,6 @@ header { display: flex; align-items: center; justify-content: space-between; mar
 }
 .brand-text-main { font-weight: 700; font-size: 18px; letter-spacing: 0.03em; }
 .brand-text-sub { font-size: 12px; color: var(--text-muted); }
-.pill { padding: 8px 14px; border-radius: 999px; border: 1px solid var(--border-subtle); background: rgba(255,255,255,0.03); font-size: 12px; color: var(--text-muted); display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
-.pill-dot { width: 10px; height: 10px; border-radius: 999px; background: #22c55e; box-shadow: 0 0 10px rgba(34,197,94,.75); }
 .layout { display: grid; grid-template-columns: minmax(0,1.4fr) minmax(0,1fr); gap: 24px; }
 @media (max-width: 900px) { .layout { grid-template-columns: minmax(0,1fr); } }
 .card {
