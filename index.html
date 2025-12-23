@@ -8,10 +8,6 @@
   <link rel="stylesheet" href="base.css">
   <style>
     html { scroll-behavior: smooth; }
-    header {
-      position: relative;
-    }
-
     .legal-nav {
       display: flex;
       gap: 16px;
@@ -78,10 +74,14 @@
       margin-top: 14px;
     }
 
+    .brand-pill {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
     .lang-selector {
-      position: absolute;
-      right: 20px;
-      top: 20px;
+      margin-left: auto;
     }
 
     .lang-selector select {
@@ -99,6 +99,15 @@
     .lang-selector select:hover {
       background: rgba(255,255,255,0.15);
     }
+
+    a[href^="mailto:"] {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    a[href^="mailto:"]:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 
@@ -106,17 +115,19 @@
 <div class="page-wrapper">
 
 <header>
-  <div class="brand">
-    <img class="brand-icon" src="icon.png" alt="Health eRecords">
-    <div>
-      <div class="brand-text-main">Health eRecords</div>
-      <div class="brand-text-sub" data-i18n="brand.tagline"></div>
+  <div class="brand-pill">
+    <div class="brand">
+      <img class="brand-icon" src="icon.png" alt="Health eRecords">
+      <div>
+        <div class="brand-text-main">Health eRecords</div>
+        <div class="brand-text-sub" data-i18n="brand.tagline"></div>
+      </div>
     </div>
-  </div>
 
-  <div class="pill">
-    <span class="pill-dot"></span>
-    <span data-i18n="pill.title"></span>
+    <div class="pill">
+      <span class="pill-dot"></span>
+      <span data-i18n="pill.title"></span>
+    </div>
   </div>
 
   <div class="lang-selector">
