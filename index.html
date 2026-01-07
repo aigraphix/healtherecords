@@ -3,49 +3,70 @@
 <head>
   <meta charset="utf-8">
   <title data-i18n="page.title">Health eRecords</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <meta name="description" content="HIPAA-compliant personal health record designed for privacy, clarity, and total control">
   <style>
     :root {
-      /* Deep Navy & Glass Palette */
+      /* Enhanced Color Palette */
       --bg-body: #020617;
       --bg-card: rgba(30, 41, 59, 0.6); 
-      --bg-card-hover: rgba(30, 41, 59, 0.8);
-      --border-subtle: rgba(148, 163, 184, 0.1);
-      --border-highlight: rgba(56, 189, 248, 0.3);
+      --bg-card-hover: rgba(30, 41, 59, 0.85);
+      --border-subtle: rgba(148, 163, 184, 0.12);
+      --border-highlight: rgba(56, 189, 248, 0.4);
 
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
+      --text-bright: #e2e8f0;
       --accent: #38bdf8;
-      --accent-glow: rgba(56, 189, 248, 0.15);
+      --accent-secondary: #22d3ee;
+      --accent-glow: rgba(56, 189, 248, 0.2);
+      --green-accent: #10b981;
 
       --header-height: 72px;
-      --radius: 20px;
+      --radius: 24px;
+      --radius-sm: 12px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* Scrollbar */
-    ::-webkit-scrollbar { width: 8px; }
+    /* Smooth Scrollbar */
+    ::-webkit-scrollbar { width: 10px; }
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb {
-      background-color: rgba(148, 163, 184, 0.2);
+      background: linear-gradient(180deg, rgba(56, 189, 248, 0.3), rgba(34, 211, 238, 0.3));
       border-radius: 20px;
       border: 2px solid transparent;
       background-clip: content-box;
     }
-    html { scroll-behavior: smooth; }
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(180deg, rgba(56, 189, 248, 0.5), rgba(34, 211, 238, 0.5));
+      background-clip: content-box;
+    }
+    
+    html { 
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
 
-    * { box-sizing: border-box; }
+    * { 
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       margin: 0;
       background-color: var(--bg-body);
-      /* Premium gradient background */
+      /* Enhanced gradient background with animation */
       background-image: 
-        radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.08) 0%, transparent 25%),
-        radial-gradient(circle at 85% 30%, rgba(99, 102, 241, 0.08) 0%, transparent 25%);
+        radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.1) 0%, transparent 30%),
+        radial-gradient(circle at 85% 30%, rgba(34, 211, 238, 0.08) 0%, transparent 30%),
+        radial-gradient(circle at 50% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 25%);
       color: var(--text-main);
-      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       overflow-x: hidden;
-      line-height: 1.5;
+      line-height: 1.6;
+      font-size: 16px;
     }
 
     /* --- HEADER --- */
@@ -55,22 +76,28 @@
       z-index: 100;
       width: 100%;
       height: var(--header-height);
-      background: rgba(2, 6, 23, 0.85);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      background: rgba(2, 6, 23, 0.9);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
       border-bottom: 1px solid var(--border-subtle);
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: var(--transition);
+    }
+
+    .top-header.scrolled {
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
     }
 
     .header-inner {
       width: 100%;
-      max-width: 1100px;
-      padding: 0 24px;
+      max-width: 1200px;
+      padding: 0 clamp(16px, 5vw, 32px);
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 20px;
     }
 
     .brand {
@@ -78,151 +105,251 @@
       align-items: center;
       gap: 12px;
       text-decoration: none;
+      transition: var(--transition);
     }
 
-    /* Icon mimicking the screenshot */
+    .brand:hover {
+      transform: translateY(-1px);
+    }
+
+    /* Enhanced Brand Icon with gradient matching app icon */
     .brand-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      background: linear-gradient(135deg, #38bdf8, #2563eb);
-      box-shadow: 0 0 15px var(--accent-glow);
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #38bdf8 0%, #22d3ee 50%, #10b981 100%);
+      box-shadow: 0 4px 16px var(--accent-glow), 0 0 0 1px rgba(255, 255, 255, 0.1);
       display: grid; 
       place-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-icon::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.1) 100%);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .brand:hover .brand-icon::before {
+      opacity: 1;
+    }
+
+    .brand-icon svg {
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
     }
 
     .brand-text {
       font-weight: 700;
-      font-size: 17px;
+      font-size: 18px;
       color: #fff;
-      letter-spacing: -0.01em;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
     .nav-links {
       display: flex;
-      gap: 4px;
-      background: rgba(255,255,255,0.03);
-      padding: 4px;
-      border-radius: 12px;
+      gap: 6px;
+      background: rgba(255,255,255,0.04);
+      padding: 6px;
+      border-radius: var(--radius-sm);
       border: 1px solid var(--border-subtle);
     }
 
     .nav-links a {
       color: var(--text-muted);
       text-decoration: none;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 500;
-      padding: 6px 14px;
+      padding: 8px 16px;
       border-radius: 8px;
-      transition: all 0.2s;
+      transition: var(--transition);
+      white-space: nowrap;
     }
 
     .nav-links a:hover {
-      color: #fff;
-      background: rgba(255,255,255,0.08);
+      color: var(--text-bright);
+      background: rgba(56, 189, 248, 0.1);
+    }
+
+    .nav-links a:active {
+      transform: scale(0.97);
     }
 
     /* --- LAYOUT --- */
     main {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 40px 24px 80px; /* Reduced vertical padding */
+      padding: clamp(32px, 8vw, 64px) clamp(16px, 5vw, 32px) 80px;
       display: flex;
       flex-direction: column;
-      gap: 60px; /* Tighter gap between sections */
+      gap: clamp(48px, 8vw, 80px);
     }
 
     section {
-      scroll-margin-top: calc(var(--header-height) + 20px);
+      scroll-margin-top: calc(var(--header-height) + 32px);
     }
 
-    /* HERO */
+    /* HERO with improved typography */
     .hero {
       text-align: center;
-      padding: 40px 0 20px;
+      padding: clamp(32px, 6vw, 60px) 0 clamp(24px, 4vw, 40px);
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .hero h1 { 
-      font-size: 48px; 
-      margin: 0 0 20px; 
+      font-size: clamp(36px, 6vw, 56px);
+      margin: 0 0 24px; 
       font-weight: 800; 
-      letter-spacing: -0.02em;
-      background: linear-gradient(to bottom right, #fff, #cbd5e1);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      background: linear-gradient(135deg, #fff 0%, #e2e8f0 50%, #cbd5e1 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .hero p { 
-      margin: 0 auto 30px; 
-      font-size: 18px; 
+      margin: 0 auto 32px; 
+      font-size: clamp(16px, 2.5vw, 20px);
       color: var(--text-muted);
-      max-width: 60ch; 
+      max-width: 65ch;
+      line-height: 1.7;
     }
 
-    /* --- BENTO GRID SYSTEM --- */
+    /* --- ENHANCED BENTO GRID --- */
     .bento-grid {
       display: grid;
-      /* This makes standard cards side-by-side */
-      grid-template-columns: repeat(2, 1fr); 
-      gap: 24px;
-      align-items: stretch; /* Forces equal height */
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr));
+      gap: clamp(20px, 3vw, 28px);
+      align-items: stretch;
     }
 
     .card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius);
-      padding: 32px;
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      padding: clamp(24px, 4vw, 36px);
+      transition: var(--transition);
       display: flex;
       flex-direction: column;
-      height: 100%; /* Important for stretch */
+      height: 100%;
       position: relative;
       overflow: hidden;
+      animation: fadeInUp 0.6s ease-out backwards;
+    }
+
+    .card:nth-child(1) { animation-delay: 0.1s; }
+    .card:nth-child(2) { animation-delay: 0.2s; }
+    .card:nth-child(3) { animation-delay: 0.3s; }
+    .card:nth-child(4) { animation-delay: 0.4s; }
+
+    /* Subtle gradient overlay */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0;
+      transition: var(--transition);
     }
 
     .card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-6px);
       background: var(--bg-card-hover);
       border-color: var(--border-highlight);
-      box-shadow: 0 20px 40px -10px rgba(0,0,0,0.4);
+      box-shadow: 
+        0 24px 48px -12px rgba(0,0,0,0.5),
+        0 0 0 1px rgba(56, 189, 248, 0.1),
+        0 0 32px rgba(56, 189, 248, 0.15);
     }
 
-    /* Heading inside cards */
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    /* Card headings with icon support */
     .card h2 {
-      font-size: 24px;
-      margin: 0 0 8px;
-      color: #fff;
+      font-size: clamp(22px, 3vw, 26px);
+      margin: 0 0 10px;
+      color: var(--text-bright);
       font-weight: 700;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card-icon {
+      font-size: 24px;
+      line-height: 1;
     }
 
     .card-subtitle {
-      font-size: 14px;
+      font-size: clamp(14px, 2vw, 15px);
       color: var(--text-muted);
-      margin-bottom: 24px;
-      padding-bottom: 16px;
+      margin-bottom: 28px;
+      padding-bottom: 20px;
       border-bottom: 1px solid var(--border-subtle);
+      line-height: 1.6;
     }
 
     .section-title {
-      font-size: 14px;
+      font-size: 13px;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
       color: var(--accent);
       font-weight: 700;
-      margin: 20px 0 12px;
+      margin: 24px 0 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    /* Lists */
-    ul { padding: 0; margin: 0; list-style: none; }
+    /* Enhanced Lists */
+    ul { 
+      padding: 0; 
+      margin: 0; 
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
 
     li {
-      margin-bottom: 10px;
-      font-size: 15px;
+      font-size: clamp(14px, 2vw, 15px);
       color: var(--text-muted);
       display: flex;
       align-items: flex-start;
-      gap: 10px;
+      gap: 12px;
+      line-height: 1.7;
+      transition: var(--transition);
+    }
+
+    li:hover {
+      color: var(--text-bright);
     }
 
     li::before {
@@ -231,21 +358,58 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: var(--accent);
-      margin-top: 8px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+      margin-top: 10px;
       flex-shrink: 0;
+      box-shadow: 0 0 8px var(--accent-glow);
     }
 
-    /* Small Pill for "Effective Date" */
+    /* Enhanced Pill */
     .meta-pill {
-      margin-top: auto; /* Pushes to bottom */
+      margin-top: auto;
+      padding-top: 20px;
       display: inline-flex;
+      align-items: center;
+      gap: 8px;
       font-size: 12px;
       color: var(--text-muted);
-      background: rgba(255,255,255,0.05);
-      padding: 6px 12px;
-      border-radius: 6px;
+      background: rgba(56, 189, 248, 0.08);
+      padding: 10px 16px;
+      border-radius: 8px;
       align-self: flex-start;
+      border: 1px solid rgba(56, 189, 248, 0.15);
+      font-weight: 500;
+    }
+
+    .meta-pill::before {
+      content: "📅";
+      font-size: 14px;
+    }
+
+    /* Enhanced Email Link */
+    .email-link {
+      display: block;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(34, 211, 238, 0.15));
+      color: var(--accent);
+      padding: 16px 24px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 24px;
+      transition: var(--transition);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      font-size: clamp(14px, 2vw, 15px);
+    }
+
+    .email-link:hover {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.25), rgba(34, 211, 238, 0.25));
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(56, 189, 248, 0.2);
+    }
+
+    .email-link:active {
+      transform: translateY(0);
     }
 
     /* Footer */
@@ -254,56 +418,222 @@
       padding-top: 60px;
       border-top: 1px solid var(--border-subtle);
       color: var(--text-muted);
-      font-size: 13px;
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
     }
 
-    /* Responsive */
-    @media (max-width: 800px) {
-      .bento-grid { grid-template-columns: 1fr; }
-      .header-inner { flex-direction: column; gap: 16px; padding: 12px; }
-      .top-header { height: auto; position: relative; }
-      .nav-links { width: 100%; overflow-x: auto; justify-content: flex-start; }
-      .hero h1 { font-size: 36px; }
+    .footer-content {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     /* --- DROPDOWN --- */
-    .custom-select-wrapper { position: relative; user-select: none; margin-left: 12px; }
+    .custom-select-wrapper { 
+      position: relative; 
+      user-select: none;
+    }
+    
     .custom-select-trigger {
-      display: flex; align-items: center; gap: 6px; padding: 6px 12px;
-      background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-subtle);
-      border-radius: 8px; cursor: pointer; font-size: 13px; color: #fff;
+      display: flex; 
+      align-items: center; 
+      gap: 8px; 
+      padding: 8px 14px;
+      background: rgba(255, 255, 255, 0.05); 
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px; 
+      cursor: pointer; 
+      font-size: 13px; 
+      color: var(--text-bright);
+      transition: var(--transition);
+      font-weight: 500;
     }
+
+    .custom-select-trigger:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--border-highlight);
+    }
+
     .custom-options {
-      position: absolute; top: calc(100% + 8px); right: 0;
-      background: #0f172a; border: 1px solid var(--border-subtle);
-      border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-      z-index: 200; opacity: 0; visibility: hidden; width: 140px;
-      transform: translateY(-10px); transition: all 0.2s;
+      position: absolute; 
+      top: calc(100% + 10px); 
+      right: 0;
+      background: rgba(15, 23, 42, 0.95); 
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm); 
+      box-shadow: 0 16px 48px rgba(0,0,0,0.6);
+      z-index: 200; 
+      opacity: 0; 
+      visibility: hidden; 
+      min-width: 160px;
+      transform: translateY(-10px); 
+      transition: var(--transition);
+      max-height: 320px;
+      overflow-y: auto;
     }
-    .custom-select-wrapper.open .custom-options { opacity: 1; visibility: visible; transform: translateY(0); }
+
+    .custom-select-wrapper.open .custom-options { 
+      opacity: 1; 
+      visibility: visible; 
+      transform: translateY(0); 
+    }
+
     .custom-option {
-      padding: 10px 14px; font-size: 13px; color: var(--text-muted); cursor: pointer;
-      border-bottom: 1px solid rgba(255,255,255,0.02);
+      padding: 12px 16px; 
+      font-size: 14px; 
+      color: var(--text-muted); 
+      cursor: pointer;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+      transition: var(--transition);
     }
-    .custom-option:hover { background: rgba(56, 189, 248, 0.1); color: #fff; }
-    .custom-option.selected { color: var(--accent); font-weight: 600; }
+
+    .custom-option:last-child {
+      border-bottom: none;
+    }
+
+    .custom-option:hover { 
+      background: rgba(56, 189, 248, 0.12); 
+      color: var(--text-bright); 
+    }
+
+    .custom-option.selected { 
+      color: var(--accent); 
+      font-weight: 600;
+      background: rgba(56, 189, 248, 0.08);
+    }
+
+    /* Mobile Optimizations */
+    @media (max-width: 768px) {
+      .bento-grid { 
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .header-inner { 
+        flex-wrap: wrap;
+        padding: 12px 16px;
+      }
+      
+      .top-header { 
+        height: auto;
+        position: sticky;
+        padding: 8px 0;
+      }
+
+      .nav-container {
+        width: 100%;
+        justify-content: space-between;
+      }
+      
+      .nav-links { 
+        flex: 1;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+
+      .nav-links::-webkit-scrollbar {
+        display: none;
+      }
+      
+      .nav-links a {
+        padding: 8px 14px;
+        font-size: 13px;
+      }
+
+      .hero h1 { 
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        font-size: 16px;
+        margin-bottom: 24px;
+      }
+
+      .card {
+        padding: 24px;
+      }
+
+      .card h2 {
+        font-size: 22px;
+      }
+
+      .brand-icon {
+        width: 36px;
+        height: 36px;
+      }
+
+      .brand-text {
+        font-size: 16px;
+      }
+
+      /* Better touch targets */
+      .nav-links a,
+      .custom-select-trigger,
+      .custom-option {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    /* Extra small devices */
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      main {
+        padding: 24px 16px 60px;
+        gap: 40px;
+      }
+    }
+
+    /* Reduced motion for accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Dark mode optimization (already dark, but for system preferences) */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: var(--bg-body);
+      }
+    }
   </style>
 </head>
 
 <body>
 
-  <header class="top-header">
+  <header class="top-header" id="header">
     <div class="header-inner">
       <a href="#" class="brand">
         <div class="brand-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3.05.8-4.5 2-1.45-1.2-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
-            </svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3.05.8-4.5 2-1.45-1.2-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+            <path d="M3.22 12h3.27l2 4.5 3.04-9 2 4.5h3.3"/>
+          </svg>
         </div>
         <div class="brand-text">Health eRecords</div>
       </a>
 
-      <div style="display:flex; align-items:center;">
+      <div class="nav-container">
         <nav class="nav-links">
           <a href="#privacy" data-i18n="nav.privacy">Privacy</a>
           <a href="#terms" data-i18n="nav.terms">Terms</a>
@@ -314,7 +644,9 @@
         <div class="custom-select-wrapper">
           <div class="custom-select-trigger">
             <span id="currentLangLabel">English</span>
-            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1L5 5L9 1"/></svg>
+            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 1L6 6L11 1"/>
+            </svg>
           </div>
           <div class="custom-options">
             <div class="custom-option selected" data-value="en">English</div>
@@ -342,7 +674,7 @@
     <div class="bento-grid">
 
       <section id="privacy" class="card">
-        <h2 data-i18n="privacy.heading">Privacy Policy</h2>
+        <h2><span class="card-icon">🔒</span><span data-i18n="privacy.heading">Privacy Policy</span></h2>
         <div class="card-subtitle" data-i18n="privacy.intro">We believe in data minimization and absolute transparency.</div>
 
         <div class="section-title" data-i18n="privacy.collect.title">Data We Collect</div>
@@ -361,7 +693,7 @@
       </section>
 
       <section id="terms" class="card">
-        <h2 data-i18n="terms.heading">Terms of Service</h2>
+        <h2><span class="card-icon">📋</span><span data-i18n="terms.heading">Terms of Service</span></h2>
         <div class="card-subtitle" data-i18n="terms.intro">By using Health eRecords, you agree to these standard terms.</div>
 
         <div class="section-title" data-i18n="terms.medical.title">⚠️ No Medical Advice</div>
@@ -383,10 +715,10 @@
     <div class="bento-grid">
 
       <section id="hipaa" class="card">
-        <h2 data-i18n="hipaa.heading">HIPAA Notice</h2>
+        <h2><span class="card-icon">🛡️</span><span data-i18n="hipaa.heading">HIPAA Notice</span></h2>
         <div class="card-subtitle" data-i18n="hipaa.intro">We adhere to federal standards to protect your Protected Health Information (PHI).</div>
 
-        <div class="section-title">🛡 <span data-i18n="hipaa.rights.title">Your Rights</span></div>
+        <div class="section-title"><span data-i18n="hipaa.rights.title">Your Rights</span></div>
         <ul>
           <li data-i18n="hipaa.rights.1">Right to access and receive a copy of your health records.</li>
           <li data-i18n="hipaa.rights.2">Right to request corrections to your data.</li>
@@ -400,38 +732,40 @@
         </ul>
       </section>
 
-      <section id="support" class="card" style="justify-content: space-between;">
-        <div>
-          <h2 data-i18n="support.heading">Support & Security</h2>
-          <div class="card-subtitle" data-i18n="support.intro">We are here to help you.</div>
+      <section id="support" class="card">
+        <h2><span class="card-icon">💬</span><span data-i18n="support.heading">Support & Security</span></h2>
+        <div class="card-subtitle" data-i18n="support.intro">We are here to help you.</div>
 
-          <div class="section-title" data-i18n="support.encryption.title">Encryption</div>
-          <ul>
-            <li data-i18n="support.encryption.rest">Data At Rest: Encrypted locally using iOS Keychain.</li>
-            <li data-i18n="support.encryption.transit">Data In Transit: TLS 1.3 (HTTPS) for all connections.</li>
-          </ul>
+        <div class="section-title" data-i18n="support.encryption.title">Encryption</div>
+        <ul>
+          <li data-i18n="support.encryption.rest">Data At Rest: Encrypted locally using iOS Keychain.</li>
+          <li data-i18n="support.encryption.transit">Data In Transit: TLS 1.3 (HTTPS) for all connections.</li>
+        </ul>
 
-          <div class="section-title" data-i18n="support.contact.title">Contact Us</div>
-          <ul>
-            <li data-i18n="support.contact.tech">Technical Issues</li>
-            <li data-i18n="support.contact.privacy">Privacy & Data Deletion Requests</li>
-          </ul>
-        </div>
+        <div class="section-title" data-i18n="support.contact.title">Contact Us</div>
+        <ul>
+          <li data-i18n="support.contact.tech">Technical Issues</li>
+          <li data-i18n="support.contact.privacy">Privacy & Data Deletion Requests</li>
+        </ul>
 
-        <a href="mailto:apd1034@gmail.com" style="display:block; text-align:center; background: rgba(56, 189, 248, 0.15); color: var(--accent); padding:14px; border-radius:12px; text-decoration:none; font-weight:600; margin-top:20px; transition: background 0.2s;">
-           apd1034@gmail.com
+        <a href="mailto:apd1034@gmail.com" class="email-link">
+          apd1034@gmail.com
         </a>
       </section>
 
     </div>
 
     <footer>
-      <span data-i18n="footer.copyright">© 2025 Health eRecords •</span>
-      <span data-i18n="footer.built">Built for Privacy</span>
+      <div class="footer-content">
+        <span data-i18n="footer.copyright">© 2025 Health eRecords</span>
+        <span>•</span>
+        <span data-i18n="footer.built">Built for Privacy</span>
+      </div>
     </footer>
 
   </main>
 
+<script>
 <script>
 // --- TRANSLATIONS ---
 const translations = {
