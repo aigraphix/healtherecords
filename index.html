@@ -635,28 +635,62 @@
             }
 
             /* ── LANGUAGE DROPDOWN ── */
-            .lang-select-wrapper { position: relative; user-select: none; margin-left: 12px; }
+            .lang-select-wrapper {
+                position: relative;
+                user-select: none;
+                margin-left: 12px;
+            }
             .lang-select-trigger {
-                display: flex; align-items: center; gap: 6px; padding: 6px 12px;
-                background: rgba(255,255,255,0.05); border: 1px solid var(--border);
-                border-radius: 8px; cursor: pointer; font-size: 13px; color: #fff;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                padding: 6px 12px;
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid var(--border);
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: 13px;
+                color: #fff;
                 transition: background 0.2s;
             }
-            .lang-select-trigger:hover { background: rgba(255,255,255,0.1); }
+            .lang-select-trigger:hover {
+                background: rgba(255, 255, 255, 0.1);
+            }
             .lang-select-options {
-                position: absolute; top: calc(100% + 8px); right: 0;
-                background: #0f172a; border: 1px solid var(--border);
-                border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-                z-index: 200; opacity: 0; visibility: hidden; width: 150px;
-                transform: translateY(-10px); transition: all 0.2s;
+                position: absolute;
+                top: calc(100% + 8px);
+                right: 0;
+                background: #0f172a;
+                border: 1px solid var(--border);
+                border-radius: 12px;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+                z-index: 200;
+                opacity: 0;
+                visibility: hidden;
+                width: 150px;
+                transform: translateY(-10px);
+                transition: all 0.2s;
             }
-            .lang-select-wrapper.open .lang-select-options { opacity: 1; visibility: visible; transform: translateY(0); }
+            .lang-select-wrapper.open .lang-select-options {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
             .lang-opt {
-                padding: 10px 14px; font-size: 13px; color: var(--text-muted); cursor: pointer;
-                border-bottom: 1px solid rgba(255,255,255,0.02);
+                padding: 10px 14px;
+                font-size: 13px;
+                color: var(--text-muted);
+                cursor: pointer;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.02);
             }
-            .lang-opt:hover { background: rgba(56,189,248,0.1); color: #fff; }
-            .lang-opt.selected { color: var(--accent); font-weight: 600; }
+            .lang-opt:hover {
+                background: rgba(56, 189, 248, 0.1);
+                color: #fff;
+            }
+            .lang-opt.selected {
+                color: var(--accent);
+                font-weight: 600;
+            }
         </style>
     </head>
 
@@ -672,36 +706,63 @@
                     />
                     <div>
                         <div class="brand-main">Health eRecords</div>
-                        <div class="brand-sub">
+                        <div class="brand-sub" data-i18n="brand.sub">
                             Your health. Your data. Your control.
                         </div>
                     </div>
                 </a>
                 <div class="nav-links">
                     <a href="#features" data-i18n="nav.features">Features</a>
-                    <a href="#architecture" data-i18n="nav.arch">Architecture</a>
+                    <a href="#architecture" data-i18n="nav.arch"
+                    >Architecture</a>
                     <a href="#security" data-i18n="nav.security">Security</a>
                     <a href="#languages" data-i18n="nav.languages">Languages</a>
                     <a href="legal/" data-i18n="nav.legal">Legal</a>
-                    <a href="#cta" class="nav-cta" data-i18n="nav.cta">Get Started</a>
+                    <a href="#cta" class="nav-cta" data-i18n="nav.cta"
+                    >Get Started</a>
 
-                <div class="lang-select-wrapper">
-                    <div class="lang-select-trigger">
-                        <span id="currentLangLabel">English</span>
-                        <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1L5 5L9 1"/></svg>
+                    <div class="lang-select-wrapper">
+                        <div class="lang-select-trigger">
+                            <span id="currentLangLabel">English</span>
+                            <svg
+                                width="10"
+                                height="6"
+                                viewBox="0 0 10 6"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            >
+                                <path d="M1 1L5 5L9 1" />
+                            </svg>
+                        </div>
+                        <div class="lang-select-options">
+                            <div class="lang-opt selected" data-value="en">
+                                🇺🇸 English
+                            </div>
+                            <div class="lang-opt" data-value="es">
+                                🇪🇸 Español
+                            </div>
+                            <div class="lang-opt" data-value="fr">
+                                🇫🇷 Français
+                            </div>
+                            <div class="lang-opt" data-value="it">
+                                🇮🇹 Italiano
+                            </div>
+                            <div class="lang-opt" data-value="ja">
+                                🇯🇵 日本語
+                            </div>
+                            <div class="lang-opt" data-value="pl">
+                                🇵🇱 Polski
+                            </div>
+                            <div class="lang-opt" data-value="ru">
+                                🇷🇺 Русский
+                            </div>
+                            <div class="lang-opt" data-value="uk">
+                                🇺🇦 Українська
+                            </div>
+                            <div class="lang-opt" data-value="zh">🇨🇳 中文</div>
+                        </div>
                     </div>
-                    <div class="lang-select-options">
-                        <div class="lang-opt selected" data-value="en">🇺🇸 English</div>
-                        <div class="lang-opt" data-value="es">🇪🇸 Español</div>
-                        <div class="lang-opt" data-value="fr">🇫🇷 Français</div>
-                        <div class="lang-opt" data-value="it">🇮🇹 Italiano</div>
-                        <div class="lang-opt" data-value="ja">🇯🇵 日本語</div>
-                        <div class="lang-opt" data-value="pl">🇵🇱 Polski</div>
-                        <div class="lang-opt" data-value="ru">🇷🇺 Русский</div>
-                        <div class="lang-opt" data-value="uk">🇺🇦 Українська</div>
-                        <div class="lang-opt" data-value="zh">🇨🇳 中文</div>
-                    </div>
-                </div>
                 </div>
             </div>
         </nav>
@@ -711,12 +772,15 @@
             <section class="hero">
                 <h1>
                     Your Personal Health Records,<br />
-                    <span class="gradient-text" data-i18n="hero.title2">Powered by AI</span>
+                    <span class="gradient-text" data-i18n="hero.title2"
+                    >Powered by AI</span>
                 </h1>
                 <p>
-<span data-i18n="hero.desc">Securely log, scan, and manage your medical documents,
-                    appointments, and health data — with AI-assisted summaries,
-                    offline support, and HIPAA-compliant encryption.</span>
+                    <span data-i18n="hero.desc"
+                    >Securely log, scan, and manage your medical documents,
+                        appointments, and health data — with AI-assisted
+                        summaries, offline support, and HIPAA-compliant
+                        encryption.</span>
                 </p>
                 <div class="hero-actions">
                     <a href="#cta" class="btn-primary">
@@ -736,27 +800,39 @@
             <div class="stats-bar">
                 <div class="stat">
                     <div class="stat-value">9</div>
-                    <div class="stat-label" data-i18n="stat.lang">Languages Supported</div>
+                    <div class="stat-label" data-i18n="stat.lang">
+                        Languages Supported
+                    </div>
                 </div>
                 <div class="stat">
                     <div class="stat-value">12</div>
-                    <div class="stat-label" data-i18n="stat.offline">Offline Log Types</div>
+                    <div class="stat-label" data-i18n="stat.offline">
+                        Offline Log Types
+                    </div>
                 </div>
                 <div class="stat">
                     <div class="stat-value">E2EE</div>
-                    <div class="stat-label" data-i18n="stat.e2ee">End-to-End Encrypted</div>
+                    <div class="stat-label" data-i18n="stat.e2ee">
+                        End-to-End Encrypted
+                    </div>
                 </div>
                 <div class="stat">
                     <div class="stat-value">HIPAA</div>
-                    <div class="stat-label" data-i18n="stat.hipaa">Compliant by Design</div>
+                    <div class="stat-label" data-i18n="stat.hipaa">
+                        Compliant by Design
+                    </div>
                 </div>
             </div>
 
             <!-- ── FEATURES ── -->
             <section id="features">
-                <div class="section-label" data-i18n="feat.label">✦ Capabilities</div>
-                <h2 data-i18n="feat.title">Everything You Need to<br />Manage Your Health</h2>
-                <p class="section-desc">
+                <div class="section-label" data-i18n="feat.label">
+                    ✦ Capabilities
+                </div>
+                <h2 data-i18n="feat.title">
+                    Everything You Need to<br />Manage Your Health
+                </h2>
+                <p class="section-desc" data-i18n="feat.desc">
                     Built with Expo, Supabase, and Gemini AI to give patients
                     and doctors a unified, secure, and intelligent health
                     platform.
@@ -767,10 +843,11 @@
                         <div class="feature-icon icon-blue">💬</div>
                         <h3 data-i18n="feat.chat.title">Agentic Chat</h3>
                         <p>
-                            Speak naturally — the AI classifies your intent,
-                            prepares the action, and confirms before writing.
-                            Book appointments, send messages, refill
-                            prescriptions, all by chatting.
+                            <span data-i18n="feat.chat.desc"
+                            >Speak naturally — the AI classifies your intent,
+                                prepares the action, and confirms before
+                                writing. Book appointments, send messages,
+                                refill prescriptions, all by chatting.</span>
                         </p>
                     </div>
 
@@ -778,10 +855,11 @@
                         <div class="feature-icon icon-green">📷</div>
                         <h3 data-i18n="feat.scan.title">Smart Scanner</h3>
                         <p>
-                            Unified camera scanner auto-detects barcodes and
-                            nutrition labels. Gemini Flash analyzes documents
-                            and images, extracting health-relevant information
-                            automatically.
+                            <span data-i18n="feat.scan.desc"
+                            >Unified camera scanner auto-detects barcodes and
+                                nutrition labels. Gemini Flash analyzes
+                                documents and images, extracting health-relevant
+                                information automatically.</span>
                         </p>
                     </div>
 
@@ -789,10 +867,11 @@
                         <div class="feature-icon icon-violet">🔌</div>
                         <h3 data-i18n="feat.offline.title">Offline Logging</h3>
                         <p>
-                            Log vitals offline — "BP 120/80", "Weight 185 lbs".
-                            Regex-based parser works without AI. SQLite queue
-                            syncs to Supabase when back online. 12 log types
-                            supported.
+                            <span data-i18n="feat.offline.desc"
+                            >Log vitals offline — "BP 120/80", "Weight 185 lbs".
+                                Regex-based parser works without AI. SQLite
+                                queue syncs to Supabase when back online. 12 log
+                                types supported.</span>
                         </p>
                     </div>
 
@@ -800,9 +879,11 @@
                         <div class="feature-icon icon-rose">🎥</div>
                         <h3 data-i18n="feat.tele.title">Telehealth</h3>
                         <p>
-                            LiveKit-powered real-time video appointments with
-                            doctors. Join your appointment from the chat — opens
-                            10 minutes before the scheduled time.
+                            <span data-i18n="feat.tele.desc"
+                            >LiveKit-powered real-time video appointments with
+                                doctors. Join your appointment from the chat —
+                                opens 10 minutes before the scheduled
+                                time.</span>
                         </p>
                     </div>
 
@@ -810,9 +891,11 @@
                         <div class="feature-icon icon-amber">📄</div>
                         <h3 data-i18n="feat.docs.title">Document Management</h3>
                         <p>
-                            Upload, view, and share medical documents via
-                            Supabase Storage. PDFs, images, and lab results —
-                            all secured with row-level security and signed URLs.
+                            <span data-i18n="feat.docs.desc"
+                            >Upload, view, and share medical documents via
+                                Supabase Storage. PDFs, images, and lab results
+                                — all secured with row-level security and signed
+                                URLs.</span>
                         </p>
                     </div>
 
@@ -820,9 +903,11 @@
                         <div class="feature-icon icon-cyan">🌐</div>
                         <h3 data-i18n="feat.lang.title">9 Languages</h3>
                         <p>
-                            Full i18n support with react-i18next. English,
-                            Spanish, French, Italian, Japanese, Polish, Russian,
-                            Ukrainian, and Chinese (Simplified).
+                            <span data-i18n="feat.lang.desc"
+                            >Full i18n support with react-i18next. English,
+                                Spanish, French, Italian, Japanese, Polish,
+                                Russian, Ukrainian, and Chinese
+                                (Simplified).</span>
                         </p>
                     </div>
                 </div>
@@ -830,9 +915,11 @@
 
             <!-- ── ARCHITECTURE ── -->
             <section id="architecture">
-                <div class="section-label" data-i18n="arch.label">🏗 Architecture</div>
+                <div class="section-label" data-i18n="arch.label">
+                    🏗 Architecture
+                </div>
                 <h2 data-i18n="arch.title">Built on a Modern Stack</h2>
-                <p class="section-desc">
+                <p class="section-desc" data-i18n="arch.desc">
                     Every layer is purpose-built for security, performance, and
                     developer experience.
                 </p>
@@ -883,8 +970,10 @@
 
                     <div class="badge-stack" id="security">
                         <div class="badge-card">
-                            <div class="badge-title" data-i18n="sec.hipaa">🛡️ HIPAA Compliant</div>
-                            <p class="badge-text">
+                            <div class="badge-title" data-i18n="sec.hipaa">
+                                🛡️ HIPAA Compliant
+                            </div>
+                            <p class="badge-text" data-i18n="sec.hipaa.desc">
                                 Protected Health Information (PHI) is encrypted
                                 in transit and at rest. Row-level security
                                 ensures patients only see their own data.
@@ -893,9 +982,9 @@
                         </div>
                         <div class="badge-card">
                             <div class="badge-title">
-                                🔒 End-to-End Encryption
+                                data-i18n="sec.e2ee"> 🔒 End-to-End Encryption
                             </div>
-                            <p class="badge-text">
+                            <p class="badge-text" data-i18n="sec.e2ee.desc">
                                 Messages are encrypted on-device before
                                 transmission. Only authorized recipients can
                                 decrypt content. Encryption keys are never
@@ -903,8 +992,10 @@
                             </p>
                         </div>
                         <div class="badge-card">
-                            <div class="badge-title" data-i18n="sec.ci">🔍 Security Gate CI</div>
-                            <p class="badge-text">
+                            <div class="badge-title" data-i18n="sec.ci">
+                                🔍 Security Gate CI
+                            </div>
+                            <p class="badge-text" data-i18n="sec.ci.desc">
                                 Automated GitHub Actions pipeline runs RLS
                                 policy probes, JWT abuse tests, secrets
                                 scanning, and adversarial simulations on every
@@ -917,9 +1008,11 @@
 
             <!-- ── LANGUAGES ── -->
             <section id="languages">
-                <div class="section-label" data-i18n="lang.label">🌍 Multilingual</div>
+                <div class="section-label" data-i18n="lang.label">
+                    🌍 Multilingual
+                </div>
                 <h2 data-i18n="lang.title">Speaks Your Language</h2>
-                <p class="section-desc">
+                <p class="section-desc" data-i18n="lang.desc">
                     Full translation coverage across 9 languages with automatic
                     language detection and in-app translation for health logs.
                 </p>
@@ -940,13 +1033,16 @@
             <section class="cta-section" id="cta">
                 <div class="section-label" data-i18n="cta.label">🚀 Ready?</div>
                 <h2>
-                    Take Control of Your<br /><span
+                    <span data-i18n="cta.title"
+                    >Take Control of Your</span><br /><span
                         style="background: linear-gradient(135deg, var(--accent), var(--accent-green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text"
+                        data-i18n="cta.title2"
                     >Health Data</span>
                 </h2>
                 <p>
-                    Open source, HIPAA-compliant, and built to give you full
-                    ownership of your medical records.
+                    <span data-i18n="cta.desc"
+                    >Open source, HIPAA-compliant, and built to give you full
+                        ownership of your medical records.</span>
                 </p>
                 <div class="hero-actions">
                     <a
@@ -969,7 +1065,9 @@
         <!-- ── FOOTER ── -->
         <footer>
             <div class="footer-inner">
-                <span>© 2025–2026 Health eRecords — Your health. Your data. Your control.</span>
+                <span data-i18n="footer.text"
+                >© 2025–2026 Health eRecords — Your health. Your data. Your
+                    control.</span>
                 <div class="footer-links">
                     <a href="#features">Features</a>
                     <a href="#architecture">Architecture</a>
@@ -983,216 +1081,731 @@
             </div>
         </footer>
 
-    <script>
-    const T = {
-      en: {
-        "hero.title1": "Your Personal Health Records,",
-        "hero.title2": "Powered by AI",
-        "hero.desc": "Securely log, scan, and manage your medical documents, appointments, and health data — with AI-assisted summaries, offline support, and HIPAA-compliant encryption.",
-        "btn.getstarted": "🚀 Get Started", "btn.github": "⭐ View on GitHub",
-        "stat.lang": "Languages Supported", "stat.offline": "Offline Log Types",
-        "stat.e2ee": "End-to-End Encrypted", "stat.hipaa": "Compliant by Design",
-        "feat.label": "✦ Capabilities", "feat.title": "Everything You Need to Manage Your Health",
-        "feat.chat.title": "Agentic Chat", "feat.scan.title": "Smart Scanner",
-        "feat.offline.title": "Offline Logging", "feat.tele.title": "Telehealth",
-        "feat.docs.title": "Document Management", "feat.lang.title": "9 Languages",
-        "arch.label": "🏗 Architecture", "arch.title": "Built on a Modern Stack",
-        "arch.stack": "Technology Stack",
-        "sec.hipaa": "🛡️ HIPAA Compliant", "sec.ci": "🔍 Security Gate CI",
-        "lang.label": "🌍 Multilingual", "lang.title": "Speaks Your Language",
-        "cta.label": "🚀 Ready?", "cta.star": "⭐ Star on GitHub", "cta.legal": "📜 Legal & Compliance",
-        "nav.features": "Features", "nav.arch": "Architecture", "nav.security": "Security",
-        "nav.languages": "Languages", "nav.legal": "Legal", "nav.cta": "Get Started"
-      },
-      es: {
-        "hero.title1": "Tus Registros de Salud Personales,",
-        "hero.title2": "Impulsados por IA",
-        "hero.desc": "Registra, escanea y gestiona documentos médicos, citas y datos de salud — con resúmenes de IA, soporte sin conexión y cifrado compatible con HIPAA.",
-        "btn.getstarted": "🚀 Comenzar", "btn.github": "⭐ Ver en GitHub",
-        "stat.lang": "Idiomas Soportados", "stat.offline": "Tipos de Registro Offline",
-        "stat.e2ee": "Cifrado de Extremo a Extremo", "stat.hipaa": "Compatible por Diseño",
-        "feat.label": "✦ Capacidades", "feat.title": "Todo lo que Necesitas para Gestionar tu Salud",
-        "feat.chat.title": "Chat Agente", "feat.scan.title": "Escáner Inteligente",
-        "feat.offline.title": "Registro Sin Conexión", "feat.tele.title": "Telesalud",
-        "feat.docs.title": "Gestión Documental", "feat.lang.title": "9 Idiomas",
-        "arch.label": "🏗 Arquitectura", "arch.title": "Construido con Tecnología Moderna",
-        "arch.stack": "Pila Tecnológica",
-        "sec.hipaa": "🛡️ Compatible con HIPAA", "sec.ci": "🔍 CI de Seguridad",
-        "lang.label": "🌍 Multilingüe", "lang.title": "Habla Tu Idioma",
-        "cta.label": "🚀 ¿Listo?", "cta.star": "⭐ Estrella en GitHub", "cta.legal": "📜 Legal y Cumplimiento",
-        "nav.features": "Funciones", "nav.arch": "Arquitectura", "nav.security": "Seguridad",
-        "nav.languages": "Idiomas", "nav.legal": "Legal", "nav.cta": "Comenzar"
-      },
-      fr: {
-        "hero.title1": "Vos Dossiers de Santé Personnels,",
-        "hero.title2": "Propulsés par l'IA",
-        "hero.desc": "Enregistrez, numérisez et gérez vos documents médicaux, rendez-vous et données de santé — avec des résumés IA, le mode hors ligne et un chiffrement conforme HIPAA.",
-        "btn.getstarted": "🚀 Commencer", "btn.github": "⭐ Voir sur GitHub",
-        "stat.lang": "Langues Prises en Charge", "stat.offline": "Types de Journaux Hors Ligne",
-        "stat.e2ee": "Chiffrement de Bout en Bout", "stat.hipaa": "Conforme par Conception",
-        "feat.label": "✦ Fonctionnalités", "feat.title": "Tout pour Gérer Votre Santé",
-        "feat.chat.title": "Chat Agentique", "feat.scan.title": "Scanner Intelligent",
-        "feat.offline.title": "Journalisation Hors Ligne", "feat.tele.title": "Télésanté",
-        "feat.docs.title": "Gestion Documentaire", "feat.lang.title": "9 Langues",
-        "arch.label": "🏗 Architecture", "arch.title": "Construit sur une Stack Moderne",
-        "arch.stack": "Pile Technologique",
-        "sec.hipaa": "🛡️ Conforme HIPAA", "sec.ci": "🔍 CI de Sécurité",
-        "lang.label": "🌍 Multilingue", "lang.title": "Parle Votre Langue",
-        "cta.label": "🚀 Prêt ?", "cta.star": "⭐ Étoile sur GitHub", "cta.legal": "📜 Juridique et Conformité",
-        "nav.features": "Fonctions", "nav.arch": "Architecture", "nav.security": "Sécurité",
-        "nav.languages": "Langues", "nav.legal": "Juridique", "nav.cta": "Commencer"
-      },
-      it: {
-        "hero.title1": "Le Tue Cartelle Sanitarie Personali,",
-        "hero.title2": "Potenziate dall'IA",
-        "hero.desc": "Registra, scansiona e gestisci documenti medici, appuntamenti e dati sanitari — con riepiloghi IA, supporto offline e crittografia conforme HIPAA.",
-        "btn.getstarted": "🚀 Inizia", "btn.github": "⭐ Vedi su GitHub",
-        "stat.lang": "Lingue Supportate", "stat.offline": "Tipi di Log Offline",
-        "stat.e2ee": "Crittografia End-to-End", "stat.hipaa": "Conforme per Design",
-        "feat.label": "✦ Funzionalità", "feat.title": "Tutto per Gestire la Tua Salute",
-        "feat.chat.title": "Chat Agente", "feat.scan.title": "Scanner Intelligente",
-        "feat.offline.title": "Registrazione Offline", "feat.tele.title": "Telemedicina",
-        "feat.docs.title": "Gestione Documenti", "feat.lang.title": "9 Lingue",
-        "arch.label": "🏗 Architettura", "arch.title": "Costruito su uno Stack Moderno",
-        "arch.stack": "Stack Tecnologico",
-        "sec.hipaa": "🛡️ Conforme HIPAA", "sec.ci": "🔍 CI di Sicurezza",
-        "lang.label": "🌍 Multilingue", "lang.title": "Parla la Tua Lingua",
-        "cta.label": "🚀 Pronto?", "cta.star": "⭐ Stella su GitHub", "cta.legal": "📜 Legale e Conformità",
-        "nav.features": "Funzioni", "nav.arch": "Architettura", "nav.security": "Sicurezza",
-        "nav.languages": "Lingue", "nav.legal": "Legale", "nav.cta": "Inizia"
-      },
-      ja: {
-        "hero.title1": "あなたの健康記録を、",
-        "hero.title2": "AIで管理",
-        "hero.desc": "医療文書、予約、健康データを安全に記録・スキャン・管理。AI要約、オフライン対応、HIPAA準拠の暗号化。",
-        "btn.getstarted": "🚀 始める", "btn.github": "⭐ GitHubで見る",
-        "stat.lang": "対応言語", "stat.offline": "オフラインログの種類",
-        "stat.e2ee": "エンドツーエンド暗号化", "stat.hipaa": "設計で準拠",
-        "feat.label": "✦ 機能", "feat.title": "健康管理に必要なすべて",
-        "feat.chat.title": "エージェントチャット", "feat.scan.title": "スマートスキャナー",
-        "feat.offline.title": "オフライン記録", "feat.tele.title": "遠隔医療",
-        "feat.docs.title": "文書管理", "feat.lang.title": "9言語",
-        "arch.label": "🏗 アーキテクチャ", "arch.title": "最新スタックで構築",
-        "arch.stack": "技術スタック",
-        "sec.hipaa": "🛡️ HIPAA準拠", "sec.ci": "🔍 セキュリティCI",
-        "lang.label": "🌍 多言語", "lang.title": "あなたの言語で",
-        "cta.label": "🚀 準備は？", "cta.star": "⭐ GitHubでスター", "cta.legal": "📜 法的情報",
-        "nav.features": "機能", "nav.arch": "構成", "nav.security": "セキュリティ",
-        "nav.languages": "言語", "nav.legal": "法的情報", "nav.cta": "始める"
-      },
-      pl: {
-        "hero.title1": "Twoja Dokumentacja Medyczna,",
-        "hero.title2": "Wspierana przez AI",
-        "hero.desc": "Bezpiecznie rejestruj, skanuj i zarządzaj dokumentami medycznymi, wizytami i danymi zdrowotnymi — z podsumowaniami AI, trybem offline i szyfrowaniem zgodnym z HIPAA.",
-        "btn.getstarted": "🚀 Rozpocznij", "btn.github": "⭐ Zobacz na GitHub",
-        "stat.lang": "Obsługiwane Języki", "stat.offline": "Typy Logów Offline",
-        "stat.e2ee": "Szyfrowanie E2E", "stat.hipaa": "Zgodne z HIPAA",
-        "feat.label": "✦ Możliwości", "feat.title": "Wszystko do Zarządzania Zdrowiem",
-        "feat.chat.title": "Czat AI", "feat.scan.title": "Inteligentny Skaner",
-        "feat.offline.title": "Logowanie Offline", "feat.tele.title": "Telemedycyna",
-        "feat.docs.title": "Zarządzanie Dokumentami", "feat.lang.title": "9 Języków",
-        "arch.label": "🏗 Architektura", "arch.title": "Zbudowane na Nowoczesnym Stosie",
-        "arch.stack": "Stos Technologiczny",
-        "sec.hipaa": "🛡️ Zgodne z HIPAA", "sec.ci": "🔍 CI Bezpieczeństwa",
-        "lang.label": "🌍 Wielojęzyczne", "lang.title": "Mówi Twoim Językiem",
-        "cta.label": "🚀 Gotowy?", "cta.star": "⭐ Gwiazdka na GitHub", "cta.legal": "📜 Prawne i Zgodność",
-        "nav.features": "Funkcje", "nav.arch": "Architektura", "nav.security": "Bezpieczeństwo",
-        "nav.languages": "Języki", "nav.legal": "Prawne", "nav.cta": "Rozpocznij"
-      },
-      ru: {
-        "hero.title1": "Ваши Медицинские Записи,",
-        "hero.title2": "На базе ИИ",
-        "hero.desc": "Безопасно записывайте, сканируйте и управляйте медицинскими документами, приёмами и данными о здоровье — с ИИ-резюме, офлайн-режимом и шифрованием по HIPAA.",
-        "btn.getstarted": "🚀 Начать", "btn.github": "⭐ Смотреть на GitHub",
-        "stat.lang": "Поддерживаемые Языки", "stat.offline": "Типов Офлайн-Записей",
-        "stat.e2ee": "Сквозное Шифрование", "stat.hipaa": "Соответствие по Дизайну",
-        "feat.label": "✦ Возможности", "feat.title": "Всё для Управления Здоровьем",
-        "feat.chat.title": "Агентный Чат", "feat.scan.title": "Умный Сканер",
-        "feat.offline.title": "Офлайн-Журнал", "feat.tele.title": "Телемедицина",
-        "feat.docs.title": "Управление Документами", "feat.lang.title": "9 Языков",
-        "arch.label": "🏗 Архитектура", "arch.title": "Построен на Современном Стеке",
-        "arch.stack": "Технологический Стек",
-        "sec.hipaa": "🛡️ Соответствие HIPAA", "sec.ci": "🔍 CI Безопасности",
-        "lang.label": "🌍 Мультиязычный", "lang.title": "Говорит на Вашем Языке",
-        "cta.label": "🚀 Готовы?", "cta.star": "⭐ Звезда на GitHub", "cta.legal": "📜 Правовая Информация",
-        "nav.features": "Функции", "nav.arch": "Архитектура", "nav.security": "Безопасность",
-        "nav.languages": "Языки", "nav.legal": "Правовое", "nav.cta": "Начать"
-      },
-      uk: {
-        "hero.title1": "Ваші Медичні Записи,",
-        "hero.title2": "На базі ШІ",
-        "hero.desc": "Безпечно записуйте, скануйте та керуйте медичними документами, прийомами та даними про здоров'я — з ШІ-підсумками, офлайн-режимом та шифруванням HIPAA.",
-        "btn.getstarted": "🚀 Почати", "btn.github": "⭐ Дивитись на GitHub",
-        "stat.lang": "Підтримувані Мови", "stat.offline": "Типів Офлайн-Записів",
-        "stat.e2ee": "Наскрізне Шифрування", "stat.hipaa": "Відповідність за Дизайном",
-        "feat.label": "✦ Можливості", "feat.title": "Все для Керування Здоров'ям",
-        "feat.chat.title": "Агентний Чат", "feat.scan.title": "Розумний Сканер",
-        "feat.offline.title": "Офлайн-Журнал", "feat.tele.title": "Телемедицина",
-        "feat.docs.title": "Керування Документами", "feat.lang.title": "9 Мов",
-        "arch.label": "🏗 Архітектура", "arch.title": "Побудований на Сучасному Стеку",
-        "arch.stack": "Технологічний Стек",
-        "sec.hipaa": "🛡️ Відповідність HIPAA", "sec.ci": "🔍 CI Безпеки",
-        "lang.label": "🌍 Багатомовний", "lang.title": "Говорить Вашою Мовою",
-        "cta.label": "🚀 Готові?", "cta.star": "⭐ Зірка на GitHub", "cta.legal": "📜 Правова Інформація",
-        "nav.features": "Функції", "nav.arch": "Архітектура", "nav.security": "Безпека",
-        "nav.languages": "Мови", "nav.legal": "Правове", "nav.cta": "Почати"
-      },
-      zh: {
-        "hero.title1": "您的个人健康档案，",
-        "hero.title2": "AI 驱动",
-        "hero.desc": "安全记录、扫描和管理医疗文档、预约和健康数据——AI 摘要、离线支持和 HIPAA 合规加密。",
-        "btn.getstarted": "🚀 开始使用", "btn.github": "⭐ 在 GitHub 查看",
-        "stat.lang": "支持语言", "stat.offline": "离线日志类型",
-        "stat.e2ee": "端到端加密", "stat.hipaa": "设计合规",
-        "feat.label": "✦ 功能", "feat.title": "管理健康所需的一切",
-        "feat.chat.title": "智能聊天", "feat.scan.title": "智能扫描仪",
-        "feat.offline.title": "离线记录", "feat.tele.title": "远程医疗",
-        "feat.docs.title": "文档管理", "feat.lang.title": "9 种语言",
-        "arch.label": "🏗 架构", "arch.title": "基于现代技术栈构建",
-        "arch.stack": "技术栈",
-        "sec.hipaa": "🛡️ HIPAA 合规", "sec.ci": "🔍 安全 CI",
-        "lang.label": "🌍 多语言", "lang.title": "说您的语言",
-        "cta.label": "🚀 准备好了？", "cta.star": "⭐ GitHub 加星", "cta.legal": "📜 法律与合规",
-        "nav.features": "功能", "nav.arch": "架构", "nav.security": "安全",
-        "nav.languages": "语言", "nav.legal": "法律", "nav.cta": "开始"
-      }
-    };
+        <script>
+            const T = {
+                en: {
+                    "hero.title1":
+                        "Your Personal Health Records,",
+                    "hero.title2": "Powered by AI",
+                    "hero.desc":
+                        "Securely log, scan, and manage your medical documents, appointments, and health data — with AI-assisted summaries, offline support, and HIPAA-compliant encryption.",
+                    "btn.getstarted": "🚀 Get Started",
+                    "btn.github": "⭐ View on GitHub",
+                    "stat.lang": "Languages Supported",
+                    "stat.offline": "Offline Log Types",
+                    "stat.e2ee": "End-to-End Encrypted",
+                    "stat.hipaa": "Compliant by Design",
+                    "feat.label": "✦ Capabilities",
+                    "feat.title":
+                        "Everything You Need to Manage Your Health",
+                    "feat.chat.title": "Agentic Chat",
+                    "feat.scan.title": "Smart Scanner",
+                    "feat.offline.title": "Offline Logging",
+                    "feat.tele.title": "Telehealth",
+                    "feat.docs.title": "Document Management",
+                    "feat.lang.title": "9 Languages",
+                    "arch.label": "🏗 Architecture",
+                    "arch.title": "Built on a Modern Stack",
+                    "arch.stack": "Technology Stack",
+                    "sec.hipaa": "🛡️ HIPAA Compliant",
+                    "sec.ci": "🔍 Security Gate CI",
+                    "lang.label": "🌍 Multilingual",
+                    "lang.title": "Speaks Your Language",
+                    "cta.label": "🚀 Ready?",
+                    "cta.star": "⭐ Star on GitHub",
+                    "cta.legal": "📜 Legal & Compliance",
+                    "nav.features": "Features",
+                    "nav.arch": "Architecture",
+                    "nav.security": "Security",
+                    "nav.languages": "Languages",
+                    "nav.legal": "Legal",
+                    "nav.cta": "Get Started",
+                },
+                es: {
+                    "hero.title1":
+                        "Tus Registros de Salud Personales,",
+                    "hero.title2": "Impulsados por IA",
+                    "hero.desc":
+                        "Registra, escanea y gestiona documentos médicos, citas y datos de salud — con resúmenes de IA, soporte sin conexión y cifrado compatible con HIPAA.",
+                    "btn.getstarted": "🚀 Comenzar",
+                    "btn.github": "⭐ Ver en GitHub",
+                    "stat.lang": "Idiomas Soportados",
+                    "stat.offline": "Tipos de Registro Offline",
+                    "stat.e2ee": "Cifrado de Extremo a Extremo",
+                    "stat.hipaa": "Compatible por Diseño",
+                    "feat.label": "✦ Capacidades",
+                    "feat.title":
+                        "Todo lo que Necesitas para Gestionar tu Salud",
+                    "feat.chat.title": "Chat Agente",
+                    "feat.scan.title": "Escáner Inteligente",
+                    "feat.offline.title":
+                        "Registro Sin Conexión",
+                    "feat.tele.title": "Telesalud",
+                    "feat.docs.title": "Gestión Documental",
+                    "feat.lang.title": "9 Idiomas",
+                    "arch.label": "🏗 Arquitectura",
+                    "arch.title":
+                        "Construido con Tecnología Moderna",
+                    "arch.stack": "Pila Tecnológica",
+                    "sec.hipaa": "🛡️ Compatible con HIPAA",
+                    "sec.ci": "🔍 CI de Seguridad",
+                    "lang.label": "🌍 Multilingüe",
+                    "lang.title": "Habla Tu Idioma",
+                    "cta.label": "🚀 ¿Listo?",
+                    "cta.star": "⭐ Estrella en GitHub",
+                    "cta.legal": "📜 Legal y Cumplimiento",
+                    "nav.features": "Funciones",
+                    "nav.arch": "Arquitectura",
+                    "nav.security": "Seguridad",
+                    "nav.languages": "Idiomas",
+                    "nav.legal": "Legal",
+                    "nav.cta": "Comenzar",
+                },
+                fr: {
+                    "hero.title1":
+                        "Vos Dossiers de Santé Personnels,",
+                    "hero.title2": "Propulsés par l'IA",
+                    "hero.desc":
+                        "Enregistrez, numérisez et gérez vos documents médicaux, rendez-vous et données de santé — avec des résumés IA, le mode hors ligne et un chiffrement conforme HIPAA.",
+                    "btn.getstarted": "🚀 Commencer",
+                    "btn.github": "⭐ Voir sur GitHub",
+                    "stat.lang": "Langues Prises en Charge",
+                    "stat.offline":
+                        "Types de Journaux Hors Ligne",
+                    "stat.e2ee": "Chiffrement de Bout en Bout",
+                    "stat.hipaa": "Conforme par Conception",
+                    "feat.label": "✦ Fonctionnalités",
+                    "feat.title": "Tout pour Gérer Votre Santé",
+                    "feat.chat.title": "Chat Agentique",
+                    "feat.scan.title": "Scanner Intelligent",
+                    "feat.offline.title":
+                        "Journalisation Hors Ligne",
+                    "feat.tele.title": "Télésanté",
+                    "feat.docs.title": "Gestion Documentaire",
+                    "feat.lang.title": "9 Langues",
+                    "arch.label": "🏗 Architecture",
+                    "arch.title":
+                        "Construit sur une Stack Moderne",
+                    "arch.stack": "Pile Technologique",
+                    "sec.hipaa": "🛡️ Conforme HIPAA",
+                    "sec.ci": "🔍 CI de Sécurité",
+                    "lang.label": "🌍 Multilingue",
+                    "lang.title": "Parle Votre Langue",
+                    "cta.label": "🚀 Prêt ?",
+                    "cta.star": "⭐ Étoile sur GitHub",
+                    "cta.legal": "📜 Juridique et Conformité",
+                    "nav.features": "Fonctions",
+                    "nav.arch": "Architecture",
+                    "nav.security": "Sécurité",
+                    "nav.languages": "Langues",
+                    "nav.legal": "Juridique",
+                    "nav.cta": "Commencer",
+                },
+                it: {
+                    "hero.title1":
+                        "Le Tue Cartelle Sanitarie Personali,",
+                    "hero.title2": "Potenziate dall'IA",
+                    "hero.desc":
+                        "Registra, scansiona e gestisci documenti medici, appuntamenti e dati sanitari — con riepiloghi IA, supporto offline e crittografia conforme HIPAA.",
+                    "btn.getstarted": "🚀 Inizia",
+                    "btn.github": "⭐ Vedi su GitHub",
+                    "stat.lang": "Lingue Supportate",
+                    "stat.offline": "Tipi di Log Offline",
+                    "stat.e2ee": "Crittografia End-to-End",
+                    "stat.hipaa": "Conforme per Design",
+                    "feat.label": "✦ Funzionalità",
+                    "feat.title":
+                        "Tutto per Gestire la Tua Salute",
+                    "feat.chat.title": "Chat Agente",
+                    "feat.scan.title": "Scanner Intelligente",
+                    "feat.offline.title":
+                        "Registrazione Offline",
+                    "feat.tele.title": "Telemedicina",
+                    "feat.docs.title": "Gestione Documenti",
+                    "feat.lang.title": "9 Lingue",
+                    "arch.label": "🏗 Architettura",
+                    "arch.title":
+                        "Costruito su uno Stack Moderno",
+                    "arch.stack": "Stack Tecnologico",
+                    "sec.hipaa": "🛡️ Conforme HIPAA",
+                    "sec.ci": "🔍 CI di Sicurezza",
+                    "lang.label": "🌍 Multilingue",
+                    "lang.title": "Parla la Tua Lingua",
+                    "cta.label": "🚀 Pronto?",
+                    "cta.star": "⭐ Stella su GitHub",
+                    "cta.legal": "📜 Legale e Conformità",
+                    "nav.features": "Funzioni",
+                    "nav.arch": "Architettura",
+                    "nav.security": "Sicurezza",
+                    "nav.languages": "Lingue",
+                    "nav.legal": "Legale",
+                    "nav.cta": "Inizia",
+                },
+                ja: {
+                    "hero.title1": "あなたの健康記録を、",
+                    "hero.title2": "AIで管理",
+                    "hero.desc":
+                        "医療文書、予約、健康データを安全に記録・スキャン・管理。AI要約、オフライン対応、HIPAA準拠の暗号化。",
+                    "btn.getstarted": "🚀 始める",
+                    "btn.github": "⭐ GitHubで見る",
+                    "stat.lang": "対応言語",
+                    "stat.offline": "オフラインログの種類",
+                    "stat.e2ee": "エンドツーエンド暗号化",
+                    "stat.hipaa": "設計で準拠",
+                    "feat.label": "✦ 機能",
+                    "feat.title": "健康管理に必要なすべて",
+                    "feat.chat.title": "エージェントチャット",
+                    "feat.scan.title": "スマートスキャナー",
+                    "feat.offline.title": "オフライン記録",
+                    "feat.tele.title": "遠隔医療",
+                    "feat.docs.title": "文書管理",
+                    "feat.lang.title": "9言語",
+                    "arch.label": "🏗 アーキテクチャ",
+                    "arch.title": "最新スタックで構築",
+                    "arch.stack": "技術スタック",
+                    "sec.hipaa": "🛡️ HIPAA準拠",
+                    "sec.ci": "🔍 セキュリティCI",
+                    "lang.label": "🌍 多言語",
+                    "lang.title": "あなたの言語で",
+                    "cta.label": "🚀 準備は？",
+                    "cta.star": "⭐ GitHubでスター",
+                    "cta.legal": "📜 法的情報",
+                    "nav.features": "機能",
+                    "nav.arch": "構成",
+                    "nav.security": "セキュリティ",
+                    "nav.languages": "言語",
+                    "nav.legal": "法的情報",
+                    "nav.cta": "始める",
+                },
+                pl: {
+                    "hero.title1":
+                        "Twoja Dokumentacja Medyczna,",
+                    "hero.title2": "Wspierana przez AI",
+                    "hero.desc":
+                        "Bezpiecznie rejestruj, skanuj i zarządzaj dokumentami medycznymi, wizytami i danymi zdrowotnymi — z podsumowaniami AI, trybem offline i szyfrowaniem zgodnym z HIPAA.",
+                    "btn.getstarted": "🚀 Rozpocznij",
+                    "btn.github": "⭐ Zobacz na GitHub",
+                    "stat.lang": "Obsługiwane Języki",
+                    "stat.offline": "Typy Logów Offline",
+                    "stat.e2ee": "Szyfrowanie E2E",
+                    "stat.hipaa": "Zgodne z HIPAA",
+                    "feat.label": "✦ Możliwości",
+                    "feat.title":
+                        "Wszystko do Zarządzania Zdrowiem",
+                    "feat.chat.title": "Czat AI",
+                    "feat.scan.title": "Inteligentny Skaner",
+                    "feat.offline.title": "Logowanie Offline",
+                    "feat.tele.title": "Telemedycyna",
+                    "feat.docs.title":
+                        "Zarządzanie Dokumentami",
+                    "feat.lang.title": "9 Języków",
+                    "arch.label": "🏗 Architektura",
+                    "arch.title":
+                        "Zbudowane na Nowoczesnym Stosie",
+                    "arch.stack": "Stos Technologiczny",
+                    "sec.hipaa": "🛡️ Zgodne z HIPAA",
+                    "sec.ci": "🔍 CI Bezpieczeństwa",
+                    "lang.label": "🌍 Wielojęzyczne",
+                    "lang.title": "Mówi Twoim Językiem",
+                    "cta.label": "🚀 Gotowy?",
+                    "cta.star": "⭐ Gwiazdka na GitHub",
+                    "cta.legal": "📜 Prawne i Zgodność",
+                    "nav.features": "Funkcje",
+                    "nav.arch": "Architektura",
+                    "nav.security": "Bezpieczeństwo",
+                    "nav.languages": "Języki",
+                    "nav.legal": "Prawne",
+                    "nav.cta": "Rozpocznij",
+                },
+                ru: {
+                    "hero.title1": "Ваши Медицинские Записи,",
+                    "hero.title2": "На базе ИИ",
+                    "hero.desc":
+                        "Безопасно записывайте, сканируйте и управляйте медицинскими документами, приёмами и данными о здоровье — с ИИ-резюме, офлайн-режимом и шифрованием по HIPAA.",
+                    "btn.getstarted": "🚀 Начать",
+                    "btn.github": "⭐ Смотреть на GitHub",
+                    "stat.lang": "Поддерживаемые Языки",
+                    "stat.offline": "Типов Офлайн-Записей",
+                    "stat.e2ee": "Сквозное Шифрование",
+                    "stat.hipaa": "Соответствие по Дизайну",
+                    "feat.label": "✦ Возможности",
+                    "feat.title":
+                        "Всё для Управления Здоровьем",
+                    "feat.chat.title": "Агентный Чат",
+                    "feat.scan.title": "Умный Сканер",
+                    "feat.offline.title": "Офлайн-Журнал",
+                    "feat.tele.title": "Телемедицина",
+                    "feat.docs.title": "Управление Документами",
+                    "feat.lang.title": "9 Языков",
+                    "arch.label": "🏗 Архитектура",
+                    "arch.title":
+                        "Построен на Современном Стеке",
+                    "arch.stack": "Технологический Стек",
+                    "sec.hipaa": "🛡️ Соответствие HIPAA",
+                    "sec.ci": "🔍 CI Безопасности",
+                    "lang.label": "🌍 Мультиязычный",
+                    "lang.title": "Говорит на Вашем Языке",
+                    "cta.label": "🚀 Готовы?",
+                    "cta.star": "⭐ Звезда на GitHub",
+                    "cta.legal": "📜 Правовая Информация",
+                    "nav.features": "Функции",
+                    "nav.arch": "Архитектура",
+                    "nav.security": "Безопасность",
+                    "nav.languages": "Языки",
+                    "nav.legal": "Правовое",
+                    "nav.cta": "Начать",
+                },
+                uk: {
+                    "hero.title1": "Ваші Медичні Записи,",
+                    "hero.title2": "На базі ШІ",
+                    "hero.desc":
+                        "Безпечно записуйте, скануйте та керуйте медичними документами, прийомами та даними про здоров'я — з ШІ-підсумками, офлайн-режимом та шифруванням HIPAA.",
+                    "btn.getstarted": "🚀 Почати",
+                    "btn.github": "⭐ Дивитись на GitHub",
+                    "stat.lang": "Підтримувані Мови",
+                    "stat.offline": "Типів Офлайн-Записів",
+                    "stat.e2ee": "Наскрізне Шифрування",
+                    "stat.hipaa": "Відповідність за Дизайном",
+                    "feat.label": "✦ Можливості",
+                    "feat.title": "Все для Керування Здоров'ям",
+                    "feat.chat.title": "Агентний Чат",
+                    "feat.scan.title": "Розумний Сканер",
+                    "feat.offline.title": "Офлайн-Журнал",
+                    "feat.tele.title": "Телемедицина",
+                    "feat.docs.title": "Керування Документами",
+                    "feat.lang.title": "9 Мов",
+                    "arch.label": "🏗 Архітектура",
+                    "arch.title":
+                        "Побудований на Сучасному Стеку",
+                    "arch.stack": "Технологічний Стек",
+                    "sec.hipaa": "🛡️ Відповідність HIPAA",
+                    "sec.ci": "🔍 CI Безпеки",
+                    "lang.label": "🌍 Багатомовний",
+                    "lang.title": "Говорить Вашою Мовою",
+                    "cta.label": "🚀 Готові?",
+                    "cta.star": "⭐ Зірка на GitHub",
+                    "cta.legal": "📜 Правова Інформація",
+                    "nav.features": "Функції",
+                    "nav.arch": "Архітектура",
+                    "nav.security": "Безпека",
+                    "nav.languages": "Мови",
+                    "nav.legal": "Правове",
+                    "nav.cta": "Почати",
+                },
+                zh: {
+                    "hero.title1": "您的个人健康档案，",
+                    "hero.title2": "AI 驱动",
+                    "hero.desc":
+                        "安全记录、扫描和管理医疗文档、预约和健康数据——AI 摘要、离线支持和 HIPAA 合规加密。",
+                    "btn.getstarted": "🚀 开始使用",
+                    "btn.github": "⭐ 在 GitHub 查看",
+                    "stat.lang": "支持语言",
+                    "stat.offline": "离线日志类型",
+                    "stat.e2ee": "端到端加密",
+                    "stat.hipaa": "设计合规",
+                    "feat.label": "✦ 功能",
+                    "feat.title": "管理健康所需的一切",
+                    "feat.chat.title": "智能聊天",
+                    "feat.scan.title": "智能扫描仪",
+                    "feat.offline.title": "离线记录",
+                    "feat.tele.title": "远程医疗",
+                    "feat.docs.title": "文档管理",
+                    "feat.lang.title": "9 种语言",
+                    "arch.label": "🏗 架构",
+                    "arch.title": "基于现代技术栈构建",
+                    "arch.stack": "技术栈",
+                    "sec.hipaa": "🛡️ HIPAA 合规",
+                    "sec.ci": "🔍 安全 CI",
+                    "lang.label": "🌍 多语言",
+                    "lang.title": "说您的语言",
+                    "cta.label": "🚀 准备好了？",
+                    "cta.star": "⭐ GitHub 加星",
+                    "cta.legal": "📜 法律与合规",
+                    "nav.features": "功能",
+                    "nav.arch": "架构",
+                    "nav.security": "安全",
+                    "nav.languages": "语言",
+                    "nav.legal": "法律",
+                    "nav.cta": "开始",
+                },
+            };
 
-    const langNames = {en:"English",es:"Español",fr:"Français",it:"Italiano",ja:"日本語",pl:"Polski",ru:"Русский",uk:"Українська",zh:"中文"};
-    let currentLang = localStorage.getItem('herLang') || 'en';
+            const langNames = {
+                en: "English",
+                es: "Español",
+                fr: "Français",
+                it: "Italiano",
+                ja: "日本語",
+                pl: "Polski",
+                ru: "Русский",
+                uk: "Українська",
+                zh: "中文",
+            };
+            let currentLang = localStorage.getItem("herLang") ||
+                "en";
 
-    function applyTranslations(lang) {
-        const b = T[lang] || T.en;
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-            const k = el.dataset.i18n;
-            if (b[k]) el.textContent = b[k];
-        });
-        const label = document.getElementById('currentLangLabel');
-        if (label) label.textContent = langNames[lang] || 'English';
-        document.querySelectorAll('.lang-opt').forEach(o => {
-            o.classList.toggle('selected', o.dataset.value === lang);
-        });
-    }
+            function applyTranslations(lang) {
+                const b = T[lang] || T.en;
+                document.querySelectorAll("[data-i18n]")
+                    .forEach((el) => {
+                        const k = el.dataset.i18n;
+                        if (b[k]) el.textContent = b[k];
+                    });
+                const label = document.getElementById(
+                    "currentLangLabel",
+                );
+                if (label) {
+                    label.textContent = langNames[lang] ||
+                        "English";
+                }
+                document.querySelectorAll(".lang-opt").forEach(
+                    (o) => {
+                        o.classList.toggle(
+                            "selected",
+                            o.dataset.value === lang,
+                        );
+                    },
+                );
+            }
 
-    function setLang(lang) {
-        localStorage.setItem('herLang', lang);
-        currentLang = lang;
-        applyTranslations(lang);
-    }
+            function setLang(lang) {
+                localStorage.setItem("herLang", lang);
+                currentLang = lang;
+                applyTranslations(lang);
+            }
 
-    // Dropdown
-    const wrap = document.querySelector('.lang-select-wrapper');
-    if (wrap) {
-        wrap.querySelector('.lang-select-trigger').addEventListener('click', e => {
-            e.stopPropagation(); wrap.classList.toggle('open');
-        });
-        wrap.querySelectorAll('.lang-opt').forEach(o => {
-            o.addEventListener('click', function() { setLang(this.dataset.value); wrap.classList.remove('open'); });
-        });
-        document.addEventListener('click', e => { if (!wrap.contains(e.target)) wrap.classList.remove('open'); });
-    }
+            // Dropdown
+            const wrap = document.querySelector(
+                ".lang-select-wrapper",
+            );
+            if (wrap) {
+                wrap.querySelector(".lang-select-trigger")
+                    .addEventListener("click", (e) => {
+                        e.stopPropagation();
+                        wrap.classList.toggle("open");
+                    });
+                wrap.querySelectorAll(".lang-opt").forEach(
+                    (o) => {
+                        o.addEventListener(
+                            "click",
+                            function () {
+                                setLang(this.dataset.value);
+                                wrap.classList.remove("open");
+                            },
+                        );
+                    },
+                );
+                document.addEventListener("click", (e) => {
+                    if (!wrap.contains(e.target)) {
+                        wrap.classList.remove("open");
+                    }
+                });
+            }
 
-    applyTranslations(currentLang);
-    </script>
+            T["en"]["brand.sub"] =
+                "Your health. Your data. Your control.";
+            T["en"]["feat.desc"] =
+                "Built with Expo, Supabase, and Gemini AI to give patients and doctors a unified, secure, and intelligent health platform.";
+            T["en"]["feat.chat.desc"] =
+                "Speak naturally — the AI classifies your intent, prepares the action, and confirms before writing. Book appointments, send messages, refill prescriptions, all by chatting.";
+            T["en"]["feat.scan.desc"] =
+                "Unified camera scanner auto-detects barcodes and nutrition labels. Gemini Flash analyzes documents and images, extracting health-relevant information automatically.";
+            T["en"]["feat.offline.desc"] =
+                'Log vitals offline — "BP 120/80", "Weight 185 lbs". Regex-based parser works without AI. SQLite queue syncs to Supabase when back online. 12 log types supported.';
+            T["en"]["feat.tele.desc"] =
+                "LiveKit-powered real-time video appointments with doctors. Join your appointment from the chat — opens 10 minutes before the scheduled time.";
+            T["en"]["feat.docs.desc"] =
+                "Upload, view, and share medical documents via Supabase Storage. PDFs, images, and lab results — all secured with row-level security and signed URLs.";
+            T["en"]["feat.lang.desc"] =
+                "Full i18n support with react-i18next. English, Spanish, French, Italian, Japanese, Polish, Russian, Ukrainian, and Chinese (Simplified).";
+            T["en"]["arch.desc"] =
+                "Every layer is purpose-built for security, performance, and developer experience.";
+            T["en"]["sec.e2ee"] = "🔒 End-to-End Encryption";
+            T["en"]["sec.hipaa.desc"] =
+                "Protected Health Information (PHI) is encrypted in transit and at rest. Row-level security ensures patients only see their own data. Doctors require explicit patient authorization.";
+            T["en"]["sec.e2ee.desc"] =
+                "Messages are encrypted on-device before transmission. Only authorized recipients can decrypt content. Encryption keys are never exposed in the UI.";
+            T["en"]["sec.ci.desc"] =
+                "Automated GitHub Actions pipeline runs RLS policy probes, JWT abuse tests, secrets scanning, and adversarial simulations on every push.";
+            T["en"]["lang.desc"] =
+                "Full translation coverage across 9 languages with automatic language detection and in-app translation for health logs.";
+            T["en"]["cta.title"] = "Take Control of Your";
+            T["en"]["cta.title2"] = "Health Data";
+            T["en"]["cta.desc"] =
+                "Open source, HIPAA-compliant, and built to give you full ownership of your medical records.";
+            T["en"]["footer.text"] =
+                "© 2025–2026 Health eRecords — Your health. Your data. Your control.";
+            T["es"]["brand.sub"] =
+                "Tu salud. Tus datos. Tu control.";
+            T["es"]["feat.desc"] =
+                "Construido con Expo, Supabase y Gemini AI para ofrecer a pacientes y médicos una plataforma de salud unificada, segura e inteligente.";
+            T["es"]["feat.chat.desc"] =
+                "Habla naturalmente — la IA clasifica tu intención, prepara la acción y confirma antes de escribir. Agenda citas, envía mensajes, renueva recetas, todo chateando.";
+            T["es"]["feat.scan.desc"] =
+                "Escáner de cámara unificado que detecta códigos de barras y etiquetas nutricionales. Gemini Flash analiza documentos e imágenes automáticamente.";
+            T["es"]["feat.offline.desc"] =
+                'Registra signos vitales sin conexión — "TA 120/80", "Peso 84 kg". Funciona sin IA. La cola SQLite sincroniza con Supabase al reconectarse. 12 tipos soportados.';
+            T["es"]["feat.tele.desc"] =
+                "Videoconsultas en tiempo real con LiveKit. Únete desde el chat — se abre 10 minutos antes de la hora programada.";
+            T["es"]["feat.docs.desc"] =
+                "Sube, visualiza y comparte documentos médicos vía Supabase Storage. PDFs, imágenes y resultados de laboratorio — protegidos con seguridad a nivel de fila.";
+            T["es"]["feat.lang.desc"] =
+                "Soporte completo de i18n con react-i18next. Inglés, español, francés, italiano, japonés, polaco, ruso, ucraniano y chino (simplificado).";
+            T["es"]["arch.desc"] =
+                "Cada capa está diseñada para seguridad, rendimiento y experiencia de desarrollo.";
+            T["es"]["sec.e2ee"] =
+                "🔒 Cifrado de Extremo a Extremo";
+            T["es"]["sec.hipaa.desc"] =
+                "La información de salud protegida (PHI) está cifrada en tránsito y en reposo. La seguridad a nivel de fila garantiza que los pacientes solo vean sus propios datos.";
+            T["es"]["sec.e2ee.desc"] =
+                "Los mensajes se cifran en el dispositivo antes de la transmisión. Solo los destinatarios autorizados pueden descifrar el contenido.";
+            T["es"]["sec.ci.desc"] =
+                "Pipeline automatizado de GitHub Actions ejecuta pruebas de políticas RLS, abuso de JWT, escaneo de secretos y simulaciones adversarias en cada push.";
+            T["es"]["lang.desc"] =
+                "Cobertura completa de traducción en 9 idiomas con detección automática y traducción en-app para registros de salud.";
+            T["es"]["cta.title"] = "Toma el Control de Tus";
+            T["es"]["cta.title2"] = "Datos de Salud";
+            T["es"]["cta.desc"] =
+                "Código abierto, compatible con HIPAA, y diseñado para darte propiedad total de tus registros médicos.";
+            T["es"]["footer.text"] =
+                "© 2025–2026 Health eRecords — Tu salud. Tus datos. Tu control.";
+            T["fr"]["brand.sub"] =
+                "Votre santé. Vos données. Votre contrôle.";
+            T["fr"]["feat.desc"] =
+                "Construit avec Expo, Supabase et Gemini AI pour offrir aux patients et médecins une plateforme de santé unifiée, sécurisée et intelligente.";
+            T["fr"]["feat.chat.desc"] =
+                "Parlez naturellement — l'IA classifie votre intention, prépare l'action et confirme avant d'écrire. Prenez rendez-vous, envoyez des messages, renouvelez des ordonnances, en discutant.";
+            T["fr"]["feat.scan.desc"] =
+                "Scanner unifié qui détecte codes-barres et étiquettes nutritionnelles. Gemini Flash analyse documents et images automatiquement.";
+            T["fr"]["feat.offline.desc"] =
+                'Enregistrez les constantes hors ligne — "TA 120/80", "Poids 84 kg". Fonctionne sans IA. La file SQLite synchronise avec Supabase à la reconnexion. 12 types supportés.';
+            T["fr"]["feat.tele.desc"] =
+                "Consultations vidéo en temps réel avec LiveKit. Rejoignez depuis le chat — s'ouvre 10 minutes avant l'heure prévue.";
+            T["fr"]["feat.docs.desc"] =
+                "Téléchargez, consultez et partagez des documents médicaux via Supabase Storage. PDFs, images et résultats — sécurisés par la sécurité au niveau des lignes.";
+            T["fr"]["feat.lang.desc"] =
+                "Support i18n complet avec react-i18next. Anglais, espagnol, français, italien, japonais, polonais, russe, ukrainien et chinois (simplifié).";
+            T["fr"]["arch.desc"] =
+                "Chaque couche est conçue pour la sécurité, la performance et l'expérience développeur.";
+            T["fr"]["sec.e2ee"] =
+                "🔒 Chiffrement de Bout en Bout";
+            T["fr"]["sec.hipaa.desc"] =
+                "Les informations de santé protégées (PHI) sont chiffrées en transit et au repos. La sécurité au niveau des lignes garantit que les patients ne voient que leurs propres données.";
+            T["fr"]["sec.e2ee.desc"] =
+                "Les messages sont chiffrés sur l'appareil avant transmission. Seuls les destinataires autorisés peuvent déchiffrer le contenu.";
+            T["fr"]["sec.ci.desc"] =
+                "Pipeline GitHub Actions automatisé exécutant des tests de politiques RLS, d'abus JWT, de scan de secrets et des simulations adversaires à chaque push.";
+            T["fr"]["lang.desc"] =
+                "Couverture complète en 9 langues avec détection automatique et traduction in-app pour les journaux de santé.";
+            T["fr"]["cta.title"] = "Prenez le Contrôle de Vos";
+            T["fr"]["cta.title2"] = "Données de Santé";
+            T["fr"]["cta.desc"] =
+                "Open source, conforme HIPAA, et conçu pour vous donner la pleine propriété de vos dossiers médicaux.";
+            T["fr"]["footer.text"] =
+                "© 2025–2026 Health eRecords — Votre santé. Vos données. Votre contrôle.";
+            T["it"]["brand.sub"] =
+                "La tua salute. I tuoi dati. Il tuo controllo.";
+            T["it"]["feat.desc"] =
+                "Costruito con Expo, Supabase e Gemini AI per offrire a pazienti e medici una piattaforma sanitaria unificata, sicura e intelligente.";
+            T["it"]["feat.chat.desc"] =
+                "Parla naturalmente — l'IA classifica la tua intenzione, prepara l'azione e conferma prima di scrivere. Prenota visite, invia messaggi, rinnova ricette, tutto chattando.";
+            T["it"]["feat.scan.desc"] =
+                "Scanner unificato che rileva codici a barre ed etichette nutrizionali. Gemini Flash analizza documenti e immagini automaticamente.";
+            T["it"]["feat.offline.desc"] =
+                'Registra i parametri vitali offline — "PA 120/80", "Peso 84 kg". Funziona senza IA. La coda SQLite sincronizza con Supabase alla riconnessione. 12 tipi supportati.';
+            T["it"]["feat.tele.desc"] =
+                "Consulti video in tempo reale con LiveKit. Unisciti dalla chat — si apre 10 minuti prima dell'orario previsto.";
+            T["it"]["feat.docs.desc"] =
+                "Carica, visualizza e condividi documenti medici tramite Supabase Storage. PDF, immagini e referti — protetti con sicurezza a livello di riga.";
+            T["it"]["feat.lang.desc"] =
+                "Supporto i18n completo con react-i18next. Inglese, spagnolo, francese, italiano, giapponese, polacco, russo, ucraino e cinese (semplificato).";
+            T["it"]["arch.desc"] =
+                "Ogni livello è progettato per sicurezza, prestazioni ed esperienza sviluppatore.";
+            T["it"]["sec.e2ee"] = "🔒 Crittografia End-to-End";
+            T["it"]["sec.hipaa.desc"] =
+                "Le informazioni sanitarie protette (PHI) sono crittografate in transito e a riposo. La sicurezza a livello di riga garantisce che i pazienti vedano solo i propri dati.";
+            T["it"]["sec.e2ee.desc"] =
+                "I messaggi vengono crittografati sul dispositivo prima della trasmissione. Solo i destinatari autorizzati possono decifrare il contenuto.";
+            T["it"]["sec.ci.desc"] =
+                "Pipeline GitHub Actions automatizzata che esegue test di policy RLS, abuso JWT, scansione segreti e simulazioni avversarie ad ogni push.";
+            T["it"]["lang.desc"] =
+                "Copertura completa in 9 lingue con rilevamento automatico e traduzione in-app per i registri sanitari.";
+            T["it"]["cta.title"] =
+                "Prendi il Controllo dei Tuoi";
+            T["it"]["cta.title2"] = "Dati Sanitari";
+            T["it"]["cta.desc"] =
+                "Open source, conforme HIPAA, e costruito per darti la piena proprietà delle tue cartelle cliniche.";
+            T["it"]["footer.text"] =
+                "© 2025–2026 Health eRecords — La tua salute. I tuoi dati. Il tuo controllo.";
+            T["ja"]["brand.sub"] =
+                "あなたの健康。あなたのデータ。あなたの管理。";
+            T["ja"]["feat.desc"] =
+                "Expo、Supabase、Gemini AIで構築。患者と医師に統合された安全でインテリジェントな健康プラットフォームを提供。";
+            T["ja"]["feat.chat.desc"] =
+                "自然に話しかけるだけ — AIが意図を分類し、アクションを準備し、書き込む前に確認します。予約、メッセージ送信、処方箋の更新、すべてチャットで。";
+            T["ja"]["feat.scan.desc"] =
+                "統合カメラスキャナーがバーコードと栄養表示を自動検出。Gemini Flashが文書と画像を自動分析。";
+            T["ja"]["feat.offline.desc"] =
+                "オフラインでバイタルを記録 —「BP 120/80」「体重 84kg」。AIなしで動作。SQLiteキューがオンライン復帰時にSupabaseと同期。12種類対応。";
+            T["ja"]["feat.tele.desc"] =
+                "LiveKitによるリアルタイムビデオ診察。チャットから参加 — 予定時刻の10分前に開きます。";
+            T["ja"]["feat.docs.desc"] =
+                "Supabase Storageで医療文書をアップロード、閲覧、共有。PDF、画像、検査結果 — 行レベルセキュリティと署名付きURLで保護。";
+            T["ja"]["feat.lang.desc"] =
+                "react-i18nextによる完全なi18nサポート。英語、スペイン語、フランス語、イタリア語、日本語、ポーランド語、ロシア語、ウクライナ語、中国語（簡体字）。";
+            T["ja"]["arch.desc"] =
+                "すべてのレイヤーがセキュリティ、パフォーマンス、開発者体験のために設計。";
+            T["ja"]["sec.e2ee"] = "🔒 エンドツーエンド暗号化";
+            T["ja"]["sec.hipaa.desc"] =
+                "保護対象医療情報（PHI）は転送中と保存時に暗号化。行レベルセキュリティにより患者は自分のデータのみ閲覧可能。";
+            T["ja"]["sec.e2ee.desc"] =
+                "メッセージは送信前にデバイス上で暗号化。認可された受信者のみが復号可能。暗号化キーはUIに公開されません。";
+            T["ja"]["sec.ci.desc"] =
+                "GitHub Actionsパイプラインが毎回のプッシュでRLSポリシー検査、JWT悪用テスト、シークレットスキャン、敵対的シミュレーションを実行。";
+            T["ja"]["lang.desc"] =
+                "9言語の完全な翻訳カバレッジ。自動言語検出と健康ログのアプリ内翻訳。";
+            T["ja"]["cta.title"] = "あなたの";
+            T["ja"]["cta.title2"] = "健康データを管理";
+            T["ja"]["cta.desc"] =
+                "オープンソース、HIPAA準拠、医療記録の完全な所有権を提供。";
+            T["ja"]["footer.text"] =
+                "© 2025–2026 Health eRecords — あなたの健康。あなたのデータ。あなたの管理。";
+            T["pl"]["brand.sub"] =
+                "Twoje zdrowie. Twoje dane. Twoja kontrola.";
+            T["pl"]["feat.desc"] =
+                "Zbudowane z Expo, Supabase i Gemini AI, aby zapewnić pacjentom i lekarzom zintegrowaną, bezpieczną i inteligentną platformę zdrowotną.";
+            T["pl"]["feat.chat.desc"] =
+                "Mów naturalnie — AI klasyfikuje intencję, przygotowuje akcję i potwierdza przed zapisaniem. Umawiaj wizyty, wysyłaj wiadomości, odnawiaj recepty — wszystko przez czat.";
+            T["pl"]["feat.scan.desc"] =
+                "Zintegrowany skaner kamery automatycznie wykrywa kody kreskowe i etykiety żywieniowe. Gemini Flash automatycznie analizuje dokumenty i obrazy.";
+            T["pl"]["feat.offline.desc"] =
+                'Rejestruj parametry życiowe offline — "RR 120/80", "Waga 84 kg". Działa bez AI. Kolejka SQLite synchronizuje z Supabase po ponownym połączeniu. 12 typów.';
+            T["pl"]["feat.tele.desc"] =
+                "Wideokonferencje w czasie rzeczywistym z LiveKit. Dołącz z czatu — otwiera się 10 minut przed zaplanowanym czasem.";
+            T["pl"]["feat.docs.desc"] =
+                "Przesyłaj, przeglądaj i udostępniaj dokumenty medyczne przez Supabase Storage. PDF-y, obrazy i wyniki — zabezpieczone bezpieczeństwem na poziomie wierszy.";
+            T["pl"]["feat.lang.desc"] =
+                "Pełne wsparcie i18n z react-i18next. Angielski, hiszpański, francuski, włoski, japoński, polski, rosyjski, ukraiński i chiński (uproszczony).";
+            T["pl"]["arch.desc"] =
+                "Każda warstwa jest zaprojektowana pod kątem bezpieczeństwa, wydajności i doświadczenia programisty.";
+            T["pl"]["sec.e2ee"] = "🔒 Szyfrowanie End-to-End";
+            T["pl"]["sec.hipaa.desc"] =
+                "Chronione informacje zdrowotne (PHI) są szyfrowane w tranzycie i w spoczynku. Bezpieczeństwo na poziomie wierszy zapewnia pacjentom dostęp tylko do własnych danych.";
+            T["pl"]["sec.e2ee.desc"] =
+                "Wiadomości są szyfrowane na urządzeniu przed transmisją. Tylko autoryzowani odbiorcy mogą odszyfrować treść.";
+            T["pl"]["sec.ci.desc"] =
+                "Zautomatyzowany pipeline GitHub Actions wykonuje testy polityk RLS, nadużyć JWT, skanowanie sekretów i symulacje adwersarzy przy każdym pushu.";
+            T["pl"]["lang.desc"] =
+                "Pełne pokrycie tłumaczeń w 9 językach z automatycznym wykrywaniem języka i tłumaczeniem w aplikacji dla logów zdrowotnych.";
+            T["pl"]["cta.title"] =
+                "Przejmij Kontrolę nad Swoimi";
+            T["pl"]["cta.title2"] = "Danymi Zdrowotnymi";
+            T["pl"]["cta.desc"] =
+                "Open source, zgodne z HIPAA, i zbudowane, aby dać ci pełną własność twoich dokumentów medycznych.";
+            T["pl"]["footer.text"] =
+                "© 2025–2026 Health eRecords — Twoje zdrowie. Twoje dane. Twoja kontrola.";
+            T["ru"]["brand.sub"] =
+                "Ваше здоровье. Ваши данные. Ваш контроль.";
+            T["ru"]["feat.desc"] =
+                "Построено на Expo, Supabase и Gemini AI для предоставления пациентам и врачам единой, безопасной и интеллектуальной платформы здоровья.";
+            T["ru"]["feat.chat.desc"] =
+                "Говорите естественно — ИИ классифицирует намерение, готовит действие и подтверждает перед записью. Записывайтесь на приём, отправляйте сообщения, обновляйте рецепты — всё через чат.";
+            T["ru"]["feat.scan.desc"] =
+                "Единый сканер камеры автоматически распознаёт штрих-коды и этикетки. Gemini Flash анализирует документы и изображения автоматически.";
+            T["ru"]["feat.offline.desc"] =
+                'Записывайте показатели офлайн — "АД 120/80", "Вес 84 кг". Работает без ИИ. Очередь SQLite синхронизируется с Supabase при подключении. 12 типов.';
+            T["ru"]["feat.tele.desc"] =
+                "Видеоконсультации в реальном времени на базе LiveKit. Подключайтесь из чата — открывается за 10 минут до назначенного времени.";
+            T["ru"]["feat.docs.desc"] =
+                "Загружайте, просматривайте и делитесь медицинскими документами через Supabase Storage. PDF, изображения и результаты — защищены безопасностью на уровне строк.";
+            T["ru"]["feat.lang.desc"] =
+                "Полная поддержка i18n с react-i18next. Английский, испанский, французский, итальянский, японский, польский, русский, украинский и китайский (упрощённый).";
+            T["ru"]["arch.desc"] =
+                "Каждый уровень создан для безопасности, производительности и удобства разработки.";
+            T["ru"]["sec.e2ee"] = "🔒 Сквозное Шифрование";
+            T["ru"]["sec.hipaa.desc"] =
+                "Защищённая медицинская информация (PHI) зашифрована при передаче и хранении. Безопасность на уровне строк гарантирует, что пациенты видят только свои данные.";
+            T["ru"]["sec.e2ee.desc"] =
+                "Сообщения шифруются на устройстве перед отправкой. Только авторизованные получатели могут расшифровать содержимое.";
+            T["ru"]["sec.ci.desc"] =
+                "Автоматизированный конвейер GitHub Actions выполняет проверки политик RLS, тесты злоупотребления JWT, сканирование секретов и состязательные симуляции при каждом push.";
+            T["ru"]["lang.desc"] =
+                "Полное покрытие перевода на 9 языках с автоматическим определением языка и переводом в приложении для медицинских записей.";
+            T["ru"]["cta.title"] =
+                "Возьмите Контроль над Своими";
+            T["ru"]["cta.title2"] = "Данными о Здоровье";
+            T["ru"]["cta.desc"] =
+                "Открытый исходный код, соответствие HIPAA и полная собственность на ваши медицинские записи.";
+            T["ru"]["footer.text"] =
+                "© 2025–2026 Health eRecords — Ваше здоровье. Ваши данные. Ваш контроль.";
+            T["uk"]["brand.sub"] =
+                "Ваше здоров'я. Ваші дані. Ваш контроль.";
+            T["uk"]["feat.desc"] =
+                "Побудовано на Expo, Supabase та Gemini AI для надання пацієнтам і лікарям єдиної, безпечної та інтелектуальної платформи здоров'я.";
+            T["uk"]["feat.chat.desc"] =
+                "Говоріть природно — ШІ класифікує намір, готує дію та підтверджує перед записом. Записуйтесь на прийом, надсилайте повідомлення, поновлюйте рецепти — все через чат.";
+            T["uk"]["feat.scan.desc"] =
+                "Єдиний сканер камери автоматично розпізнає штрих-коди та етикетки. Gemini Flash аналізує документи та зображення автоматично.";
+            T["uk"]["feat.offline.desc"] =
+                'Записуйте показники офлайн — "AT 120/80", "Вага 84 кг". Працює без ШІ. Черга SQLite синхронізується з Supabase при підключенні. 12 типів.';
+            T["uk"]["feat.tele.desc"] =
+                "Відеоконсультації в реальному часі на базі LiveKit. Приєднуйтесь з чату — відкривається за 10 хвилин до призначеного часу.";
+            T["uk"]["feat.docs.desc"] =
+                "Завантажуйте, переглядайте та діліться медичними документами через Supabase Storage. PDF, зображення та результати — захищені безпекою на рівні рядків.";
+            T["uk"]["feat.lang.desc"] =
+                "Повна підтримка i18n з react-i18next. Англійська, іспанська, французька, італійська, японська, польська, російська, українська та китайська (спрощена).";
+            T["uk"]["arch.desc"] =
+                "Кожен рівень створений для безпеки, продуктивності та зручності розробки.";
+            T["uk"]["sec.e2ee"] = "🔒 Наскрізне Шифрування";
+            T["uk"]["sec.hipaa.desc"] =
+                "Захищена медична інформація (PHI) зашифрована при передачі та зберіганні. Безпека на рівні рядків гарантує, що пацієнти бачать лише свої дані.";
+            T["uk"]["sec.e2ee.desc"] =
+                "Повідомлення шифруються на пристрої перед відправкою. Лише авторизовані отримувачі можуть розшифрувати вміст.";
+            T["uk"]["sec.ci.desc"] =
+                "Автоматизований конвеєр GitHub Actions виконує перевірки політик RLS, тести зловживання JWT, сканування секретів та змагальні симуляції при кожному push.";
+            T["uk"]["lang.desc"] =
+                "Повне покриття перекладу 9 мовами з автоматичним визначенням мови та перекладом у застосунку для медичних записів.";
+            T["uk"]["cta.title"] =
+                "Візьміть Контроль над Своїми";
+            T["uk"]["cta.title2"] = "Даними про Здоров'я";
+            T["uk"]["cta.desc"] =
+                "Відкритий код, відповідність HIPAA та повне володіння вашими медичними записами.";
+            T["uk"]["footer.text"] =
+                "© 2025–2026 Health eRecords — Ваше здоров'я. Ваші дані. Ваш контроль.";
+            T["zh"]["brand.sub"] =
+                "您的健康。您的数据。您的掌控。";
+            T["zh"]["feat.desc"] =
+                "使用 Expo、Supabase 和 Gemini AI 构建，为患者和医生提供统一、安全、智能的健康平台。";
+            T["zh"]["feat.chat.desc"] =
+                "自然对话 — AI 分类意图、准备操作并在执行前确认。预约、发消息、续处方，全部通过聊天完成。";
+            T["zh"]["feat.scan.desc"] =
+                "统一摄像头扫描仪自动检测条形码和营养标签。Gemini Flash 自动分析文档和图像。";
+            T["zh"]["feat.offline.desc"] =
+                '离线记录生命体征 — "血压 120/80"、"体重 84kg"。无需 AI。SQLite 队列在重新联网时与 Supabase 同步。支持 12 种类型。';
+            T["zh"]["feat.tele.desc"] =
+                "基于 LiveKit 的实时视频问诊。从聊天中加入 — 预约时间前 10 分钟开放。";
+            T["zh"]["feat.docs.desc"] =
+                "通过 Supabase Storage 上传、查看和共享医疗文档。PDF、图像和检查结果 — 均受行级安全性和签名 URL 保护。";
+            T["zh"]["feat.lang.desc"] =
+                "基于 react-i18next 的完整 i18n 支持。英语、西班牙语、法语、意大利语、日语、波兰语、俄语、乌克兰语和简体中文。";
+            T["zh"]["arch.desc"] =
+                "每一层都为安全性、性能和开发者体验而设计。";
+            T["zh"]["sec.e2ee"] = "🔒 端到端加密";
+            T["zh"]["sec.hipaa.desc"] =
+                "受保护的健康信息（PHI）在传输和存储时加密。行级安全性确保患者只能查看自己的数据。";
+            T["zh"]["sec.e2ee.desc"] =
+                "消息在传输前在设备上加密。只有授权的接收者才能解密内容。加密密钥永不在 UI 中暴露。";
+            T["zh"]["sec.ci.desc"] =
+                "自动化 GitHub Actions 管道在每次推送时运行 RLS 策略探测、JWT 滥用测试、密钥扫描和对抗性模拟。";
+            T["zh"]["lang.desc"] =
+                "9 种语言的完整翻译覆盖，具有自动语言检测和健康日志的应用内翻译。";
+            T["zh"]["cta.title"] = "掌控您的";
+            T["zh"]["cta.title2"] = "健康数据";
+            T["zh"]["cta.desc"] =
+                "开源、HIPAA 合规，旨在让您完全拥有自己的医疗记录。";
+            T["zh"]["footer.text"] =
+                "© 2025–2026 Health eRecords — 您的健康。您的数据。您的掌控。";
+            applyTranslations(currentLang);
+        </script>
     </body>
 </html>
