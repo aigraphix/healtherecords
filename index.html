@@ -633,6 +633,30 @@
                     padding: 50px 0;
                 }
             }
+
+            /* ── LANGUAGE DROPDOWN ── */
+            .lang-select-wrapper { position: relative; user-select: none; margin-left: 12px; }
+            .lang-select-trigger {
+                display: flex; align-items: center; gap: 6px; padding: 6px 12px;
+                background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+                border-radius: 8px; cursor: pointer; font-size: 13px; color: #fff;
+                transition: background 0.2s;
+            }
+            .lang-select-trigger:hover { background: rgba(255,255,255,0.1); }
+            .lang-select-options {
+                position: absolute; top: calc(100% + 8px); right: 0;
+                background: #0f172a; border: 1px solid var(--border);
+                border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+                z-index: 200; opacity: 0; visibility: hidden; width: 150px;
+                transform: translateY(-10px); transition: all 0.2s;
+            }
+            .lang-select-wrapper.open .lang-select-options { opacity: 1; visibility: visible; transform: translateY(0); }
+            .lang-opt {
+                padding: 10px 14px; font-size: 13px; color: var(--text-muted); cursor: pointer;
+                border-bottom: 1px solid rgba(255,255,255,0.02);
+            }
+            .lang-opt:hover { background: rgba(56,189,248,0.1); color: #fff; }
+            .lang-opt.selected { color: var(--accent); font-weight: 600; }
         </style>
     </head>
 
@@ -654,12 +678,30 @@
                     </div>
                 </a>
                 <div class="nav-links">
-                    <a href="#features">Features</a>
-                    <a href="#architecture">Architecture</a>
-                    <a href="#security">Security</a>
-                    <a href="#languages">Languages</a>
-                    <a href="legal/">Legal</a>
-                    <a href="#cta" class="nav-cta">Get Started</a>
+                    <a href="#features" data-i18n="nav.features">Features</a>
+                    <a href="#architecture" data-i18n="nav.arch">Architecture</a>
+                    <a href="#security" data-i18n="nav.security">Security</a>
+                    <a href="#languages" data-i18n="nav.languages">Languages</a>
+                    <a href="legal/" data-i18n="nav.legal">Legal</a>
+                    <a href="#cta" class="nav-cta" data-i18n="nav.cta">Get Started</a>
+
+                <div class="lang-select-wrapper">
+                    <div class="lang-select-trigger">
+                        <span id="currentLangLabel">English</span>
+                        <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1L5 5L9 1"/></svg>
+                    </div>
+                    <div class="lang-select-options">
+                        <div class="lang-opt selected" data-value="en">🇺🇸 English</div>
+                        <div class="lang-opt" data-value="es">🇪🇸 Español</div>
+                        <div class="lang-opt" data-value="fr">🇫🇷 Français</div>
+                        <div class="lang-opt" data-value="it">🇮🇹 Italiano</div>
+                        <div class="lang-opt" data-value="ja">🇯🇵 日本語</div>
+                        <div class="lang-opt" data-value="pl">🇵🇱 Polski</div>
+                        <div class="lang-opt" data-value="ru">🇷🇺 Русский</div>
+                        <div class="lang-opt" data-value="uk">🇺🇦 Українська</div>
+                        <div class="lang-opt" data-value="zh">🇨🇳 中文</div>
+                    </div>
+                </div>
                 </div>
             </div>
         </nav>
@@ -669,12 +711,12 @@
             <section class="hero">
                 <h1>
                     Your Personal Health Records,<br />
-                    <span class="gradient-text">Powered by AI</span>
+                    <span class="gradient-text" data-i18n="hero.title2">Powered by AI</span>
                 </h1>
                 <p>
-                    Securely log, scan, and manage your medical documents,
+<span data-i18n="hero.desc">Securely log, scan, and manage your medical documents,
                     appointments, and health data — with AI-assisted summaries,
-                    offline support, and HIPAA-compliant encryption.
+                    offline support, and HIPAA-compliant encryption.</span>
                 </p>
                 <div class="hero-actions">
                     <a href="#cta" class="btn-primary">
@@ -694,26 +736,26 @@
             <div class="stats-bar">
                 <div class="stat">
                     <div class="stat-value">9</div>
-                    <div class="stat-label">Languages Supported</div>
+                    <div class="stat-label" data-i18n="stat.lang">Languages Supported</div>
                 </div>
                 <div class="stat">
                     <div class="stat-value">12</div>
-                    <div class="stat-label">Offline Log Types</div>
+                    <div class="stat-label" data-i18n="stat.offline">Offline Log Types</div>
                 </div>
                 <div class="stat">
                     <div class="stat-value">E2EE</div>
-                    <div class="stat-label">End-to-End Encrypted</div>
+                    <div class="stat-label" data-i18n="stat.e2ee">End-to-End Encrypted</div>
                 </div>
                 <div class="stat">
                     <div class="stat-value">HIPAA</div>
-                    <div class="stat-label">Compliant by Design</div>
+                    <div class="stat-label" data-i18n="stat.hipaa">Compliant by Design</div>
                 </div>
             </div>
 
             <!-- ── FEATURES ── -->
             <section id="features">
-                <div class="section-label">✦ Capabilities</div>
-                <h2>Everything You Need to<br />Manage Your Health</h2>
+                <div class="section-label" data-i18n="feat.label">✦ Capabilities</div>
+                <h2 data-i18n="feat.title">Everything You Need to<br />Manage Your Health</h2>
                 <p class="section-desc">
                     Built with Expo, Supabase, and Gemini AI to give patients
                     and doctors a unified, secure, and intelligent health
@@ -723,7 +765,7 @@
                 <div class="features-grid">
                     <div class="feature-card">
                         <div class="feature-icon icon-blue">💬</div>
-                        <h3>Agentic Chat</h3>
+                        <h3 data-i18n="feat.chat.title">Agentic Chat</h3>
                         <p>
                             Speak naturally — the AI classifies your intent,
                             prepares the action, and confirms before writing.
@@ -734,7 +776,7 @@
 
                     <div class="feature-card">
                         <div class="feature-icon icon-green">📷</div>
-                        <h3>Smart Scanner</h3>
+                        <h3 data-i18n="feat.scan.title">Smart Scanner</h3>
                         <p>
                             Unified camera scanner auto-detects barcodes and
                             nutrition labels. Gemini Flash analyzes documents
@@ -745,7 +787,7 @@
 
                     <div class="feature-card">
                         <div class="feature-icon icon-violet">🔌</div>
-                        <h3>Offline Logging</h3>
+                        <h3 data-i18n="feat.offline.title">Offline Logging</h3>
                         <p>
                             Log vitals offline — "BP 120/80", "Weight 185 lbs".
                             Regex-based parser works without AI. SQLite queue
@@ -756,7 +798,7 @@
 
                     <div class="feature-card">
                         <div class="feature-icon icon-rose">🎥</div>
-                        <h3>Telehealth</h3>
+                        <h3 data-i18n="feat.tele.title">Telehealth</h3>
                         <p>
                             LiveKit-powered real-time video appointments with
                             doctors. Join your appointment from the chat — opens
@@ -766,7 +808,7 @@
 
                     <div class="feature-card">
                         <div class="feature-icon icon-amber">📄</div>
-                        <h3>Document Management</h3>
+                        <h3 data-i18n="feat.docs.title">Document Management</h3>
                         <p>
                             Upload, view, and share medical documents via
                             Supabase Storage. PDFs, images, and lab results —
@@ -776,7 +818,7 @@
 
                     <div class="feature-card">
                         <div class="feature-icon icon-cyan">🌐</div>
-                        <h3>9 Languages</h3>
+                        <h3 data-i18n="feat.lang.title">9 Languages</h3>
                         <p>
                             Full i18n support with react-i18next. English,
                             Spanish, French, Italian, Japanese, Polish, Russian,
@@ -788,8 +830,8 @@
 
             <!-- ── ARCHITECTURE ── -->
             <section id="architecture">
-                <div class="section-label">🏗 Architecture</div>
-                <h2>Built on a Modern Stack</h2>
+                <div class="section-label" data-i18n="arch.label">🏗 Architecture</div>
+                <h2 data-i18n="arch.title">Built on a Modern Stack</h2>
                 <p class="section-desc">
                     Every layer is purpose-built for security, performance, and
                     developer experience.
@@ -797,7 +839,7 @@
 
                 <div class="arch-grid">
                     <div class="arch-card">
-                        <h3>Technology Stack</h3>
+                        <h3 data-i18n="arch.stack">Technology Stack</h3>
                         <div class="arch-row">
                             <span class="arch-label">📱 Frontend</span>
                             <span class="arch-value"
@@ -841,7 +883,7 @@
 
                     <div class="badge-stack" id="security">
                         <div class="badge-card">
-                            <div class="badge-title">🛡️ HIPAA Compliant</div>
+                            <div class="badge-title" data-i18n="sec.hipaa">🛡️ HIPAA Compliant</div>
                             <p class="badge-text">
                                 Protected Health Information (PHI) is encrypted
                                 in transit and at rest. Row-level security
@@ -861,7 +903,7 @@
                             </p>
                         </div>
                         <div class="badge-card">
-                            <div class="badge-title">🔍 Security Gate CI</div>
+                            <div class="badge-title" data-i18n="sec.ci">🔍 Security Gate CI</div>
                             <p class="badge-text">
                                 Automated GitHub Actions pipeline runs RLS
                                 policy probes, JWT abuse tests, secrets
@@ -875,8 +917,8 @@
 
             <!-- ── LANGUAGES ── -->
             <section id="languages">
-                <div class="section-label">🌍 Multilingual</div>
-                <h2>Speaks Your Language</h2>
+                <div class="section-label" data-i18n="lang.label">🌍 Multilingual</div>
+                <h2 data-i18n="lang.title">Speaks Your Language</h2>
                 <p class="section-desc">
                     Full translation coverage across 9 languages with automatic
                     language detection and in-app translation for health logs.
@@ -896,7 +938,7 @@
 
             <!-- ── CTA ── -->
             <section class="cta-section" id="cta">
-                <div class="section-label">🚀 Ready?</div>
+                <div class="section-label" data-i18n="cta.label">🚀 Ready?</div>
                 <h2>
                     Take Control of Your<br /><span
                         style="background: linear-gradient(135deg, var(--accent), var(--accent-green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text"
@@ -940,5 +982,217 @@
                 </div>
             </div>
         </footer>
+
+    <script>
+    const T = {
+      en: {
+        "hero.title1": "Your Personal Health Records,",
+        "hero.title2": "Powered by AI",
+        "hero.desc": "Securely log, scan, and manage your medical documents, appointments, and health data — with AI-assisted summaries, offline support, and HIPAA-compliant encryption.",
+        "btn.getstarted": "🚀 Get Started", "btn.github": "⭐ View on GitHub",
+        "stat.lang": "Languages Supported", "stat.offline": "Offline Log Types",
+        "stat.e2ee": "End-to-End Encrypted", "stat.hipaa": "Compliant by Design",
+        "feat.label": "✦ Capabilities", "feat.title": "Everything You Need to Manage Your Health",
+        "feat.chat.title": "Agentic Chat", "feat.scan.title": "Smart Scanner",
+        "feat.offline.title": "Offline Logging", "feat.tele.title": "Telehealth",
+        "feat.docs.title": "Document Management", "feat.lang.title": "9 Languages",
+        "arch.label": "🏗 Architecture", "arch.title": "Built on a Modern Stack",
+        "arch.stack": "Technology Stack",
+        "sec.hipaa": "🛡️ HIPAA Compliant", "sec.ci": "🔍 Security Gate CI",
+        "lang.label": "🌍 Multilingual", "lang.title": "Speaks Your Language",
+        "cta.label": "🚀 Ready?", "cta.star": "⭐ Star on GitHub", "cta.legal": "📜 Legal & Compliance",
+        "nav.features": "Features", "nav.arch": "Architecture", "nav.security": "Security",
+        "nav.languages": "Languages", "nav.legal": "Legal", "nav.cta": "Get Started"
+      },
+      es: {
+        "hero.title1": "Tus Registros de Salud Personales,",
+        "hero.title2": "Impulsados por IA",
+        "hero.desc": "Registra, escanea y gestiona documentos médicos, citas y datos de salud — con resúmenes de IA, soporte sin conexión y cifrado compatible con HIPAA.",
+        "btn.getstarted": "🚀 Comenzar", "btn.github": "⭐ Ver en GitHub",
+        "stat.lang": "Idiomas Soportados", "stat.offline": "Tipos de Registro Offline",
+        "stat.e2ee": "Cifrado de Extremo a Extremo", "stat.hipaa": "Compatible por Diseño",
+        "feat.label": "✦ Capacidades", "feat.title": "Todo lo que Necesitas para Gestionar tu Salud",
+        "feat.chat.title": "Chat Agente", "feat.scan.title": "Escáner Inteligente",
+        "feat.offline.title": "Registro Sin Conexión", "feat.tele.title": "Telesalud",
+        "feat.docs.title": "Gestión Documental", "feat.lang.title": "9 Idiomas",
+        "arch.label": "🏗 Arquitectura", "arch.title": "Construido con Tecnología Moderna",
+        "arch.stack": "Pila Tecnológica",
+        "sec.hipaa": "🛡️ Compatible con HIPAA", "sec.ci": "🔍 CI de Seguridad",
+        "lang.label": "🌍 Multilingüe", "lang.title": "Habla Tu Idioma",
+        "cta.label": "🚀 ¿Listo?", "cta.star": "⭐ Estrella en GitHub", "cta.legal": "📜 Legal y Cumplimiento",
+        "nav.features": "Funciones", "nav.arch": "Arquitectura", "nav.security": "Seguridad",
+        "nav.languages": "Idiomas", "nav.legal": "Legal", "nav.cta": "Comenzar"
+      },
+      fr: {
+        "hero.title1": "Vos Dossiers de Santé Personnels,",
+        "hero.title2": "Propulsés par l'IA",
+        "hero.desc": "Enregistrez, numérisez et gérez vos documents médicaux, rendez-vous et données de santé — avec des résumés IA, le mode hors ligne et un chiffrement conforme HIPAA.",
+        "btn.getstarted": "🚀 Commencer", "btn.github": "⭐ Voir sur GitHub",
+        "stat.lang": "Langues Prises en Charge", "stat.offline": "Types de Journaux Hors Ligne",
+        "stat.e2ee": "Chiffrement de Bout en Bout", "stat.hipaa": "Conforme par Conception",
+        "feat.label": "✦ Fonctionnalités", "feat.title": "Tout pour Gérer Votre Santé",
+        "feat.chat.title": "Chat Agentique", "feat.scan.title": "Scanner Intelligent",
+        "feat.offline.title": "Journalisation Hors Ligne", "feat.tele.title": "Télésanté",
+        "feat.docs.title": "Gestion Documentaire", "feat.lang.title": "9 Langues",
+        "arch.label": "🏗 Architecture", "arch.title": "Construit sur une Stack Moderne",
+        "arch.stack": "Pile Technologique",
+        "sec.hipaa": "🛡️ Conforme HIPAA", "sec.ci": "🔍 CI de Sécurité",
+        "lang.label": "🌍 Multilingue", "lang.title": "Parle Votre Langue",
+        "cta.label": "🚀 Prêt ?", "cta.star": "⭐ Étoile sur GitHub", "cta.legal": "📜 Juridique et Conformité",
+        "nav.features": "Fonctions", "nav.arch": "Architecture", "nav.security": "Sécurité",
+        "nav.languages": "Langues", "nav.legal": "Juridique", "nav.cta": "Commencer"
+      },
+      it: {
+        "hero.title1": "Le Tue Cartelle Sanitarie Personali,",
+        "hero.title2": "Potenziate dall'IA",
+        "hero.desc": "Registra, scansiona e gestisci documenti medici, appuntamenti e dati sanitari — con riepiloghi IA, supporto offline e crittografia conforme HIPAA.",
+        "btn.getstarted": "🚀 Inizia", "btn.github": "⭐ Vedi su GitHub",
+        "stat.lang": "Lingue Supportate", "stat.offline": "Tipi di Log Offline",
+        "stat.e2ee": "Crittografia End-to-End", "stat.hipaa": "Conforme per Design",
+        "feat.label": "✦ Funzionalità", "feat.title": "Tutto per Gestire la Tua Salute",
+        "feat.chat.title": "Chat Agente", "feat.scan.title": "Scanner Intelligente",
+        "feat.offline.title": "Registrazione Offline", "feat.tele.title": "Telemedicina",
+        "feat.docs.title": "Gestione Documenti", "feat.lang.title": "9 Lingue",
+        "arch.label": "🏗 Architettura", "arch.title": "Costruito su uno Stack Moderno",
+        "arch.stack": "Stack Tecnologico",
+        "sec.hipaa": "🛡️ Conforme HIPAA", "sec.ci": "🔍 CI di Sicurezza",
+        "lang.label": "🌍 Multilingue", "lang.title": "Parla la Tua Lingua",
+        "cta.label": "🚀 Pronto?", "cta.star": "⭐ Stella su GitHub", "cta.legal": "📜 Legale e Conformità",
+        "nav.features": "Funzioni", "nav.arch": "Architettura", "nav.security": "Sicurezza",
+        "nav.languages": "Lingue", "nav.legal": "Legale", "nav.cta": "Inizia"
+      },
+      ja: {
+        "hero.title1": "あなたの健康記録を、",
+        "hero.title2": "AIで管理",
+        "hero.desc": "医療文書、予約、健康データを安全に記録・スキャン・管理。AI要約、オフライン対応、HIPAA準拠の暗号化。",
+        "btn.getstarted": "🚀 始める", "btn.github": "⭐ GitHubで見る",
+        "stat.lang": "対応言語", "stat.offline": "オフラインログの種類",
+        "stat.e2ee": "エンドツーエンド暗号化", "stat.hipaa": "設計で準拠",
+        "feat.label": "✦ 機能", "feat.title": "健康管理に必要なすべて",
+        "feat.chat.title": "エージェントチャット", "feat.scan.title": "スマートスキャナー",
+        "feat.offline.title": "オフライン記録", "feat.tele.title": "遠隔医療",
+        "feat.docs.title": "文書管理", "feat.lang.title": "9言語",
+        "arch.label": "🏗 アーキテクチャ", "arch.title": "最新スタックで構築",
+        "arch.stack": "技術スタック",
+        "sec.hipaa": "🛡️ HIPAA準拠", "sec.ci": "🔍 セキュリティCI",
+        "lang.label": "🌍 多言語", "lang.title": "あなたの言語で",
+        "cta.label": "🚀 準備は？", "cta.star": "⭐ GitHubでスター", "cta.legal": "📜 法的情報",
+        "nav.features": "機能", "nav.arch": "構成", "nav.security": "セキュリティ",
+        "nav.languages": "言語", "nav.legal": "法的情報", "nav.cta": "始める"
+      },
+      pl: {
+        "hero.title1": "Twoja Dokumentacja Medyczna,",
+        "hero.title2": "Wspierana przez AI",
+        "hero.desc": "Bezpiecznie rejestruj, skanuj i zarządzaj dokumentami medycznymi, wizytami i danymi zdrowotnymi — z podsumowaniami AI, trybem offline i szyfrowaniem zgodnym z HIPAA.",
+        "btn.getstarted": "🚀 Rozpocznij", "btn.github": "⭐ Zobacz na GitHub",
+        "stat.lang": "Obsługiwane Języki", "stat.offline": "Typy Logów Offline",
+        "stat.e2ee": "Szyfrowanie E2E", "stat.hipaa": "Zgodne z HIPAA",
+        "feat.label": "✦ Możliwości", "feat.title": "Wszystko do Zarządzania Zdrowiem",
+        "feat.chat.title": "Czat AI", "feat.scan.title": "Inteligentny Skaner",
+        "feat.offline.title": "Logowanie Offline", "feat.tele.title": "Telemedycyna",
+        "feat.docs.title": "Zarządzanie Dokumentami", "feat.lang.title": "9 Języków",
+        "arch.label": "🏗 Architektura", "arch.title": "Zbudowane na Nowoczesnym Stosie",
+        "arch.stack": "Stos Technologiczny",
+        "sec.hipaa": "🛡️ Zgodne z HIPAA", "sec.ci": "🔍 CI Bezpieczeństwa",
+        "lang.label": "🌍 Wielojęzyczne", "lang.title": "Mówi Twoim Językiem",
+        "cta.label": "🚀 Gotowy?", "cta.star": "⭐ Gwiazdka na GitHub", "cta.legal": "📜 Prawne i Zgodność",
+        "nav.features": "Funkcje", "nav.arch": "Architektura", "nav.security": "Bezpieczeństwo",
+        "nav.languages": "Języki", "nav.legal": "Prawne", "nav.cta": "Rozpocznij"
+      },
+      ru: {
+        "hero.title1": "Ваши Медицинские Записи,",
+        "hero.title2": "На базе ИИ",
+        "hero.desc": "Безопасно записывайте, сканируйте и управляйте медицинскими документами, приёмами и данными о здоровье — с ИИ-резюме, офлайн-режимом и шифрованием по HIPAA.",
+        "btn.getstarted": "🚀 Начать", "btn.github": "⭐ Смотреть на GitHub",
+        "stat.lang": "Поддерживаемые Языки", "stat.offline": "Типов Офлайн-Записей",
+        "stat.e2ee": "Сквозное Шифрование", "stat.hipaa": "Соответствие по Дизайну",
+        "feat.label": "✦ Возможности", "feat.title": "Всё для Управления Здоровьем",
+        "feat.chat.title": "Агентный Чат", "feat.scan.title": "Умный Сканер",
+        "feat.offline.title": "Офлайн-Журнал", "feat.tele.title": "Телемедицина",
+        "feat.docs.title": "Управление Документами", "feat.lang.title": "9 Языков",
+        "arch.label": "🏗 Архитектура", "arch.title": "Построен на Современном Стеке",
+        "arch.stack": "Технологический Стек",
+        "sec.hipaa": "🛡️ Соответствие HIPAA", "sec.ci": "🔍 CI Безопасности",
+        "lang.label": "🌍 Мультиязычный", "lang.title": "Говорит на Вашем Языке",
+        "cta.label": "🚀 Готовы?", "cta.star": "⭐ Звезда на GitHub", "cta.legal": "📜 Правовая Информация",
+        "nav.features": "Функции", "nav.arch": "Архитектура", "nav.security": "Безопасность",
+        "nav.languages": "Языки", "nav.legal": "Правовое", "nav.cta": "Начать"
+      },
+      uk: {
+        "hero.title1": "Ваші Медичні Записи,",
+        "hero.title2": "На базі ШІ",
+        "hero.desc": "Безпечно записуйте, скануйте та керуйте медичними документами, прийомами та даними про здоров'я — з ШІ-підсумками, офлайн-режимом та шифруванням HIPAA.",
+        "btn.getstarted": "🚀 Почати", "btn.github": "⭐ Дивитись на GitHub",
+        "stat.lang": "Підтримувані Мови", "stat.offline": "Типів Офлайн-Записів",
+        "stat.e2ee": "Наскрізне Шифрування", "stat.hipaa": "Відповідність за Дизайном",
+        "feat.label": "✦ Можливості", "feat.title": "Все для Керування Здоров'ям",
+        "feat.chat.title": "Агентний Чат", "feat.scan.title": "Розумний Сканер",
+        "feat.offline.title": "Офлайн-Журнал", "feat.tele.title": "Телемедицина",
+        "feat.docs.title": "Керування Документами", "feat.lang.title": "9 Мов",
+        "arch.label": "🏗 Архітектура", "arch.title": "Побудований на Сучасному Стеку",
+        "arch.stack": "Технологічний Стек",
+        "sec.hipaa": "🛡️ Відповідність HIPAA", "sec.ci": "🔍 CI Безпеки",
+        "lang.label": "🌍 Багатомовний", "lang.title": "Говорить Вашою Мовою",
+        "cta.label": "🚀 Готові?", "cta.star": "⭐ Зірка на GitHub", "cta.legal": "📜 Правова Інформація",
+        "nav.features": "Функції", "nav.arch": "Архітектура", "nav.security": "Безпека",
+        "nav.languages": "Мови", "nav.legal": "Правове", "nav.cta": "Почати"
+      },
+      zh: {
+        "hero.title1": "您的个人健康档案，",
+        "hero.title2": "AI 驱动",
+        "hero.desc": "安全记录、扫描和管理医疗文档、预约和健康数据——AI 摘要、离线支持和 HIPAA 合规加密。",
+        "btn.getstarted": "🚀 开始使用", "btn.github": "⭐ 在 GitHub 查看",
+        "stat.lang": "支持语言", "stat.offline": "离线日志类型",
+        "stat.e2ee": "端到端加密", "stat.hipaa": "设计合规",
+        "feat.label": "✦ 功能", "feat.title": "管理健康所需的一切",
+        "feat.chat.title": "智能聊天", "feat.scan.title": "智能扫描仪",
+        "feat.offline.title": "离线记录", "feat.tele.title": "远程医疗",
+        "feat.docs.title": "文档管理", "feat.lang.title": "9 种语言",
+        "arch.label": "🏗 架构", "arch.title": "基于现代技术栈构建",
+        "arch.stack": "技术栈",
+        "sec.hipaa": "🛡️ HIPAA 合规", "sec.ci": "🔍 安全 CI",
+        "lang.label": "🌍 多语言", "lang.title": "说您的语言",
+        "cta.label": "🚀 准备好了？", "cta.star": "⭐ GitHub 加星", "cta.legal": "📜 法律与合规",
+        "nav.features": "功能", "nav.arch": "架构", "nav.security": "安全",
+        "nav.languages": "语言", "nav.legal": "法律", "nav.cta": "开始"
+      }
+    };
+
+    const langNames = {en:"English",es:"Español",fr:"Français",it:"Italiano",ja:"日本語",pl:"Polski",ru:"Русский",uk:"Українська",zh:"中文"};
+    let currentLang = localStorage.getItem('herLang') || 'en';
+
+    function applyTranslations(lang) {
+        const b = T[lang] || T.en;
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const k = el.dataset.i18n;
+            if (b[k]) el.textContent = b[k];
+        });
+        const label = document.getElementById('currentLangLabel');
+        if (label) label.textContent = langNames[lang] || 'English';
+        document.querySelectorAll('.lang-opt').forEach(o => {
+            o.classList.toggle('selected', o.dataset.value === lang);
+        });
+    }
+
+    function setLang(lang) {
+        localStorage.setItem('herLang', lang);
+        currentLang = lang;
+        applyTranslations(lang);
+    }
+
+    // Dropdown
+    const wrap = document.querySelector('.lang-select-wrapper');
+    if (wrap) {
+        wrap.querySelector('.lang-select-trigger').addEventListener('click', e => {
+            e.stopPropagation(); wrap.classList.toggle('open');
+        });
+        wrap.querySelectorAll('.lang-opt').forEach(o => {
+            o.addEventListener('click', function() { setLang(this.dataset.value); wrap.classList.remove('open'); });
+        });
+        document.addEventListener('click', e => { if (!wrap.contains(e.target)) wrap.classList.remove('open'); });
+    }
+
+    applyTranslations(currentLang);
+    </script>
     </body>
 </html>
