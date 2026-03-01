@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title data-i18n="page.title">Legal | Health eRecords</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Legal policies for Health eRecords: privacy, terms, HIPAA, security, encryption, and support." />
+  <script>
+    (function() {
+      const searchParams = new URLSearchParams(window.location.search);
+      let lang = searchParams.get('lang');
+      let hash = window.location.hash;
+      if (!lang && hash && hash.includes('?')) {
+        const [hashId, hashQuery] = hash.split('?');
+        const hashParams = new URLSearchParams(hashQuery || '');
+        lang = hashParams.get('lang');
+        if (lang) {
+          const newUrl = `${window.location.pathname}?lang=${lang}${hashId}`;
+          window.history.replaceState(null, '', newUrl);
+          hash = hashId;
+        }
+      }
+      if (!lang) {
+        lang = 'en';
+      }
+      document.documentElement.lang = lang;
+      window.APP_LANG = lang;
+      if (hash) {
+        const target = document.getElementById(hash.replace('#', ''));
+        if (target) {
+          target.scrollIntoView();
+        }
+      }
+    })();
+  </script>
+  <style>
+    :root {
+      --bg: radial-gradient(circle at 20% 20%, #1f2a41 0, #0b1220 35%, #050915 100%);
+      --card-bg: #0f172a;
+      --card-soft: rgba(255,255,255,0.02);
+      --accent: #38bdf8;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border: rgba(148,163,184,0.25);
+      --radius: 1.35rem;
+      --shadow: 0 30px 80px rgba(5,9,21,.75);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+    }
+
+    .wrapper {
+      width: 100%;
+      max-width: 1100px;
+      margin: 32px 16px 48px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      box-shadow: 0 15px 36px rgba(56,189,248,.35);
+    }
+
+    .brand-main {
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .brand-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .pill {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .hero {
+      background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)), var(--card-bg);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: clamp(26px, 3vw, 34px);
+      margin: 0 0 10px;
+    }
+
+    h2 {
+      font-size: clamp(22px, 2.5vw, 28px);
+      margin: 0 0 10px;
+    }
+
+    h3 { margin-top: 18px; }
+
+    p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #dfe3eb;
+      margin: 0 0 14px;
+    }
+
+    ul {
+      padding-left: 20px;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    ul li { margin-bottom: 8px; }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .nav-links a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    .legal-section {
+      background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)), var(--card-bg);
+      border-radius: var(--radius);
+      padding: 28px 24px 24px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      margin-bottom: 22px;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .meta-item {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+    }
+
+    footer {
+      margin-top: 32px;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="brand">
+        <img class="brand-icon" src="icon.png" alt="Health eRecords App Icon" />
+        <div>
+          <a href="/healtherecords/" style="color:inherit;text-decoration:none"><div class="brand-main">Health eRecords</div></a>
+          <div class="brand-sub" data-i18n="brand.tagline">Your health. Your data. Your control.</div>
+        </div>
+      </div>
+      <div class="pill" data-i18n="pill.title">Legal & Compliance</div>
+    </header>
+
+    <section class="hero">
+      <h1 data-i18n="hero.title">Legal Documentation</h1>
+      <p data-i18n="hero.subtitle">Privacy, terms, HIPAA, security, encryption, and support policies in one place.</p>
+      <div class="nav-links">
+        <a href="#privacy" data-i18n="nav.privacy">Privacy</a>
+        <a href="#terms" data-i18n="nav.terms">Terms</a>
+        <a href="#hipaa" data-i18n="nav.hipaa">HIPAA</a>
+        <a href="#security" data-i18n="nav.security">Security</a>
+        <a href="#encryption" data-i18n="nav.encryption">Encryption</a>
+        <a href="#support" data-i18n="nav.support">Support</a>
+      </div>
+    </section>
+
+    <section id="privacy" class="legal-section">
+      <h2 data-i18n="privacy.title">Privacy Policy</h2>
+      <div class="meta-row">
+        <span class="meta-item"><span data-i18n="privacy.meta.effective">Effective:</span> <span data-i18n="privacy.meta.date">November 21, 2025</span></span>
+        <span class="meta-item"><span data-i18n="privacy.meta.contact">Contact:</span> apd1034@gmail.com</span>
+      </div>
+      <p data-i18n="privacy.intro">We collect only what is necessary to deliver care features and never sell your data.</p>
+      <h3 data-i18n="privacy.sections.collect">Data We Collect</h3>
+      <ul>
+        <li data-i18n="privacy.collect.a">Account & identity information.</li>
+        <li data-i18n="privacy.collect.b">Health content and authorizations.</li>
+        <li data-i18n="privacy.collect.c">Device and diagnostic telemetry.</li>
+      </ul>
+      <h3 data-i18n="privacy.sections.use">How We Use Data</h3>
+      <ul>
+        <li data-i18n="privacy.use.a">Deliver core features.</li>
+        <li data-i18n="privacy.use.b">Safety, reliability, and support.</li>
+        <li data-i18n="privacy.use.c">Legal and compliance obligations.</li>
+      </ul>
+      <h3 data-i18n="privacy.sections.share">Sharing & Disclosure</h3>
+      <ul>
+        <li data-i18n="privacy.share.a">Authorized doctors or patients.</li>
+        <li data-i18n="privacy.share.b">Service providers under contract.</li>
+        <li data-i18n="privacy.share.c">Legal or safety requirements.</li>
+      </ul>
+      <h3 data-i18n="privacy.sections.security">Security Highlights</h3>
+      <ul>
+        <li data-i18n="privacy.security.a">Encryption in transit and at rest.</li>
+        <li data-i18n="privacy.security.b">Access controls and logging.</li>
+        <li data-i18n="privacy.security.c">Optional biometric protection.</li>
+        <li data-i18n="privacy.security.d">Audit logging.</li>
+      </ul>
+      <h3 data-i18n="privacy.sections.rights">Your Choices & Rights</h3>
+      <ul>
+        <li data-i18n="privacy.rights.a">Manage and revoke authorizations.</li>
+        <li data-i18n="privacy.rights.b">Delete logs or request deletion.</li>
+        <li data-i18n="privacy.rights.c">Request access or export.</li>
+      </ul>
+      <h3 data-i18n="privacy.sections.retention">Retention</h3>
+      <p data-i18n="privacy.retention">Data is retained while your account is active or as required by law.</p>
+      <h3 data-i18n="privacy.sections.children">Children</h3>
+      <p data-i18n="privacy.children">Not directed to children under 13.</p>
+      <h3 data-i18n="privacy.sections.changes">Changes</h3>
+      <p data-i18n="privacy.changes">Updates will be posted here and in-app.</p>
+    </section>
+
+    <section id="terms" class="legal-section">
+      <h2 data-i18n="terms.title">Terms of Service</h2>
+      <div class="meta-row">
+        <span class="meta-item"><span data-i18n="terms.meta.effective">Effective:</span> <span data-i18n="terms.meta.date">November 21, 2025</span></span>
+        <span class="meta-item"><span data-i18n="terms.meta.contact">Contact:</span> apd1034@gmail.com</span>
+      </div>
+      <p data-i18n="terms.intro">Health eRecords provides health logging, AI chat, image analysis, and controlled data sharing. Not for emergencies.</p>
+      <h3 data-i18n="terms.sections.responsibilities">Your Responsibilities</h3>
+      <ul>
+        <li data-i18n="terms.resp.1">Provide accurate information and lawful use only.</li>
+        <li data-i18n="terms.resp.2">Keep your account secure.</li>
+        <li data-i18n="terms.resp.3">Respect privacy and data protections.</li>
+      </ul>
+      <h3 data-i18n="terms.sections.prohibited">Prohibited Uses</h3>
+      <ul>
+        <li data-i18n="terms.prohibited.1">Unauthorized access or security bypass.</li>
+        <li data-i18n="terms.prohibited.2">Malicious, abusive, or illegal content.</li>
+        <li data-i18n="terms.prohibited.3">Unlicensed medical claims.</li>
+      </ul>
+      <h3 data-i18n="terms.sections.disclaimer">Disclaimers & Liability</h3>
+      <p data-i18n="terms.disclaimer">Service provided as-is. AI is informational only.</p>
+      <h3 data-i18n="terms.sections.indemnity">Indemnity</h3>
+      <p data-i18n="terms.indemnity">You agree to indemnify Health eRecords for misuse.</p>
+    </section>
+
+    <section id="hipaa" class="legal-section">
+      <h2 data-i18n="hipaa.title">HIPAA Notice of Privacy Practices</h2>
+      <div class="meta-row">
+        <span class="meta-item"><span data-i18n="hipaa.meta.effective">Effective:</span> <span data-i18n="hipaa.meta.date">November 21, 2025</span></span>
+        <span class="meta-item"><span data-i18n="hipaa.meta.contact">Contact:</span> apd1034@gmail.com</span>
+      </div>
+      <p data-i18n="hipaa.intro">This notice explains how your protected health information (PHI) may be used and shared, and what rights you have.</p>
+      <h3 data-i18n="hipaa.uses.title">How We May Use or Share PHI:</h3>
+      <ul>
+        <li data-i18n="hipaa.uses.treatment">Treatment: Sharing with authorized clinicians involved in your care.</li>
+        <li data-i18n="hipaa.uses.operations">Operations: Security and quality improvement.</li>
+        <li data-i18n="hipaa.uses.legal">Legal/Public Health: Reporting when required by law.</li>
+      </ul>
+      <p data-i18n="hipaa.minimum">Only the minimum necessary information is used, and you will be notified of any reportable breach.</p>
+      <h3 data-i18n="hipaa.rights.title">Your Rights:</h3>
+      <ul>
+        <li data-i18n="hipaa.rights.r1">Access or request copies of your PHI.</li>
+        <li data-i18n="hipaa.rights.r2">Request corrections to your record.</li>
+        <li data-i18n="hipaa.rights.r3">Request limits on certain uses or disclosures.</li>
+        <li data-i18n="hipaa.rights.r4">Revoke authorizations when legally allowed.</li>
+        <li data-i18n="hipaa.rights.r5">Request a record of disclosures where applicable.</li>
+        <li data-i18n="hipaa.rights.r6">File a complaint without retaliation.</li>
+      </ul>
+      <p data-i18n="hipaa.contact">If you have questions or want to exercise your rights, email apd1034@gmail.com.</p>
+    </section>
+
+    <section id="security" class="legal-section">
+      <h2 data-i18n="security.title">Security & Data Protection</h2>
+      <div class="meta-row">
+        <span class="meta-item"><span data-i18n="security.meta.effective">Effective:</span> <span data-i18n="security.meta.date">November 21, 2025</span></span>
+        <span class="meta-item"><span data-i18n="security.meta.contact">Contact:</span> apd1034@gmail.com</span>
+      </div>
+      <ul>
+        <li data-i18n="security.list.a">TLS for all traffic; encryption at rest.</li>
+        <li data-i18n="security.list.b">Role-based access with row-level security.</li>
+        <li data-i18n="security.list.c">Optional biometrics and planned passkeys.</li>
+        <li data-i18n="security.list.d">Audit logging for sensitive actions.</li>
+        <li data-i18n="security.list.e">Backups and breach response per law.</li>
+      </ul>
+    </section>
+
+    <section id="encryption" class="legal-section">
+      <h2 data-i18n="encryption.title">End-to-End Encryption</h2>
+      <div class="meta-row">
+        <span class="meta-item"><span data-i18n="encryption.meta.effective">Effective:</span> <span data-i18n="encryption.meta.date">November 21, 2025</span></span>
+        <span class="meta-item"><span data-i18n="encryption.meta.contact">Contact:</span> apd1034@gmail.com</span>
+      </div>
+      <p data-i18n="encryption.intro">End-to-end encryption (E2EE) means message content is encrypted on your device and can only be decrypted by the intended recipients.</p>
+      <ul>
+        <li data-i18n="encryption.list.onDevice">On-device encryption: content is encrypted before it leaves your device.</li>
+        <li data-i18n="encryption.list.recipientOnly">Recipient-only decryption: only authorized recipients can decrypt the content.</li>
+        <li data-i18n="encryption.list.keyProtection">Key protection: encryption keys are protected and not shown in the UI.</li>
+        <li data-i18n="encryption.list.metadata">Metadata limits: message content is encrypted, some metadata may remain.</li>
+        <li data-i18n="encryption.list.sharing">Sharing control: access depends on doctor/patient authorization.</li>
+      </ul>
+      <p data-i18n="encryption.footer">Encrypted content is treated as opaque data during transport and storage.</p>
+    </section>
+
+    <section id="support" class="legal-section">
+      <h2 data-i18n="support.title">Support</h2>
+      <div class="meta-row">
+        <span class="meta-item"><span data-i18n="support.meta.email">Email:</span> apd1034@gmail.com</span>
+        <span class="meta-item"><span data-i18n="support.meta.hours">Hours:</span> <span data-i18n="support.meta.hoursValue">Mon–Fri, 9am–5pm PT</span></span>
+      </div>
+      <p data-i18n="support.intro">We're here to help. Reach out for technical issues, feedback, or data requests.</p>
+      <p data-i18n="support.footer">For privacy or data requests, include the email tied to your account.</p>
+      <h3 data-i18n="support.tips.title">Tips</h3>
+      <ul>
+        <li data-i18n="support.tips.b1">Update to the latest app version.</li>
+        <li data-i18n="support.tips.b2">Include screenshots for errors.</li>
+        <li data-i18n="support.tips.b3">Use your account email for privacy requests.</li>
+      </ul>
+    </section>
+
+    <footer>
+      <span data-i18n="footer.copy">© 2025 Health eRecords</span>
+      <a href="#privacy" data-i18n="nav.privacy">Privacy</a>
+      <a href="#terms" data-i18n="nav.terms">Terms</a>
+      <a href="#hipaa" data-i18n="nav.hipaa">HIPAA</a>
+      <a href="#security" data-i18n="nav.security">Security</a>
+      <a href="#encryption" data-i18n="nav.encryption">Encryption</a>
+      <a href="#support" data-i18n="nav.support">Support</a>
+    </footer>
+  </div>
+
+  <script>
+    const translations = {
+      en: {
+        'page.title': 'Legal | Health eRecords',
+        'brand.tagline': 'Your health. Your data. Your control.',
+        'pill.title': 'Legal & Compliance',
+        'hero.title': 'Legal Documentation',
+        'hero.subtitle': 'Privacy, terms, HIPAA, security, encryption, and support policies in one place.',
+        'nav.privacy': 'Privacy',
+        'nav.terms': 'Terms',
+        'nav.hipaa': 'HIPAA',
+        'nav.security': 'Security',
+        'nav.encryption': 'Encryption',
+        'nav.support': 'Support',
+        'privacy.title': 'Privacy Policy',
+        'privacy.meta.effective': 'Effective:',
+        'privacy.meta.date': 'November 21, 2025',
+        'privacy.meta.contact': 'Contact:',
+        'privacy.intro': 'We collect only what is necessary to deliver care features and never sell your data.',
+        'privacy.sections.collect': 'Data We Collect',
+        'privacy.collect.a': 'Account & identity information.',
+        'privacy.collect.b': 'Health content and authorizations.',
+        'privacy.collect.c': 'Device and diagnostic telemetry.',
+        'privacy.sections.use': 'How We Use Data',
+        'privacy.use.a': 'Deliver core features.',
+        'privacy.use.b': 'Safety, reliability, and support.',
+        'privacy.use.c': 'Legal and compliance obligations.',
+        'privacy.sections.share': 'Sharing & Disclosure',
+        'privacy.share.a': 'Authorized doctors or patients.',
+        'privacy.share.b': 'Service providers under contract.',
+        'privacy.share.c': 'Legal or safety requirements.',
+        'privacy.sections.security': 'Security Highlights',
+        'privacy.security.a': 'Encryption in transit and at rest.',
+        'privacy.security.b': 'Access controls and logging.',
+        'privacy.security.c': 'Optional biometric protection.',
+        'privacy.security.d': 'Audit logging.',
+        'privacy.sections.rights': 'Your Choices & Rights',
+        'privacy.rights.a': 'Manage and revoke authorizations.',
+        'privacy.rights.b': 'Delete logs or request deletion.',
+        'privacy.rights.c': 'Request access or export.',
+        'privacy.sections.retention': 'Retention',
+        'privacy.retention': 'Data is retained while your account is active or as required by law.',
+        'privacy.sections.children': 'Children',
+        'privacy.children': 'Not directed to children under 13.',
+        'privacy.sections.changes': 'Changes',
+        'privacy.changes': 'Updates will be posted here and in-app.',
+        'terms.title': 'Terms of Service',
+        'terms.meta.effective': 'Effective:',
+        'terms.meta.date': 'November 21, 2025',
+        'terms.meta.contact': 'Contact:',
+        'terms.intro': 'Health eRecords provides health logging, AI chat, image analysis, and controlled data sharing. Not for emergencies.',
+        'terms.sections.responsibilities': 'Your Responsibilities',
+        'terms.resp.1': 'Provide accurate information and lawful use only.',
+        'terms.resp.2': 'Keep your account secure.',
+        'terms.resp.3': 'Respect privacy and data protections.',
+        'terms.sections.prohibited': 'Prohibited Uses',
+        'terms.prohibited.1': 'Unauthorized access or security bypass.',
+        'terms.prohibited.2': 'Malicious, abusive, or illegal content.',
+        'terms.prohibited.3': 'Unlicensed medical claims.',
+        'terms.sections.disclaimer': 'Disclaimers & Liability',
+        'terms.disclaimer': 'Service provided as-is. AI is informational only.',
+        'terms.sections.indemnity': 'Indemnity',
+        'terms.indemnity': 'You agree to indemnify Health eRecords for misuse.',
+        'hipaa.title': 'HIPAA Notice of Privacy Practices',
+        'hipaa.meta.effective': 'Effective:',
+        'hipaa.meta.date': 'November 21, 2025',
+        'hipaa.meta.contact': 'Contact:',
+        'hipaa.intro': 'This notice explains how your protected health information (PHI) may be used and shared, and what rights you have.',
+        'hipaa.uses.title': 'How We May Use or Share PHI:',
+        'hipaa.uses.treatment': 'Treatment: Sharing with authorized clinicians involved in your care.',
+        'hipaa.uses.operations': 'Operations: Security and quality improvement.',
+        'hipaa.uses.legal': 'Legal/Public Health: Reporting when required by law.',
+        'hipaa.minimum': 'Only the minimum necessary information is used, and you will be notified of any reportable breach.',
+        'hipaa.rights.title': 'Your Rights:',
+        'hipaa.rights.r1': 'Access or request copies of your PHI.',
+        'hipaa.rights.r2': 'Request corrections to your record.',
+        'hipaa.rights.r3': 'Request limits on certain uses or disclosures.',
+        'hipaa.rights.r4': 'Revoke authorizations when legally allowed.',
+        'hipaa.rights.r5': 'Request a record of disclosures where applicable.',
+        'hipaa.rights.r6': 'File a complaint without retaliation.',
+        'hipaa.contact': 'If you have questions or want to exercise your rights, email apd1034@gmail.com.',
+        'security.title': 'Security & Data Protection',
+        'security.meta.effective': 'Effective:',
+        'security.meta.date': 'November 21, 2025',
+        'security.meta.contact': 'Contact:',
+        'security.list.a': 'TLS for all traffic; encryption at rest.',
+        'security.list.b': 'Role-based access with row-level security.',
+        'security.list.c': 'Optional biometrics and planned passkeys.',
+        'security.list.d': 'Audit logging for sensitive actions.',
+        'security.list.e': 'Backups and breach response per law.',
+        'encryption.title': 'End-to-End Encryption',
+        'encryption.meta.effective': 'Effective:',
+        'encryption.meta.date': 'November 21, 2025',
+        'encryption.meta.contact': 'Contact:',
+        'encryption.intro': 'End-to-end encryption (E2EE) means message content is encrypted on your device and can only be decrypted by the intended recipients.',
+        'encryption.list.onDevice': 'On-device encryption: content is encrypted before it leaves your device.',
+        'encryption.list.recipientOnly': 'Recipient-only decryption: only authorized recipients can decrypt the content.',
+        'encryption.list.keyProtection': 'Key protection: encryption keys are protected and not shown in the UI.',
+        'encryption.list.metadata': 'Metadata limits: message content is encrypted, some metadata may remain.',
+        'encryption.list.sharing': 'Sharing control: access depends on doctor/patient authorization.',
+        'encryption.footer': 'Encrypted content is treated as opaque data during transport and storage.',
+        'support.title': 'Support',
+        'support.meta.email': 'Email:',
+        'support.meta.hours': 'Hours:',
+        'support.meta.hoursValue': 'Mon–Fri, 9am–5pm PT',
+        'support.intro': 'We\'re here to help. Reach out for technical issues, feedback, or data requests.',
+        'support.footer': 'For privacy or data requests, include the email tied to your account.',
+        'support.tips.title': 'Tips',
+        'support.tips.b1': 'Update to the latest app version.',
+        'support.tips.b2': 'Include screenshots for errors.',
+        'support.tips.b3': 'Use your account email for privacy requests.',
+        'footer.copy': '© 2025 Health eRecords'
+      },
+      fr: {
+        'page.title': 'Mentions legales | Health eRecords',
+        'brand.tagline': 'Votre sante. Vos donnees. Votre controle.',
+        'pill.title': 'Juridique et conformite',
+        'hero.title': 'Documentation legale',
+        'hero.subtitle': 'Confidentialite, conditions, HIPAA, securite, chiffrement et support au meme endroit.',
+        'nav.privacy': 'Confidentialite',
+        'nav.terms': 'Conditions',
+        'nav.hipaa': 'HIPAA',
+        'nav.security': 'Securite',
+        'nav.encryption': 'Chiffrement',
+        'nav.support': 'Support',
+        'privacy.title': 'Politique de confidentialite',
+        'privacy.meta.effective': 'En vigueur :',
+        'privacy.meta.date': '21 novembre 2025',
+        'privacy.meta.contact': 'Contact :',
+        'privacy.intro': 'Nous collectons uniquement ce qui est necessaire pour offrir les fonctionnalites de soins et nous ne vendons jamais vos donnees.',
+        'privacy.sections.collect': 'Donnees que nous collectons',
+        'privacy.collect.a': 'Informations de compte et d\'identite.',
+        'privacy.collect.b': 'Contenus de sante et autorisations.',
+        'privacy.collect.c': 'Donnees d\'appareil et telemetrie de diagnostic.',
+        'privacy.sections.use': 'Comment nous utilisons les donnees',
+        'privacy.use.a': 'Fournir les fonctionnalites principales.',
+        'privacy.use.b': 'Securite, fiabilite et support.',
+        'privacy.use.c': 'Obligations legales et de conformite.',
+        'privacy.sections.share': 'Partage et divulgation',
+        'privacy.share.a': 'Medecins ou patients autorises.',
+        'privacy.share.b': 'Prestataires de services sous contrat.',
+        'privacy.share.c': 'Exigences legales ou de securite.',
+        'privacy.sections.security': 'Points clefs de securite',
+        'privacy.security.a': 'Chiffrement en transit et au repos.',
+        'privacy.security.b': 'Controles d\'acces et journalisation.',
+        'privacy.security.c': 'Protection biometrique optionnelle.',
+        'privacy.security.d': 'Journalisation d\'audit.',
+        'privacy.sections.rights': 'Vos choix et droits',
+        'privacy.rights.a': 'Gerer et revoquer les autorisations.',
+        'privacy.rights.b': 'Supprimer des journaux ou demander la suppression.',
+        'privacy.rights.c': 'Demander l\'acces ou l\'export.',
+        'privacy.sections.retention': 'Conservation',
+        'privacy.retention': 'Les donnees sont conservees tant que votre compte est actif ou conformement a la loi.',
+        'privacy.sections.children': 'Enfants',
+        'privacy.children': 'Non destine aux enfants de moins de 13 ans.',
+        'privacy.sections.changes': 'Modifications',
+        'privacy.changes': 'Les mises a jour seront publiees ici et dans l\'application.',
+        'terms.title': 'Conditions d\'utilisation',
+        'terms.meta.effective': 'En vigueur :',
+        'terms.meta.date': '21 novembre 2025',
+        'terms.meta.contact': 'Contact :',
+        'terms.intro': 'Health eRecords fournit des journaux de sante, un chat IA, une analyse d\'image et un partage controle des donnees. Non destine aux urgences.',
+        'terms.sections.responsibilities': 'Vos responsabilites',
+        'terms.resp.1': 'Fournir des informations exactes et un usage conforme a la loi.',
+        'terms.resp.2': 'Maintenir la securite de votre compte.',
+        'terms.resp.3': 'Respecter la vie privee et la protection des donnees.',
+        'terms.sections.prohibited': 'Usages interdits',
+        'terms.prohibited.1': 'Acces non autorise ou contournement de securite.',
+        'terms.prohibited.2': 'Contenu malveillant, abusif ou illegal.',
+        'terms.prohibited.3': 'Declarations medicales sans licence.',
+        'terms.sections.disclaimer': 'Avis et responsabilite',
+        'terms.disclaimer': 'Service fourni en l\'etat. L\'IA est uniquement informative.',
+        'terms.sections.indemnity': 'Indemnisation',
+        'terms.indemnity': 'Vous acceptez d\'indemniser Health eRecords en cas de mauvaise utilisation.',
+        'hipaa.title': 'Avis HIPAA sur les pratiques de confidentialite',
+        'hipaa.meta.effective': 'En vigueur :',
+        'hipaa.meta.date': '21 novembre 2025',
+        'hipaa.meta.contact': 'Contact :',
+        'hipaa.intro': 'Cet avis explique comment vos informations de sante protegees (PHI) peuvent etre utilisees et partagees, ainsi que vos droits.',
+        'hipaa.uses.title': 'Comment nous pouvons utiliser ou partager les PHI :',
+        'hipaa.uses.treatment': 'Traitement : partage avec les cliniciens autorises impliques dans vos soins.',
+        'hipaa.uses.operations': 'Operations : securite et amelioration de la qualite.',
+        'hipaa.uses.legal': 'Legal / Sante publique : lorsque la loi l\'exige.',
+        'hipaa.minimum': 'Seule la quantite minimale d\'informations est utilisee, et vous serez averti de toute violation devant etre signalee.',
+        'hipaa.rights.title': 'Vos droits :',
+        'hipaa.rights.r1': 'Acceder a vos PHI ou en demander des copies.',
+        'hipaa.rights.r2': 'Demander des corrections a votre dossier.',
+        'hipaa.rights.r3': 'Demander des limites sur certains usages ou divulgations.',
+        'hipaa.rights.r4': 'Revoquer des autorisations lorsque la loi le permet.',
+        'hipaa.rights.r5': 'Demander un registre des divulgations lorsque applicable.',
+        'hipaa.rights.r6': 'Deposer une plainte sans represailles.',
+        'hipaa.contact': 'Pour toute question ou pour exercer vos droits, ecrivez a apd1034@gmail.com.',
+        'security.title': 'Securite et protection des donnees',
+        'security.meta.effective': 'En vigueur :',
+        'security.meta.date': '21 novembre 2025',
+        'security.meta.contact': 'Contact :',
+        'security.list.a': 'TLS pour tout le trafic ; chiffrement au repos.',
+        'security.list.b': 'Controles d\'acces par roles avec securite au niveau des lignes.',
+        'security.list.c': 'Biometrie optionnelle et passkeys prevues.',
+        'security.list.d': 'Journalisation d\'audit pour les actions sensibles.',
+        'security.list.e': 'Sauvegardes et reponse aux incidents conformement a la loi.',
+        'encryption.title': 'Chiffrement de bout en bout',
+        'encryption.meta.effective': 'En vigueur :',
+        'encryption.meta.date': '21 novembre 2025',
+        'encryption.meta.contact': 'Contact :',
+        'encryption.intro': 'Le chiffrement de bout en bout (E2EE) signifie que le contenu est chiffre sur votre appareil et ne peut etre dechiffre que par les destinataires autorises.',
+        'encryption.list.onDevice': 'Chiffrement sur l\'appareil avant l\'envoi.',
+        'encryption.list.recipientOnly': 'Seuls les destinataires autorises peuvent dechiffrer.',
+        'encryption.list.keyProtection': 'Protection des cles : elles ne sont pas exposees dans l\'interface.',
+        'encryption.list.metadata': 'Limitation des metadonnees : le contenu est chiffre, certaines metadonnees peuvent rester.',
+        'encryption.list.sharing': 'Controle du partage : l\'acces depend des autorisations medecin/patient.',
+        'encryption.footer': 'Le contenu chiffre est traite comme des donnees opaques lors du transport et du stockage.',
+        'support.title': 'Support',
+        'support.meta.email': 'E-mail :',
+        'support.meta.hours': 'Horaires :',
+        'support.meta.hoursValue': 'Lun-Ven, 9h-17h PT',
+        'support.intro': 'Nous sommes la pour vous aider : problemes techniques, retours ou demandes liees aux donnees.',
+        'support.footer': 'Pour les demandes de confidentialite, indiquez l\'e-mail associe a votre compte.',
+        'support.tips.title': 'Conseils',
+        'support.tips.b1': 'Mettez a jour vers la derniere version de l\'app.',
+        'support.tips.b2': 'Ajoutez des captures d\'ecran pour les erreurs.',
+        'support.tips.b3': 'Utilisez l\'e-mail de votre compte pour les demandes de confidentialite.',
+        'footer.copy': '© 2025 Health eRecords'
+      }
+    };
+
+    const lang = window.APP_LANG || 'en';
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      const value = (translations[lang] && translations[lang][key]) || translations.en[key];
+      if (value) {
+        el.textContent = value;
+      }
+    });
+  </script>
+</body>
+</html>
